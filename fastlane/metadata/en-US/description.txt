@@ -1,0 +1,37 @@
+Transform your iPhone into a powerful audio diary with ALog - your personal space to express yourself and capture life's moments. 
+This intelligent app also leverages the advanced OpenAI API to provide concise summaries of your entries, helping you reflect and relive memories effortlessly.
+
+FEATURES:
+
+▪ Audio Diary 
+
+ALog simplifies the diary-keeping process by turning your device into a personal voice recorder. 
+Record your thoughts, feelings, ideas, or experiences at the tap of a button. 
+Perfect for those busy days when you don't have time to write or for capturing the authenticity of your voice.
+
+
+▪ Voice-to-Text Transcription
+
+ALog isn't just an audio recorder.  It also automatically transcribes your voice entries into text, providing you with a written version of your thoughts and experiences. 
+
+
+▪ AI-Powered Summaries
+
+Leveraging OpenAI's API (OpenAI Key is required), our app intelligently summarizes your audio entries, providing you with a brief overview of your memories at a glance. 
+No need to listen to lengthy recordings when you can get the gist with a quick read!
+
+
+▪ Seamless Sharing
+
+Feel like sharing a special memory with your loved ones? 
+With ALog, you can effortlessly share your voice recordings or their AI-generated summaries via social media or email.
+
+
+▪ Safe, Secure, and Open Source
+
+Your privacy is our utmost priority. All entries are securely stored on your device, ensuring your personal thoughts and experiences are for your eyes only. 
+ALog is also completely open source, which allows everyone to verify our security measures and contribute to making the app even safer. 
+We believe in transparency and community collaboration as the cornerstone for building a trustworthy app.
+
+Turn your thoughts and experiences into lasting memories with ALog - your personal AI-powered audio diary. 
+Whether you're capturing fleeting thoughts, exciting adventures, or everyday musings, your voice brings them to life, and our AI helps you revisit them in an effortless way.

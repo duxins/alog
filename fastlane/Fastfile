@@ -1,0 +1,26 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build"
+  lane :beta do
+
+    match({
+        type: 'appstore',
+    })
+
+    increment_build_number({
+      build_number: ENV['BUILD_NUMBER']
+    })
+
+    gym ({
+      scheme: 'ALog'
+    })
+
+    upload_to_testflight(
+        apple_id: '6451082482',
+        itc_provider: 'ZTQ4TGAKFX',
+        skip_submission: true,
+        skip_waiting_for_build_processing: true
+    )
+  end
+end

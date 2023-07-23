@@ -1,0 +1,83 @@
+name: ALog
+options:
+  useBaseInternationalization: false
+  enableBaseInternationalization: false
+  groupOrdering:
+    - order: [Sources, Resources]
+settings:
+  CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: true
+packages:
+  XLog:
+    path: ./Packages/XLog
+  XLang:
+    path: ./Packages/XLang
+  KeychainAccess:
+    url: https://github.com/kishikawakatsumi/KeychainAccess.git
+    from: 4.2.0
+configs:
+  Debug: debug
+  AppStore: release
+schemes:
+  ALog:
+    build:
+      targets:
+        ALog: all
+      config: Debug
+    run:
+      config: Debug
+      commandLineArguments:
+        "-com.apple.CoreData.ConcurrencyDebug 1": true
+        "-com.apple.CoreData.SQLDebug 1": true
+      language: en
+targets:
+  ALog:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    dependencies:
+      - package: XLog
+      - package: XLang
+      - package: KeychainAccess
+    sources:
+      - Sources
+      - Resources
+    info:
+      path: Resources/Info.plist
+      properties:
+        NSHumanReadableCopyright: Copyright © 2023 Tarbo Tech, LLC
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        AppStoreURL: https://apps.apple.com/us/app/alog/id6451082482
+        GIT_HASH: "${GIT_HASH}"
+        UILaunchStoryboardName: Launch Screen
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        ITSAppUsesNonExemptEncryption: false
+        NSSpeechRecognitionUsageDescription: "Access to speech recognition functionality is required."
+        NSMicrophoneUsageDescription: "ALog requires access to your microphone so that you can record entries in your journal."
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        CODE_SIGN_STYLE: Manual
+        MARKETING_VERSION: 0.0.1
+        CURRENT_PROJECT_VERSION: 1
+        VERSIONING_SYSTEM: apple-generic
+        PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo
+        DEVELOPMENT_TEAM: ZTQ4TGAKFX
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+      configs:
+        Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development app.tarbo.memo
+          CODE_SIGN_IDENTITY: iPhone Developer
+        AppStore:
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo
+          CODE_SIGN_IDENTITY: iPhone Distribution
+  SnapshotTests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [SnapshotTests]
+    scheme:
+      testTargets:
+        - SnapshotTests
+    dependencies:
+      - target: ALog
+    settings:
+      INFOPLIST_FILE: Resources/Info.plist

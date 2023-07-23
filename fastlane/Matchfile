@@ -1,0 +1,7 @@
+storage_mode("git")
+
+type("development")
+
+readonly(true)
+
+app_identifier(["app.tarbo.memo"])

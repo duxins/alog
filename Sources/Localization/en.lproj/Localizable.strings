@@ -1,0 +1,256 @@
+/*应用名称*/
+"app_name" = "ALog";
+
+/*评价*/
+"review_app" = "Review ALog";
+
+/*分享*/
+"share_app" = "Share ALog";
+
+/*关于*/
+"about_app" = "About ALog";
+
+/*公司*/
+"company" = "Tarbo Tech, LLC";
+
+/*Done*/
+"done" = "Done";
+
+/*Cancel*/
+"cancel" = "Cancel";
+
+/*Next*/
+"next" = "Next";
+
+/*Error*/
+"error" = "Error";
+
+/*Delete*/
+"delete" = "Delete";
+
+/*Edit*/
+"edit" = "Edit";
+
+/*OK*/
+"ok" = "OK";
+
+/*Enable*/
+"enable" = "Enable";
+
+/*Copy*/
+"copy" = "Copy";
+
+/*Paste*/
+"paste" = "Paste";
+
+/*Memo*/
+"memo" = "Memo";
+
+/*Save*/
+"save" = "Save";
+
+/*API Key*/
+"api_key" = "API Key";
+
+/*Verify*/
+"verify" = "Verify";
+
+/*Version*/
+"version" = "Version";
+
+/*关于*/
+"about" = "About";
+
+/*Recording*/
+"recording" = "Recording";
+
+/*确认对话框*/
+"are_you_sure" = "Are you sure?";
+
+/*分享*/
+"share" = "Share";
+
+/*分享音频*/
+"share_audio" = "Share audio";
+
+/*预览*/
+"preview" = "Preview";
+
+/*可选*/
+"optional" = "Optional";
+
+/*总结*/
+"summarize" = "Summarize";
+
+/*Try Again*/
+"try_again" = "Try again";
+
+/*Privacy Policy*/
+"privacy_policy" = "Privacy Policy";
+
+/*Terms of Use*/
+"terms_of_use" = "Terms of Use";
+
+/*Source Code*/
+"source_code" = "Source Code";
+
+/*申请权限 - 标题*/
+"permission_mic_title" = "Allow ALog to access your microphone?";
+
+/*申请权限 - 正文*/
+"permission_mic_msg" = "You can update your choice at any time in Settings.";
+
+/*申请权限 - 正文 (denied)*/
+"permission_mic_denied_msg" = "ALog will not work without access to the microphone.";
+
+/*申请权限 - 以后再说*/
+"permission_not_now" = "Not now";
+
+/*申请权限 - 允许*/
+"permission_allow" = "Allow";
+
+/*申请权限 - 打开设置*/
+"permission_open_settings" = "Open Settings";
+
+/*设置标题*/
+"settings_title" = "Settings";
+
+/*设置 - 通用*/
+"settings_general" = "General";
+
+/*设置 - 新一天开始时间*/
+"settings_day_starts_at" = "Start of Day";
+
+/*设置 - openai*/
+"settings_openai" = "OpenAI";
+
+/*设置 - openai - 设置*/
+"settings_openai_settings" = "OpenAI Settings";
+
+/*设置 - openai - 设置 - key 获取方式*/
+"settings_openai_settings_key_method" = "You can obtain an API Key at";
+
+/*设置 - 转写*/
+"settings_trans" = "Transcription";
+
+/*设置 - 转写 - 语言*/
+"settings_trans_lang" = "Main Language";
+
+/*设置 - 转写 - 服务*/
+"settings_trans_provider" = "Service";
+
+/*设置 - 转写 - 隐私警告*/
+"settings_trans_privacy_warning" = "As the transcription services require internet connection, please don't record any sensitive information.";
+
+/*设置 - 总结*/
+"settings_sum" = "Summarization";
+
+/*设置 - 总结 - 服务*/
+"settings_sum_provider" = "Service";
+
+/*设置 - 总结 - AI 模型*/
+"settings_sum_ai_model" = "AI Model";
+
+/*设置 - 总结 - 提示词*/
+"settings_sum_prompts" = "Prompts";
+
+/*设置 - 总结 - add prompt*/
+"settings_sum_prompts_add" = "Add Prompt";
+
+/*设置 - 总结 - Edit prompt*/
+"settings_sum_prompts_edit" = "Edit Prompt";
+
+/*Timeline*/
+"timeline" = "Timeline";
+
+/*Timeline - "no entries"*/
+"timeline_empty" = "No Entries";
+
+/*Timeline - 录音按钮 - "tap here"*/
+"timeline_recbtn_tap_here" = "Tap here to get started";
+
+/*Summary*/
+"summary" = "Summary";
+
+/*Summary - "no summaries"*/
+"summary_empty" = "No Summaries";
+
+/*转写 - Apple*/
+"trans_provider_apple" = "System";
+
+/*转写 - OpenAI (Whisper)*/
+"trans_provider_openai" = "OpenAI (Whisper)";
+
+/*转写 - Apple - 提示*/
+"trans_provider_apple_notice" = "Less accurate and limited to 1 minute audio duration.";
+
+/*转写 - OpenAI - API KEY 警告*/
+"trans_provider_opanai_api_key_warning" = "⚠️ You need an OpenAI API Key.";
+
+/*转写 - 正在转写*/
+"transcribing" = "Transcribing ...";
+
+/*转写 - 语言 - 自动检测*/
+"trans_lang_auto" = "Auto-Detect";
+
+/*英语*/
+"trans_lang_en" = "English";
+
+/*日语*/
+"trans_lang_ja" = "Japanese";
+
+/*简体中文*/
+"trans_lang_zh_hans" = "Chinese";
+
+/*总结 - OpenAI*/
+"sum_service_openai" = "OpenAI";
+
+/*总结 - OpenAI - API KEY 警告*/
+"sum_opanai_api_key_warning" = "⚠️ You need an OpenAI API Key.";
+
+/*总结 - 标题*/
+"sum_title" = "Title";
+
+/*总结 - 默认标题*/
+"sum_title_default" = "%@";
+
+/*总结 - 没有提示词*/
+"sum_no_prompts" = "You haven't added any Prompts";
+
+/*总结 - 选择提示词*/
+"sum_choose_prompt" = "Choose a prompt";
+
+/*总结 - 添加提示词按钮*/
+"sum_add_prompt" = "Add Prompt";
+
+/*总结 - 字数不够*/
+"sum_text_too_short" = "Text too short for a summary.";
+
+/*提示词*/
+"prompt" = "Prompt";
+
+/*提示词 - title*/
+"prompt_title" = "Title";
+
+/*提示词 - 描述*/
+"prompt_desc" = "Description";
+
+/*提示词 - content*/
+"prompt_content" = "Prompt";
+
+/*提示词 - 模版*/
+"prompt_content_template" = "I want you to be my daily journal co-pilot. 
+I will write down my random thoughts, notes ideas etc during the day.
+I will ask you to: 
+1. Write a version of my journal that is better formatted, logically structured/organized, with improved writing without altering the meaning of my journal.
+2. Summarize the key take-aways from my journal
+3. Discover important insights into my life";
+
+/*Credits - 一口新饭*/
+"credit_onenewbite_name" = "一口新饭";
+
+/*Credits - 一口新饭 - 描述*/
+"credit_onenewbite_desc" = "Provided innovative thinking and ideas.";
+
+/*Credits - 一口新饭 - url*/
+"credit_onenewbite_url" = "https://www.youtube.com/watch?v=ZRv0Z-M7NqM";
