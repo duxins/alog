@@ -25,7 +25,7 @@ public enum MyLocalizedKey: String {
   case edit = "edit"
   /**OK*/
   case ok = "ok"
-  /**Enable*/
+  /**Enable 开关*/
   case enable = "enable"
   /**Copy*/
   case copy = "copy"
@@ -83,6 +83,8 @@ public enum MyLocalizedKey: String {
   case settings_general = "settings_general"
   /**设置 - 新一天开始时间*/
   case settings_day_starts_at = "settings_day_starts_at"
+  /**设置 - 应用语言*/
+  case settings_app_language = "settings_app_language"
   /**设置 - openai*/
   case settings_openai = "settings_openai"
   /**设置 - openai - 设置*/

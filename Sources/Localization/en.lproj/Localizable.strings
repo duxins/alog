@@ -34,7 +34,7 @@
 /*OK*/
 "ok" = "OK";
 
-/*Enable*/
+/*Enable 开关*/
 "enable" = "Enable";
 
 /*Copy*/
@@ -120,6 +120,9 @@
 
 /*设置 - 新一天开始时间*/
 "settings_day_starts_at" = "Start of Day";
+
+/*设置 - 应用语言*/
+"settings_app_language" = "App Language";
 
 /*设置 - openai*/
 "settings_openai" = "OpenAI";
