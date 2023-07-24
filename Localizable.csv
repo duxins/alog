@@ -34,6 +34,10 @@
 "privacy_policy","Privacy Policy","Privacy Policy",隐私权政策
 "terms_of_use","Terms of Use","Terms of Use",使用条款
 "source_code","Source Code","Source Code",源代码
+# Dark Mode #
+"dark_mode_auto","外观 - 自动","System Default",跟随系统
+"dark_mode_light","外观 - 浅色","Light",浅色
+"dark_mode_dark","外观 - 深色","Dark",深色
 # Permission #
 "permission_mic_title","申请权限 - 标题","Allow ALog to access your microphone?",允许 ALog 访问你的麦克风吗？
 "permission_mic_msg","申请权限 - 正文","You can update your choice at any time in Settings.",您可以随时在系统设置中更改你的选择。
@@ -46,6 +50,7 @@
 "settings_general","设置 - 通用","General",通用
 "settings_day_starts_at","设置 - 新一天开始时间","Start of Day",一天开始时间
 "settings_app_language","设置 - 应用语言","App Language",应用语言
+"settings_app_appearance","设置 - 外观","Appearance",外观
 "settings_openai","设置 - openai","OpenAI",OpenAI
 "settings_openai_settings","设置 - openai - 设置","OpenAI Settings",OpenAI 设置
 "settings_openai_settings_key_method","设置 - openai - 设置 - key 获取方式","You can obtain an API Key at",您可以在此处获取 API 密钥：

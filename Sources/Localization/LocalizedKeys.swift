@@ -65,6 +65,12 @@ public enum MyLocalizedKey: String {
   case terms_of_use = "terms_of_use"
   /**Source Code*/
   case source_code = "source_code"
+  /**外观 - 自动*/
+  case dark_mode_auto = "dark_mode_auto"
+  /**外观 - 浅色*/
+  case dark_mode_light = "dark_mode_light"
+  /**外观 - 深色*/
+  case dark_mode_dark = "dark_mode_dark"
   /**申请权限 - 标题*/
   case permission_mic_title = "permission_mic_title"
   /**申请权限 - 正文*/
@@ -85,6 +91,8 @@ public enum MyLocalizedKey: String {
   case settings_day_starts_at = "settings_day_starts_at"
   /**设置 - 应用语言*/
   case settings_app_language = "settings_app_language"
+  /**设置 - 外观*/
+  case settings_app_appearance = "settings_app_appearance"
   /**设置 - openai*/
   case settings_openai = "settings_openai"
   /**设置 - openai - 设置*/

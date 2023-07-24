@@ -94,6 +94,15 @@
 /*Source Code*/
 "source_code" = "源代码";
 
+/*外观 - 自动*/
+"dark_mode_auto" = "跟随系统";
+
+/*外观 - 浅色*/
+"dark_mode_light" = "浅色";
+
+/*外观 - 深色*/
+"dark_mode_dark" = "深色";
+
 /*申请权限 - 标题*/
 "permission_mic_title" = "允许 ALog 访问你的麦克风吗？";
 
@@ -123,6 +132,9 @@
 
 /*设置 - 应用语言*/
 "settings_app_language" = "应用语言";
+
+/*设置 - 外观*/
+"settings_app_appearance" = "外观";
 
 /*设置 - openai*/
 "settings_openai" = "OpenAI";

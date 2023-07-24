@@ -21,6 +21,8 @@ struct SettingsView: View {
     }
     @AppStorage("trans_privacy_warning_displayed") var transWarningDisplayed = false
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -39,6 +41,9 @@ struct SettingsView: View {
                     showTransWarning = true
                 }
             }
+            .onChange(of: config.darkMode) { newValue in
+                dismiss()
+            }
         }
     }
     
@@ -52,6 +57,15 @@ struct SettingsView: View {
                 }
             } label: {
                 Text(L(.settings_day_starts_at))
+            }
+            
+            Picker(selection: $config.darkMode) {
+                ForEach(DarkMode.allCases, id: \.self) {
+                    Text($0.displayName)
+                        .tag($0)
+                }
+            } label: {
+                Text(L(.settings_app_appearance))
             }
             
             Picker(selection: $appState.language) {

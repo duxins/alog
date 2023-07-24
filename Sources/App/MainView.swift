@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var container: DataContainer
-    @EnvironmentObject var app: Config
+    @EnvironmentObject var config: Config
     @EnvironmentObject var appState: AppState
     
     var body: some View {
@@ -20,7 +20,7 @@ struct MainView: View {
                     Text(L(.timeline))
                 }
                 .tag(0)
-                .toolbar(app.sumEnabled ? .visible : .hidden, for: .tabBar)
+                .toolbar(config.sumEnabled ? .visible : .hidden, for: .tabBar)
             
             SummaryView()
                 .tabItem {
