@@ -12,8 +12,6 @@ struct RecordingCompletedView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var player: AudioPlayer
     
-    @FocusState var focused
-    
     @State private var showDeleteAlert = false
     
     init(voiceURL: URL) {
@@ -39,7 +37,6 @@ struct RecordingCompletedView: View {
                             } else {
                                 MyTextView(text: $vm.content, minHeight: 100)
                                     .disabled(vm.isTranscribing)
-                                    .focused($focused)
                             }
                         }
                     } header: {
@@ -76,10 +73,6 @@ struct RecordingCompletedView: View {
                 dismiss()
             }, secondaryButton: .cancel())
         }
-    }
-    
-    private func hideKeyboard() {
-        focused = false
     }
     
     @ViewBuilder
