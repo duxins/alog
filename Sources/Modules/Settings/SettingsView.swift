@@ -59,14 +59,14 @@ struct SettingsView: View {
                 Text(L(.settings_day_starts_at))
             }
             
-            Picker(selection: $config.darkMode) {
-                ForEach(DarkMode.allCases, id: \.self) {
-                    Text($0.displayName)
-                        .tag($0)
-                }
-            } label: {
-                Text(L(.settings_app_appearance))
-            }
+//            Picker(selection: $config.darkMode) {
+//                ForEach(DarkMode.allCases, id: \.self) {
+//                    Text($0.displayName)
+//                        .tag($0)
+//                }
+//            } label: {
+//                Text(L(.settings_app_appearance))
+//            }
             
             Picker(selection: $appState.language) {
                 ForEach(Language.supported, id: \.self) { lang in

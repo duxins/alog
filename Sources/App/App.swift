@@ -16,7 +16,8 @@ struct ALogApp: App {
                 .environmentObject(appState)
                 .environmentObject(config)
                 .environment(\.managedObjectContext, container.context)
-                .preferredColorScheme(config.darkMode == .auto ? nil : (config.darkMode == .dark ? .dark : .light))
+//                .preferredColorScheme(config.darkMode == .auto ? nil : (config.darkMode == .dark ? .dark : .light))
+                .preferredColorScheme(.dark)
         }
     }
 }
