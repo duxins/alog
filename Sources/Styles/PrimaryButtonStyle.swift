@@ -16,7 +16,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .frame(height: 50)
             .background(bgColor(isPressed: configuration.isPressed))
             .foregroundColor(color(isPressed: configuration.isPressed))
-            .cornerRadius(14)
+            .cornerRadius(.infinity)
     }
     
     private func color(isPressed: Bool) -> Color {
