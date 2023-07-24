@@ -30,7 +30,7 @@ struct AddSummarySummarizeView: View {
             if (!(vm.isSummarizing || vm.summarizedResponse.isEmpty)) {
                 VStack {
                     Spacer()
-                    Button {
+                    FeedbackButton {
                         vm.save()
                     } label: {
                         Text(L(.save))
