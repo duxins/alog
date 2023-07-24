@@ -58,6 +58,7 @@ extension AppDelegate {
             let m = MemoEntity(context: moc)
             m.id = UUID().uuidString
             m.content = item[1]
+            m.file = "fake_path"
             m.day = Int32(DateHelper.identifier(from: Date()))
             m.timezone = "Asia/Tokyo"
             let time = item[0].split(separator: ":").map { Int($0)! }
