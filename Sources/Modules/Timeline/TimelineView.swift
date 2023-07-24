@@ -114,6 +114,7 @@ struct TimelineView: View {
             .frame(width: 64, height: 64)
             .background(.red)
             .clipShape(Circle())
+            .accessibilityIdentifier("microphone")
         }
         .padding(.bottom, 20)
         .sheet(isPresented: $showMicPermission) {

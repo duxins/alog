@@ -4,5 +4,10 @@ devices([
  "iPhone 8 Plus"
 ])
 
+languages([
+  "en-US",
+  "zh-Hans"
+])
+
 scheme "SnapshotTests"
 
