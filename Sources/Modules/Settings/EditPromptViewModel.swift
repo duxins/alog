@@ -17,6 +17,7 @@ class EditPromptViewModel: ObservableObject {
     
     @Published var title = ""
     @Published var content = ""
+    @Published var temperature = 0.5
     @Published var desc = ""
     @Published var canBeSaved = false
     @Published var newPrompt = false
@@ -30,14 +31,15 @@ class EditPromptViewModel: ObservableObject {
         if let prompt {
             title = prompt.viewTitle
             content = prompt.viewContent
+            temperature = prompt.temperature
             desc = prompt.viewDesc
         }
         
-        Publishers.CombineLatest3($title, $content, $desc)
+        Publishers.CombineLatest4($title, $content, $desc, $temperature)
             .sink { [unowned self] combine in
                 var ret = !(combine.0.isEmpty || combine.1.isEmpty)
                 if let prompt {
-                    ret = ret && (combine.0 != prompt.viewTitle || combine.1 != prompt.viewContent || combine.2 != prompt.viewDesc)
+                    ret = ret && (combine.0 != prompt.viewTitle || combine.1 != prompt.viewContent || combine.2 != prompt.viewDesc || combine.3 != prompt.temperature)
                 }
                 canBeSaved = ret
             }
@@ -66,6 +68,7 @@ class EditPromptViewModel: ObservableObject {
     private func updateAttributes(_ prompt: PromptEntity) {
         prompt.title = title
         prompt.desc = desc
+        prompt.temperature = temperature
         prompt.content = content
     }
     

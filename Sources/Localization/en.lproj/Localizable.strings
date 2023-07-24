@@ -250,6 +250,12 @@
 /*提示词 - 描述*/
 "prompt_desc" = "Description";
 
+/*提示词 - 温度*/
+"prompt_temperature" = "Temperature";
+
+/*提示词 - 温度参数描述*/
+"prompt_temperature_desc" = "Higher values will make the output more random, while lower values will make it more focused and deterministic.";
+
 /*提示词 - content*/
 "prompt_content" = "Prompt";
 

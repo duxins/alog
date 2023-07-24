@@ -92,12 +92,12 @@ class OpenAIClient {
         return sub
     }
     
-    func summarize(_ msg: String) async throws -> AsyncThrowingStream<String, Error> {
+    func summarize(_ msg: String, temperature: Double = 0.4) async throws -> AsyncThrowingStream<String, Error> {
         let url = baseURL.appending(path: "v1/chat/completions")
         let model = Config.shared.aiModel.name
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let params: [String: Any] = ["model": model, "stream": true, "temperature": 0.4, "messages": [["role": "system", "content": msg]]]
+        let params: [String: Any] = ["model": model, "stream": true, "temperature": temperature, "messages": [["role": "system", "content": msg]]]
         request.httpBody = try JSONSerialization.data(withJSONObject: params)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(Config.shared.apiKey)", forHTTPHeaderField: "Authorization")

@@ -19,9 +19,15 @@ struct AddUpdatePromptView: View {
     var body: some View {
         NavigationStack {
             Form {
+                // 标题
                 titleSection
+                // 描述
                 descSection
+                // 温度参数
+                temperatureSection
+                // 提示词内容
                 contentSection
+                // 删除按钮
                 if !vm.newPrompt {
                     deleteButtonSection
                 }
@@ -85,6 +91,21 @@ struct AddUpdatePromptView: View {
             .autocorrectionDisabled()
         } header: {
             Text(L(.prompt_desc))
+        }
+    }
+    
+    private var temperatureSection: some View {
+        Section {
+            HStack {
+                Slider(value: $vm.temperature, in: 0...1, step: 0.1)
+                Text("\(String(format: "%.1f", vm.temperature))")
+                    .font(.system(.body, design: .monospaced))
+                    .frame(width: 40, alignment: .trailing)
+            }
+        } header: {
+            Text(L(.prompt_temperature))
+        } footer: {
+            Text(L(.prompt_temperature_desc))
         }
     }
     

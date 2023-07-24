@@ -169,6 +169,10 @@ public enum MyLocalizedKey: String {
   case prompt_title = "prompt_title"
   /**提示词 - 描述*/
   case prompt_desc = "prompt_desc"
+  /**提示词 - 温度*/
+  case prompt_temperature = "prompt_temperature"
+  /**提示词 - 温度参数描述*/
+  case prompt_temperature_desc = "prompt_temperature_desc"
   /**提示词 - content*/
   case prompt_content = "prompt_content"
   /**提示词 - 模版*/

@@ -16,7 +16,15 @@ class AddSummaryViewModel: ObservableObject {
     @Published var defaultTitle = ""
     @Published var dayId = 0
     
-    @Published var selectedPrompt: PromptEntity?
+    @Published var selectedPrompt: PromptEntity? {
+        didSet {
+            if let prompt = selectedPrompt {
+                temperature = prompt.temperature
+            }
+        }
+    }
+    
+    @Published var temperature = 0.5
     @Published var promptToEdit: PromptEntity?
     @Published var showAddPrompt: Bool = false
     
@@ -35,6 +43,7 @@ class AddSummaryViewModel: ObservableObject {
     @Published var summarizedResponse = ""
     @Published var summaryError = ""
     @Published var saved = false
+    
     
     private var cancellationTask: Task<Void, Never>? = nil
     
@@ -86,7 +95,7 @@ class AddSummaryViewModel: ObservableObject {
             do {
                 summaryError = ""
                 summarizedResponse = ""
-                let stream = try await OpenAIClient().summarize(summaryMessage)
+                let stream = try await OpenAIClient().summarize(summaryMessage, temperature: temperature)
                 for try await text in stream {
                     summarizedResponse += text
                 }

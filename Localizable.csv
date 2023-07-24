@@ -95,6 +95,8 @@
 "prompt","提示词","Prompt",提示词
 "prompt_title","提示词 - title","Title",标题
 "prompt_desc","提示词 - 描述","Description",描述
+"prompt_temperature","提示词 - 温度","Temperature",温度参数
+"prompt_temperature_desc","提示词 - 温度参数描述","Higher values will make the output more random, while lower values will make it more focused and deterministic.",数值越高，输出结果越随机； 数值越低，输出结果越确定。
 "prompt_content","提示词 - content","Prompt",提示词
 "prompt_content_template","提示词 - 模版","I want you to be my daily journal co-pilot. 
 I will write down my random thoughts, notes ideas etc during the day.
