@@ -109,6 +109,7 @@ struct TimelineView: View {
             FeedbackButton(action: startRecording) {
                 Image(systemName: "mic.fill")
                     .font(.system(size: 25))
+                    .foregroundColor(.white)
             }
             .padding()
             .frame(width: 64, height: 64)

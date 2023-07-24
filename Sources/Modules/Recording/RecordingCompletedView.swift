@@ -55,12 +55,14 @@ struct RecordingCompletedView: View {
                             .padding(.top, 30)
                     }
                 }
-                Spacer()
-                VStack(spacing: 50) {
-                    saveButton()
-                }
-                .padding(.horizontal, 30)
             }
+            
+            VStack {
+                Spacer()
+                saveButton()
+                
+            }
+            .padding(.horizontal, 30)
         }
         .onChange(of: vm.saved) { newValue in
             dismiss()
@@ -102,39 +104,32 @@ struct RecordingCompletedView: View {
     
     @ViewBuilder
     private func saveButton() -> some View {
-        VStack(spacing: 20) {
-            HStack {
-                FeedbackButton {
-                    hideKeyboard()
-                    withAnimation {
-                        vm.save()
-                    }
-                } label: {
-                    Text(L(.save).capitalized)
-                        .frame(maxWidth: .infinity)
+        HStack(spacing: 20) {
+            FeedbackButton {
+                hideKeyboard()
+                withAnimation {
+                    vm.save()
                 }
-                .buttonStyle(PrimaryButtonStyle())
-                .disabled(!vm.canBeSaved)
-            }
-            
-            HStack {
-                FeedbackButton(style: .heavy) {
-                    hideKeyboard()
-                    showDeleteAlert = true
-                } label: {
-                    HStack {
-                        Group {
-                            Image(systemName: "trash")
-                        }
-                    }
-                    .foregroundColor(.secondary)
+            } label: {
+                Text(L(.save).capitalized)
                     .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(PrimaryButtonStyle())
-                .opacity(0.6)
             }
-            Spacer().frame(height: 20)
+            .buttonStyle(PrimaryButtonStyle())
+            .disabled(!vm.canBeSaved)
+            
+            FeedbackButton(style: .heavy) {
+                hideKeyboard()
+                showDeleteAlert = true
+            } label: {
+                HStack {
+                    Image(systemName: "trash")
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(DestructiveButtonStyle())
+            .frame(width: 40, height: 40)
         }
+        .padding(.bottom, 30)
     }
 }
 

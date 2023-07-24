@@ -16,6 +16,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let loggerLevel = XLog.Level.info
         #endif
         XLog.config(label: Bundle.main.bundleIdentifier!, level: loggerLevel)
+        
         applyTheme()
         return true
     }
