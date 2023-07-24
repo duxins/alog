@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import XLang
 
 struct SettingsView: View {
     @EnvironmentObject var config: Config
+    @EnvironmentObject var appState: AppState
     
     @State private var showTransWarning = false {
         didSet {
@@ -50,6 +52,15 @@ struct SettingsView: View {
                 }
             } label: {
                 Text(L(.settings_day_starts_at))
+            }
+            
+            Picker(selection: $appState.language) {
+                ForEach(Language.supported, id: \.self) { lang in
+                    Text(lang.displayName)
+                        .tag(lang)
+                }
+            } label: {
+                Text(L(.settings_app_language))
             }
         } header: {
             Text(L(.settings_general))

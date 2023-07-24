@@ -17,19 +17,16 @@ class AppState: ObservableObject {
     
     private let l10n = XLang.shared
     
-    @Published var language: Language = XLang.shared.currentLang
+    @Published var language: Language = XLang.shared.currentLang {
+        didSet {
+            l10n.setLang(language)
+        }
+    }
     
     @Published var micPermission: AVAudioSession.RecordPermission = .undetermined
     
-//    @Published var itemToSummarize: SummaryItem?
-    
     @Published var activeSheet: ActiveSheet?
     @Published var activeTab: Int = 0
-    
-    func setLang(_ lang: Language) {
-        l10n.setLang(lang)
-        language = l10n.currentLang
-    }
     
     func checkMicPermission() {
         let audioSession = AVAudioSession.sharedInstance()
