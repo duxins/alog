@@ -26,6 +26,7 @@ struct AddSummaryPreviewView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
+                    hideKeyboard()
                     vm.navPath.append(.summarize)
                 } label: {
                     Text(L(.summarize))
