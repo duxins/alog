@@ -17,9 +17,8 @@ struct OpenAIResponse {
         }
     }
     
-    struct Subscription: Codable {
+    struct Models: Codable {
         let object: String
-        let has_payment_method: Bool
     }
     
     struct Transcription: Codable {
@@ -85,11 +84,11 @@ class OpenAIClient {
     
     /// 验证 API KEY
     /// - Parameter key: API KEY
-    func verify(_ key: String) async throws -> OpenAIResponse.Subscription {
-        let url = baseURL.appending(path: "dashboard/billing/subscription")
+    func verify(_ key: String) async throws -> OpenAIResponse.Models {
+        let url = baseURL.appending(path: "v1/models")
         var request = URLRequest(url: url)
         request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
-        let sub = try await send(request, type: OpenAIResponse.Subscription.self)
+        let sub = try await send(request, type: OpenAIResponse.Models.self)
         return sub
     }
     
