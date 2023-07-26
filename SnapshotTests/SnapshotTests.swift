@@ -11,7 +11,7 @@ final class SnapshotTests: XCTestCase {
     let app = XCUIApplication()
     
     override func setUp() {
-        app.launchArguments.append("--SnapshotTesting")
+//        app.launchArguments.append("--SnapshotTesting")
         setupSnapshot(app)
         app.launch()
     }

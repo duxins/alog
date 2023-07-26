@@ -33,9 +33,9 @@ struct SettingsView: View {
                     sectionTranscription
                     sectionSummarization
                     
-                    if !appDelegate.isSnapshotTesting {
-                        sectionOpenAI
-                    }
+                    #if !SNAPSHOT
+                    sectionOpenAI
+                    #endif
                     
                     sectionInfo
                 }

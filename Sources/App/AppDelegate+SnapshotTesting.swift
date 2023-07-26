@@ -8,7 +8,7 @@
 import Foundation
 import XLang
 
-#if DEBUG
+#if SNAPSHOT
 extension AppDelegate {
     func setupSnapshotTestEnvironment() {
         let moc = DataContainer.shared.context

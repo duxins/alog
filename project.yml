@@ -16,6 +16,7 @@ packages:
     from: 4.2.0
 configs:
   Debug: debug
+  Snapshot: debug
   AppStore: release
 schemes:
   ALog:
@@ -28,6 +29,14 @@ schemes:
       commandLineArguments:
         "-com.apple.CoreData.ConcurrencyDebug 1": true
         "-com.apple.CoreData.SQLDebug 1": true
+  SnapshotTests:
+    build:
+      targets:
+        SnapshotTests: test
+    test:
+      targets:
+        - SnapshotTests
+      config: Snapshot
 targets:
   ALog:
     type: application
@@ -69,13 +78,12 @@ targets:
         AppStore:
           PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo
           CODE_SIGN_IDENTITY: iPhone Distribution
+        Snapshot:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: [DEBUG, SNAPSHOT]
   SnapshotTests:
     type: bundle.ui-testing
     platform: iOS
     sources: [SnapshotTests]
-    scheme:
-      testTargets:
-        - SnapshotTests
     dependencies:
       - target: ALog
     settings:

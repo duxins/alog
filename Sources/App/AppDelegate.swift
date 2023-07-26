@@ -3,15 +3,10 @@ import XLog
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     
-    var isSnapshotTesting = false
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        #if DEBUG
-        if CommandLine.arguments.contains("--SnapshotTesting") {
-            isSnapshotTesting = true
+        #if SNAPSHOT
             setupSnapshotTestEnvironment()
-        }
         #endif
         
         #if DEBUG
