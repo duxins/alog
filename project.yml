@@ -28,7 +28,6 @@ schemes:
       commandLineArguments:
         "-com.apple.CoreData.ConcurrencyDebug 1": true
         "-com.apple.CoreData.SQLDebug 1": true
-      language: en
 targets:
   ALog:
     type: application

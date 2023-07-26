@@ -15,9 +15,10 @@ extension AppDelegate {
         let config = Config.shared
         
         // MARK: - RESET SETTINGS
-        config.sumEnabled = true
+        config.sumEnabled = false
         config.transEnabled = true
-        config.sumProvider = .openai
+        config.transLang = .en
+        config.transProvider = .apple
         
         // MARK: - RESET MEMOS
         let request = MemoEntity.fetchRequest()
@@ -29,7 +30,7 @@ extension AppDelegate {
         // MARK: - Fake Data
         let items: [[String]]
         
-        if XLang.shared.currentLang == .zh_hans {
+        if Bundle.main.preferredLocalizations.first! == "zh-Hans" {
             items = [
                 ["06:03", "起床，希望今天会有好运。"],
                 ["08:30", "上班，乘坐地铁，人来人往。"],

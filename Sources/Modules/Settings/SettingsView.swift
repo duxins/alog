@@ -11,6 +11,7 @@ import XLang
 struct SettingsView: View {
     @EnvironmentObject var config: Config
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appDelegate: AppDelegate
     
     @State private var showTransWarning = false {
         didSet {
@@ -19,6 +20,7 @@ struct SettingsView: View {
             }
         }
     }
+    
     @AppStorage("trans_privacy_warning_displayed") var transWarningDisplayed = false
     
     @Environment(\.dismiss) var dismiss
@@ -30,7 +32,11 @@ struct SettingsView: View {
                     sectionGeneral
                     sectionTranscription
                     sectionSummarization
-                    sectionOpenAI
+                    
+                    if !appDelegate.isSnapshotTesting {
+                        sectionOpenAI
+                    }
+                    
                     sectionInfo
                 }
             }
