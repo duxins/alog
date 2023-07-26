@@ -1,5 +1,4 @@
 Transform your iPhone into a powerful audio diary with ALog - your personal space to express yourself and capture life's moments. 
-This intelligent app also leverages the advanced OpenAI API to provide concise summaries of your entries, helping you reflect and relive memories effortlessly.
 
 FEATURES:
 
@@ -17,7 +16,7 @@ ALog isn't just an audio recorder.  It also automatically transcribes your voice
 
 ▪ AI-Powered Summaries
 
-Leveraging OpenAI's API (OpenAI Key is required), our app intelligently summarizes your audio entries, providing you with a brief overview of your memories at a glance. 
+Our app intelligently summarizes your audio entries, providing you with a brief overview of your memories at a glance. 
 No need to listen to lengthy recordings when you can get the gist with a quick read!
 
 
