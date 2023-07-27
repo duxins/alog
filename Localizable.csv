@@ -1,115 +1,110 @@
-"key","comment","en",zh-Hans
+"key","comment","en"
 # Plist #
-"@CFBundleDisplayName","应用名称","ALog",ALog
+"@CFBundleDisplayName","应用名称","ALog"
 # General #
-"app_name","应用名称","ALog",ALog
-"review_app","评价","Review ALog",评价 ALog
-"share_app","分享","Share ALog",分享 ALog
-"about_app","关于","About ALog",关于 ALog
-"company","公司","Tarbo Tech, LLC","Tarbo Tech, LLC"
-"done","Done","Done",完成
-"cancel","Cancel","Cancel",取消
-"next","Next","Next",下一步
-"error","Error","Error",错误
-"delete","Delete","Delete",删除
-"edit","Edit","Edit",编辑
-"ok","OK","OK",好
-"enable","Enable 开关","Enable",开启
-"copy","Copy","Copy",复制
-"paste","Paste","Paste",粘贴
-"memo","Memo","Memo",笔记
-"save","Save","Save",保存
-"api_key","API Key","API Key",API KEY
-"verify","Verify","Verify",验证
-"version","Version","Version",版本
-"about","关于","About",关于
-"recording","Recording","Recording",正在录音
-"are_you_sure","确认对话框","Are you sure?",您确定吗？
-"share","分享","Share",分享
-"share_audio","分享音频","Share audio",分享录音
-"preview","预览","Preview",预览
-"optional","可选","Optional",可选
-"summarize","总结","Summarize",总结
-"try_again","Try Again","Try again",重试
-"privacy_policy","Privacy Policy","Privacy Policy",隐私权政策
-"terms_of_use","Terms of Use","Terms of Use",使用条款
-"source_code","Source Code","Source Code",源代码
+"app_name","应用名称","ALog"
+"review_app","评价","Review ALog"
+"share_app","分享","Share ALog"
+"about_app","关于","About ALog"
+"company","公司","Tarbo Tech, LLC"
+"done","Done","Done"
+"cancel","Cancel","Cancel"
+"next","Next","Next"
+"error","Error","Error"
+"delete","Delete","Delete"
+"edit","Edit","Edit"
+"ok","OK","OK"
+"enable","Enable 开关","Enable"
+"copy","Copy","Copy"
+"paste","Paste","Paste"
+"memo","Memo","Memo"
+"save","Save","Save"
+"api_key","API Key","API Key"
+"verify","Verify","Verify"
+"version","Version","Version"
+"about","关于","About"
+"recording","Recording","Recording"
+"are_you_sure","确认对话框","Are you sure?"
+"share","分享","Share"
+"share_audio","分享音频","Share audio"
+"preview","预览","Preview"
+"optional","可选","Optional"
+"summarize","总结","Summarize"
+"try_again","Try Again","Try again"
+"privacy_policy","Privacy Policy","Privacy Policy"
+"terms_of_use","Terms of Use","Terms of Use"
+"source_code","Source Code","Source Code"
 # Dark Mode #
-"dark_mode_auto","外观 - 自动","System Default",跟随系统
-"dark_mode_light","外观 - 浅色","Light",浅色
-"dark_mode_dark","外观 - 深色","Dark",深色
+"dark_mode_auto","外观 - 自动","System Default"
+"dark_mode_light","外观 - 浅色","Light"
+"dark_mode_dark","外观 - 深色","Dark"
 # Permission #
-"permission_mic_title","申请权限 - 标题","Allow ALog to access your microphone?",允许 ALog 访问你的麦克风吗？
-"permission_mic_msg","申请权限 - 正文","You can update your choice at any time in Settings.",您可以随时在系统设置中更改你的选择。
-"permission_mic_denied_msg","申请权限 - 正文 (denied)","ALog will not work without access to the microphone.",没有麦克风访问权限，ALog 将无法正常工作。
-"permission_not_now","申请权限 - 以后再说","Not now",以后再说
-"permission_allow","申请权限 - 允许","Allow",允许
-"permission_open_settings","申请权限 - 打开设置","Open Settings",打开设置
+"permission_mic_title","申请权限 - 标题","Allow ALog to access your microphone?"
+"permission_mic_msg","申请权限 - 正文","You can update your choice at any time in Settings."
+"permission_mic_denied_msg","申请权限 - 正文 (denied)","ALog will not work without access to the microphone."
+"permission_not_now","申请权限 - 以后再说","Not now"
+"permission_allow","申请权限 - 允许","Allow"
+"permission_open_settings","申请权限 - 打开设置","Open Settings"
 # Settings #
-"settings_title","设置标题","Settings",设置
-"settings_general","设置 - 通用","General",通用
-"settings_day_starts_at","设置 - 新一天开始时间","Start of Day",一天开始时间
-"settings_app_language","设置 - 应用语言","App Language",应用语言
-"settings_app_appearance","设置 - 外观","Appearance",外观
-"settings_openai","设置 - openai","OpenAI",OpenAI
-"settings_openai_settings","设置 - openai - 设置","OpenAI Settings",OpenAI 设置
-"settings_openai_settings_key_method","设置 - openai - 设置 - key 获取方式","You can obtain an API Key at",您可以在此处获取 API 密钥：
-"settings_trans","设置 - 转写","Transcription",语音转写
-"settings_trans_lang","设置 - 转写 - 语言","Main Language",转写语言
-"settings_trans_provider","设置 - 转写 - 服务","Service",服务
-"settings_trans_privacy_warning","设置 - 转写 - 隐私警告","As the transcription services require internet connection, please don't record any sensitive information.",由于转录服务需要互联网连接，请不要录入任何敏感信息。
-"settings_sum","设置 - 总结","Summarization",总结
-"settings_sum_provider","设置 - 总结 - 服务","Service",服务
-"settings_sum_ai_model","设置 - 总结 - AI 模型","AI Model",AI 模型
-"settings_sum_prompts","设置 - 总结 - 提示词","Prompts",提示词
-"settings_sum_prompts_add","设置 - 总结 - add prompt","Add Prompt",添加提示词
-"settings_sum_prompts_edit","设置 - 总结 - Edit prompt","Edit Prompt",编辑提示词
+"settings_title","设置标题","Settings"
+"settings_general","设置 - 通用","General"
+"settings_day_starts_at","设置 - 新一天开始时间","Start of Day"
+"settings_app_language","设置 - 应用语言","App Language"
+"settings_app_appearance","设置 - 外观","Appearance"
+"settings_openai","设置 - openai","OpenAI"
+"settings_openai_settings","设置 - openai - 设置","OpenAI Settings"
+"settings_openai_settings_key_method","设置 - openai - 设置 - key 获取方式","You can obtain an API Key at"
+"settings_trans","设置 - 转写","Transcription"
+"settings_trans_lang","设置 - 转写 - 语言","Main Language"
+"settings_trans_provider","设置 - 转写 - 服务","Service"
+"settings_trans_privacy_warning","设置 - 转写 - 隐私警告","As the transcription services require internet connection, please don't record any sensitive information."
+"settings_sum","设置 - 总结","Summarization"
+"settings_sum_provider","设置 - 总结 - 服务","Service"
+"settings_sum_ai_model","设置 - 总结 - AI 模型","AI Model"
+"settings_sum_prompts","设置 - 总结 - 提示词","Prompts"
+"settings_sum_prompts_add","设置 - 总结 - add prompt","Add Prompt"
+"settings_sum_prompts_edit","设置 - 总结 - Edit prompt","Edit Prompt"
 # Timeline #
-"timeline","Timeline","Timeline",时间线
-"timeline_empty","Timeline - ""no entries""","No Entries",无记录
-"timeline_recbtn_tap_here","Timeline - 录音按钮 - ""tap here""","Tap here to get started",点击此处开始
+"timeline","Timeline","Timeline"
+"timeline_empty","Timeline - ""no entries""","No Entries"
+"timeline_recbtn_tap_here","Timeline - 录音按钮 - ""tap here""","Tap here to get started"
 # Summary #
-"summary","Summary","Summary",总结
-"summary_empty","Summary - ""no summaries""","No Summaries",无记录
+"summary","Summary","Summary"
+"summary_empty","Summary - ""no summaries""","No Summaries"
 # 转写 #
-"trans_provider_apple","转写 - Apple","System",系统
-"trans_provider_openai","转写 - OpenAI (Whisper) ","OpenAI (Whisper)",OpenAI (Whisper)
-"trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration.",准确度较低且仅限于1分钟的音频时长。
-"trans_provider_opanai_api_key_warning","转写 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key.",⚠️ 您需要一个 OpenAI API 密钥
-"transcribing","转写 - 正在转写 ","Transcribing ...",正在转写 ...
+"trans_provider_apple","转写 - Apple","System"
+"trans_provider_openai","转写 - OpenAI (Whisper) ","OpenAI (Whisper)"
+"trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration."
+"trans_provider_opanai_api_key_warning","转写 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key."
+"transcribing","转写 - 正在转写 ","Transcribing ..."
 # 转写语言 #
-"trans_lang_auto","转写 - 语言 - 自动检测","Auto-Detect",自动检测
-"trans_lang_en","英语","English",英文
-"trans_lang_ja","日语","Japanese",日语
-"trans_lang_zh_hans","简体中文","Chinese",简体中文
+"trans_lang_auto","转写 - 语言 - 自动检测","Auto-Detect"
+"trans_lang_en","英语","English"
+"trans_lang_ja","日语","Japanese"
+"trans_lang_zh_hans","简体中文","Chinese"
 # 总结 #
-"sum_service_openai","总结 - OpenAI","OpenAI",OpenAI
-"sum_opanai_api_key_warning","总结 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key.",⚠️ 您需要一个 OpenAI API 密钥
-"sum_title","总结 - 标题","Title",标题
-"sum_title_default","总结 - 默认标题","%@",%@
-"sum_no_prompts","总结 - 没有提示词","You haven't added any Prompts",你还没有添加提示词
-"sum_choose_prompt","总结 - 选择提示词","Choose a prompt",选择一个提示词
-"sum_add_prompt","总结 - 添加提示词按钮","Add Prompt",添加提示词
-"sum_text_too_short","总结 - 字数不够","Text too short for a summary.",文本过短，无法进行总结
+"sum_service_openai","总结 - OpenAI","OpenAI"
+"sum_opanai_api_key_warning","总结 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key."
+"sum_title","总结 - 标题","Title"
+"sum_title_default","总结 - 默认标题","%@"
+"sum_no_prompts","总结 - 没有提示词","You haven't added any Prompts"
+"sum_choose_prompt","总结 - 选择提示词","Choose a prompt"
+"sum_add_prompt","总结 - 添加提示词按钮","Add Prompt"
+"sum_text_too_short","总结 - 字数不够","Text too short for a summary."
 # 提示词 #
-"prompt","提示词","Prompt",提示词
-"prompt_title","提示词 - title","Title",标题
-"prompt_desc","提示词 - 描述","Description",描述
-"prompt_temperature","提示词 - 温度","Temperature",温度参数
-"prompt_temperature_desc","提示词 - 温度参数描述","Higher values will make the output more random, while lower values will make it more focused and deterministic.",数值越高，输出结果越随机； 数值越低，输出结果越确定。
-"prompt_content","提示词 - content","Prompt",提示词
+"prompt","提示词","Prompt"
+"prompt_title","提示词 - title","Title"
+"prompt_desc","提示词 - 描述","Description"
+"prompt_temperature","提示词 - 温度","Temperature"
+"prompt_temperature_desc","提示词 - 温度参数描述","Higher values will make the output more random, while lower values will make it more focused and deterministic."
+"prompt_content","提示词 - content","Prompt"
 "prompt_content_template","提示词 - 模版","I want you to be my daily journal co-pilot. 
 I will write down my random thoughts, notes ideas etc during the day.
 I will ask you to: 
 1. Write a version of my journal that is better formatted, logically structured/organized, with improved writing without altering the meaning of my journal.
 2. Summarize the key take-aways from my journal
-3. Discover important insights into my life","我希望你能成为我的日记助手。
-请你：
-1. 收集我一天内的全部想法和笔记，根据这些内容写一个完整版的日记。
-这个新版本要有更好的格式和逻辑结构，更好的写作水平同时不改变我日记的原意。
-2. 总结日记中的关键要点
-3. 根据日记，对我生活做出的重要洞察并像一位心理专家/人生导师一样给出鼓励/安慰/分析/建议等"
+3. Discover important insights into my life"
 # Credits #
-"credit_onenewbite_name","Credits - 一口新饭","一口新饭",一口新饭
-"credit_onenewbite_desc","Credits - 一口新饭 - 描述","Provided innovative thinking and ideas.",为 App 提供灵感和创意
-"credit_onenewbite_url","Credits - 一口新饭 - url","https://www.youtube.com/watch?v=ZRv0Z-M7NqM",https://www.youtube.com/watch?v=ZRv0Z-M7NqM
+"credit_onenewbite_name","Credits - 一口新饭","一口新饭"
+"credit_onenewbite_desc","Credits - 一口新饭 - 描述","Provided innovative thinking and ideas."
+"credit_onenewbite_url","Credits - 一口新饭 - url","https://www.youtube.com/watch?v=ZRv0Z-M7NqM"

@@ -65,13 +65,15 @@ struct SettingsView: View {
                 Text(L(.settings_day_starts_at))
             }
             
-            Picker(selection: $appState.language) {
-                ForEach(Language.supported, id: \.self) { lang in
-                    Text(lang.displayName)
-                        .tag(lang)
+            if appDelegate.showAdvancedOptions {
+                Picker(selection: $appState.language) {
+                    ForEach(Language.supported, id: \.self) { lang in
+                        Text(lang.displayName)
+                            .tag(lang)
+                    }
+                } label: {
+                    Text(L(.settings_app_language))
                 }
-            } label: {
-                Text(L(.settings_app_language))
             }
         } header: {
             Text(L(.settings_general))
