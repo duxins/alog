@@ -17,4 +17,8 @@ enum TranscriptionProvider: String, CaseIterable {
         case .openai: return L(.trans_provider_openai)
         }
     }
+    
+    static var allowedCases: [TranscriptionProvider] {
+        return [.apple]
+    }
 }

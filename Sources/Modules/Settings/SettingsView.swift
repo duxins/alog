@@ -31,11 +31,11 @@ struct SettingsView: View {
                 Form {
                     sectionGeneral
                     sectionTranscription
-                    sectionSummarization
                     
-                    #if !SNAPSHOT
-                    sectionOpenAI
-                    #endif
+                    if appDelegate.showAdvancedOptions {
+                        sectionSummarization
+                        sectionOpenAI
+                    }
                     
                     sectionInfo
                 }
@@ -64,15 +64,6 @@ struct SettingsView: View {
             } label: {
                 Text(L(.settings_day_starts_at))
             }
-            
-//            Picker(selection: $config.darkMode) {
-//                ForEach(DarkMode.allCases, id: \.self) {
-//                    Text($0.displayName)
-//                        .tag($0)
-//                }
-//            } label: {
-//                Text(L(.settings_app_appearance))
-//            }
             
             Picker(selection: $appState.language) {
                 ForEach(Language.supported, id: \.self) { lang in
@@ -104,8 +95,14 @@ struct SettingsView: View {
                 }
                 
                 Picker(selection: $config.transProvider) {
-                    ForEach(TranscriptionProvider.allCases, id: \.self) { item in
-                        Text(item.displayName)
+                    if appDelegate.showAdvancedOptions {
+                        ForEach(TranscriptionProvider.allCases, id: \.self) { item in
+                            Text(item.displayName)
+                        }
+                    } else {
+                        ForEach(TranscriptionProvider.allowedCases, id: \.self) { item in
+                            Text(item.displayName)
+                        }
                     }
                 } label: {
                     Text(L(.settings_trans_provider))

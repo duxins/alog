@@ -22,6 +22,11 @@ class DateHelper {
         return components
     }
     
+    static func date(from identifier: Int) -> Date? {
+        let components = components(from: identifier)
+        return Calendar.current.date(from: components)
+    }
+    
     static func format(_ date: Date, dateFormat: String? = nil) -> String {
         if let dateFormat {
             formatter.dateFormat = dateFormat

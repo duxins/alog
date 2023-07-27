@@ -27,4 +27,14 @@ struct AppInfo {
         }
         return hash
     }()
+    
+    static let releaseDate: Date = {
+        if let str = Bundle.main.infoDictionary?["RELEASE_DATE"] as? String,
+           let id = Int(str),
+           let date = DateHelper.date(from: id) {
+            return date
+        }
+        return Date()
+    }()
+    
 }
