@@ -11,19 +11,7 @@ Perfect for those busy days when you don't have time to write or for capturing t
 
 ▪ Voice-to-Text Transcription
 
-ALog isn't just an audio recorder.  It also automatically transcribes your voice entries into text, providing you with a written version of your thoughts and experiences. 
-
-
-▪ AI-Powered Summaries
-
-Our app intelligently summarizes your audio entries, providing you with a brief overview of your memories at a glance. 
-No need to listen to lengthy recordings when you can get the gist with a quick read!
-
-
-▪ Seamless Sharing
-
-Feel like sharing a special memory with your loved ones? 
-With ALog, you can effortlessly share your voice recordings or their AI-generated summaries via social media or email.
+ALog isn't just an audio recorder. It also automatically transcribes your voice entries into text, providing you with a written version of your thoughts and experiences. 
 
 
 ▪ Safe, Secure, and Open Source
@@ -32,5 +20,5 @@ Your privacy is our utmost priority. All entries are securely stored on your dev
 ALog is also completely open source, which allows everyone to verify our security measures and contribute to making the app even safer. 
 We believe in transparency and community collaboration as the cornerstone for building a trustworthy app.
 
-Turn your thoughts and experiences into lasting memories with ALog - your personal AI-powered audio diary. 
-Whether you're capturing fleeting thoughts, exciting adventures, or everyday musings, your voice brings them to life, and our AI helps you revisit them in an effortless way.
+Turn your thoughts and experiences into lasting memories with ALog - your personal audio diary. 
+Whether you're capturing fleeting thoughts, exciting adventures, or everyday musings, your voice brings them to life.

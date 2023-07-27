@@ -1,1 +1,1 @@
-audio diary,voice memo,AI,summary,transcribe,notes,record,secure,open source,journal
+audio diary,voice memo,transcribe,notes,record,secure,open source,journal
