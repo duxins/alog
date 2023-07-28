@@ -3,8 +3,16 @@ import XLog
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     
+    var timeSinceRelease: TimeInterval {
+        AppInfo.releaseDate.timeIntervalSinceNow
+    }
+    
     lazy var showAdvancedOptions: Bool = {
+        #if SNAPSHOT
         return false
+        #else
+        return timeSinceRelease <= 0 || Config.shared.isApiKeySet
+        #endif
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
