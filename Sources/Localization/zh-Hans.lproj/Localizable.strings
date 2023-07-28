@@ -1,0 +1,277 @@
+/*应用名称*/
+"app_name" = "ALog";
+
+/*评价*/
+"review_app" = "评价 ALog";
+
+/*分享*/
+"share_app" = "分享 ALog";
+
+/*关于*/
+"about_app" = "关于 ALog";
+
+/*公司*/
+"company" = "Tarbo Tech, LLC";
+
+/*Done*/
+"done" = "完成";
+
+/*Cancel*/
+"cancel" = "取消";
+
+/*Next*/
+"next" = "下一步";
+
+/*Error*/
+"error" = "错误";
+
+/*Delete*/
+"delete" = "删除";
+
+/*Edit*/
+"edit" = "编辑";
+
+/*OK*/
+"ok" = "好";
+
+/*Enable 开关*/
+"enable" = "开启";
+
+/*Copy*/
+"copy" = "复制";
+
+/*Paste*/
+"paste" = "粘贴";
+
+/*Memo*/
+"memo" = "笔记";
+
+/*Save*/
+"save" = "保存";
+
+/*API Key*/
+"api_key" = "API KEY";
+
+/*Verify*/
+"verify" = "验证";
+
+/*Version*/
+"version" = "版本";
+
+/*关于*/
+"about" = "关于";
+
+/*Recording*/
+"recording" = "正在录音";
+
+/*确认对话框*/
+"are_you_sure" = "您确定吗？";
+
+/*分享*/
+"share" = "分享";
+
+/*分享音频*/
+"share_audio" = "分享录音";
+
+/*预览*/
+"preview" = "预览";
+
+/*可选*/
+"optional" = "可选";
+
+/*总结*/
+"summarize" = "总结";
+
+/*Try Again*/
+"try_again" = "重试";
+
+/*Privacy Policy*/
+"privacy_policy" = "隐私权政策";
+
+/*Terms of Use*/
+"terms_of_use" = "使用条款";
+
+/*Source Code*/
+"source_code" = "源代码";
+
+/*外观 - 自动*/
+"dark_mode_auto" = "跟随系统";
+
+/*外观 - 浅色*/
+"dark_mode_light" = "浅色";
+
+/*外观 - 深色*/
+"dark_mode_dark" = "深色";
+
+/*申请权限 - 标题*/
+"permission_mic_title" = "允许 ALog 访问你的麦克风吗？";
+
+/*申请权限 - 正文*/
+"permission_mic_msg" = "您可以随时在系统设置中更改你的选择。";
+
+/*申请权限 - 正文 (denied)*/
+"permission_mic_denied_msg" = "没有麦克风访问权限，ALog 将无法正常工作。";
+
+/*申请权限 - 以后再说*/
+"permission_not_now" = "以后再说";
+
+/*申请权限 - 允许*/
+"permission_allow" = "允许";
+
+/*申请权限 - 打开设置*/
+"permission_open_settings" = "打开设置";
+
+/*设置标题*/
+"settings_title" = "设置";
+
+/*设置 - 通用*/
+"settings_general" = "通用";
+
+/*设置 - 新一天开始时间*/
+"settings_day_starts_at" = "一天开始时间";
+
+/*设置 - 应用语言*/
+"settings_app_language" = "应用语言";
+
+/*设置 - 外观*/
+"settings_app_appearance" = "外观";
+
+/*设置 - openai*/
+"settings_openai" = "OpenAI";
+
+/*设置 - openai - 设置*/
+"settings_openai_settings" = "OpenAI 设置";
+
+/*设置 - openai - 设置 - key 获取方式*/
+"settings_openai_settings_key_method" = "您可以在此处获取 API 密钥：";
+
+/*设置 - 转写*/
+"settings_trans" = "语音转写";
+
+/*设置 - 转写 - 语言*/
+"settings_trans_lang" = "转写语言";
+
+/*设置 - 转写 - 服务*/
+"settings_trans_provider" = "服务";
+
+/*设置 - 转写 - 隐私警告*/
+"settings_trans_privacy_warning" = "由于转录服务需要互联网连接，请不要录入任何敏感信息。";
+
+/*设置 - 总结*/
+"settings_sum" = "总结";
+
+/*设置 - 总结 - 服务*/
+"settings_sum_provider" = "服务";
+
+/*设置 - 总结 - AI 模型*/
+"settings_sum_ai_model" = "AI 模型";
+
+/*设置 - 总结 - 提示词*/
+"settings_sum_prompts" = "提示词";
+
+/*设置 - 总结 - add prompt*/
+"settings_sum_prompts_add" = "添加提示词";
+
+/*设置 - 总结 - Edit prompt*/
+"settings_sum_prompts_edit" = "编辑提示词";
+
+/*Timeline*/
+"timeline" = "时间线";
+
+/*Timeline - "no entries"*/
+"timeline_empty" = "无记录";
+
+/*Timeline - 录音按钮 - "tap here"*/
+"timeline_recbtn_tap_here" = "点击此处开始";
+
+/*Summary*/
+"summary" = "总结";
+
+/*Summary - "no summaries"*/
+"summary_empty" = "无记录";
+
+/*转写 - Apple*/
+"trans_provider_apple" = "系统";
+
+/*转写 - OpenAI (Whisper)*/
+"trans_provider_openai" = "OpenAI (Whisper)";
+
+/*转写 - Apple - 提示*/
+"trans_provider_apple_notice" = "准确度较低且仅限于1分钟的音频时长。";
+
+/*转写 - OpenAI - API KEY 警告*/
+"trans_provider_opanai_api_key_warning" = "⚠️ 您需要一个 OpenAI API 密钥";
+
+/*转写 - 正在转写*/
+"transcribing" = "正在转写 ...";
+
+/*转写 - 语言 - 自动检测*/
+"trans_lang_auto" = "自动检测";
+
+/*英语*/
+"trans_lang_en" = "英文";
+
+/*日语*/
+"trans_lang_ja" = "日语";
+
+/*简体中文*/
+"trans_lang_zh_hans" = "简体中文";
+
+/*总结 - OpenAI*/
+"sum_service_openai" = "OpenAI";
+
+/*总结 - OpenAI - API KEY 警告*/
+"sum_opanai_api_key_warning" = "⚠️ 您需要一个 OpenAI API 密钥";
+
+/*总结 - 标题*/
+"sum_title" = "标题";
+
+/*总结 - 默认标题*/
+"sum_title_default" = "%@";
+
+/*总结 - 没有提示词*/
+"sum_no_prompts" = "你还没有添加提示词";
+
+/*总结 - 选择提示词*/
+"sum_choose_prompt" = "选择一个提示词";
+
+/*总结 - 添加提示词按钮*/
+"sum_add_prompt" = "添加提示词";
+
+/*总结 - 字数不够*/
+"sum_text_too_short" = "文本过短，无法进行总结";
+
+/*提示词*/
+"prompt" = "提示词";
+
+/*提示词 - title*/
+"prompt_title" = "标题";
+
+/*提示词 - 描述*/
+"prompt_desc" = "描述";
+
+/*提示词 - 温度*/
+"prompt_temperature" = "温度参数";
+
+/*提示词 - 温度参数描述*/
+"prompt_temperature_desc" = "数值越高，输出结果越随机； 数值越低，输出结果越确定。";
+
+/*提示词 - content*/
+"prompt_content" = "提示词";
+
+/*提示词 - 模版*/
+"prompt_content_template" = "我希望你能成为我的日记助手。
+请你：
+1. 收集我一天内的全部想法和笔记，根据这些内容写一个完整版的日记。
+这个新版本要有更好的格式和逻辑结构，更好的写作水平同时不改变我日记的原意。
+2. 总结日记中的关键要点
+3. 根据日记，对我生活做出的重要洞察并像一位心理专家/人生导师一样给出鼓励/安慰/分析/建议等";
+
+/*Credits - 一口新饭*/
+"credit_onenewbite_name" = "一口新饭";
+
+/*Credits - 一口新饭 - 描述*/
+"credit_onenewbite_desc" = "为 App 提供灵感和创意";
+
+/*Credits - 一口新饭 - url*/
+"credit_onenewbite_url" = "https://www.youtube.com/watch?v=ZRv0Z-M7NqM";
