@@ -12,6 +12,9 @@ struct SettingsView: View {
     @EnvironmentObject var config: Config
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var iap: IAPManager
+    
+    @State private var showPremium = false
     
     @State private var showTransWarning = false {
         didSet {
@@ -31,12 +34,8 @@ struct SettingsView: View {
                 Form {
                     sectionGeneral
                     sectionTranscription
-                    
-                    if appDelegate.showAdvancedOptions {
-                        sectionSummarization
-                        sectionOpenAI
-                    }
-                    
+                    sectionSummarization
+                    sectionPremium
                     sectionInfo
                 }
             }
@@ -176,6 +175,21 @@ struct SettingsView: View {
             }
         } header: {
             Text(L(.settings_openai))
+        }
+    }
+    
+    @ViewBuilder
+    private var sectionPremium: some View {
+        Section {
+            Button {
+                showPremium = true
+            } label:{
+                Label("Premium", systemImage: "crown.fill")
+                    .foregroundColor(.orange)
+            }
+        }
+        .sheet(isPresented: $showPremium) {
+            PremiumView()
         }
     }
     

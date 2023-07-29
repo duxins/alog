@@ -17,6 +17,20 @@ class IAPManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKPr
         case purchasing
         case purchased
         case deferred
+        
+        static func ==(lhs: State, rhs: State) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading),
+                 (.loaded, .loaded),
+                 (.failed, .failed),
+                 (.purchasing, .purchasing),
+                 (.purchased, .purchased),
+                 (.deferred, .deferred):
+                return true
+            default:
+                return false
+            }
+        }
     }
     
     enum IAPError: Error {
@@ -26,8 +40,16 @@ class IAPManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKPr
     @Published var state = State.loading {
         didSet {
             XLog.debug("Request state → \(state)", source: "IAP")
+            
+            if case .loaded(_) = state {
+                canPurchase = true
+            } else {
+                canPurchase = false
+            }
         }
     }
+    
+    @Published var canPurchase: Bool = false
     
     private let request: SKProductsRequest
     private var products = [SKProduct]()
