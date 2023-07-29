@@ -7,6 +7,7 @@ struct ALogApp: App {
     let appState = AppState.shared
     
     @StateObject var config = Config.shared
+    @StateObject var iap = IAPManager()
     
     var body: some Scene {
         WindowGroup {
@@ -15,6 +16,7 @@ struct ALogApp: App {
                 .environmentObject(container)
                 .environmentObject(appState)
                 .environmentObject(config)
+                .environmentObject(iap)
                 .environment(\.managedObjectContext, container.context)
 //                .preferredColorScheme(config.darkMode == .auto ? nil : (config.darkMode == .dark ? .dark : .light))
                 .preferredColorScheme(.dark)

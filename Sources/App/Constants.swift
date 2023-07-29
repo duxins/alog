@@ -26,4 +26,8 @@ struct Constants {
     struct Summary {
         static let lengthLimit = 10
     }
+    
+    struct IAP {
+        static let premiumProductId = "app.tarbo.memo.premium"
+    }
 }

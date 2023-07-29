@@ -10,6 +10,7 @@ import AVFoundation
 
 import XLog
 import XLang
+import SwiftUI
 
 class AppState: ObservableObject {
     static let shared = AppState()
@@ -28,6 +29,8 @@ class AppState: ObservableObject {
     @Published var activeSheet: ActiveSheet?
     @Published var activeTab: Int = 0
     
+    @AppStorage("is_premium") var isPremium = false
+
     func checkMicPermission() {
         let audioSession = AVAudioSession.sharedInstance()
         micPermission = audioSession.recordPermission
