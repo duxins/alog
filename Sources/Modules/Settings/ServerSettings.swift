@@ -1,5 +1,5 @@
 //
-//  OpenAISettingsView.swift
+//  ServerSettings.swift
 //  ALog
 //
 //  Created by Xin Du on 2023/07/14.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct OpenAISettingsView: View {
+struct ServerSettings: View {
     @EnvironmentObject var config: Config
-    @StateObject private var vm = OpenAISettingsViewModel()
+    @StateObject private var vm = ServerSettingsViewModel()
     @FocusState private var keyIsFocused: Bool
     
     var body: some View {
@@ -81,7 +81,7 @@ struct OpenAISettingsView: View {
 
 struct OpenAISettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        OpenAISettingsView()
+        ServerSettings()
             .preferredColorScheme(.dark)
             .environmentObject(Config.shared)
     }

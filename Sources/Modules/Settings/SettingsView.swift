@@ -170,7 +170,7 @@ struct SettingsView: View {
     @ViewBuilder
     private var sectionOpenAI: some View {
         Section {
-            NavigationLink(destination: OpenAISettingsView().environmentObject(config)) {
+            NavigationLink(destination: ServerSettings().environmentObject(config)) {
                 Text(L(.settings_openai_settings))
             }
         } header: {

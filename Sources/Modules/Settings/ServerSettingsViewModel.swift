@@ -1,5 +1,5 @@
 //
-//  OpenAISettingsViewModel.swift
+//  ServerSettingsViewModel.swift
 //  ALog
 //
 //  Created by Xin Du on 2023/07/14.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class OpenAISettingsViewModel: ObservableObject {
+class ServerSettingsViewModel: ObservableObject {
     @Published var isVerifying = false
     @Published var lastErrorMessage = "" {
         didSet {
