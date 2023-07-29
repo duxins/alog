@@ -84,10 +84,15 @@ class OpenAIClient {
     
     /// 验证 API KEY
     /// - Parameter key: API KEY
-    func verify(_ key: String) async throws -> OpenAIResponse.Models {
-        let url = baseURL.appending(path: "v1/models")
+    func verify(_ host: String, key: String?) async throws -> OpenAIResponse.Models {
+        guard let hostURL = URL(string: host) else {
+            throw URLError(.badURL)
+        }
+        let url = hostURL.appending(path: "v1/models")
         var request = URLRequest(url: url)
-        request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        if let key {
+            request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        }
         let sub = try await send(request, type: OpenAIResponse.Models.self)
         return sub
     }
@@ -100,7 +105,7 @@ class OpenAIClient {
         let params: [String: Any] = ["model": model, "stream": true, "temperature": temperature, "messages": [["role": "system", "content": msg]]]
         request.httpBody = try JSONSerialization.data(withJSONObject: params)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(Config.shared.apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(Config.shared.serverAPIKey)", forHTTPHeaderField: "Authorization")
         let (data, response) = try await URLSession.shared.bytes(for: request)
         
         guard let response = response as? HTTPURLResponse else { throw OpenAIError.badResponse("") }
@@ -146,7 +151,7 @@ class OpenAIClient {
     func transcribe(_ fileURL: URL) async throws -> OpenAIResponse.Transcription {
         let url = baseURL.appending(path: "v1/audio/transcriptions")
         var request = URLRequest(url: url)
-        request.setValue("Bearer \(Config.shared.apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(Config.shared.serverAPIKey)", forHTTPHeaderField: "Authorization")
         
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")

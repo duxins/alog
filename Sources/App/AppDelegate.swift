@@ -11,7 +11,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         #if SNAPSHOT
         return false
         #else
-        return timeSinceRelease <= 0 || Config.shared.isApiKeySet
+        return true
         #endif
     }()
     

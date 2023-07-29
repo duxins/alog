@@ -33,9 +33,18 @@ struct SettingsView: View {
             VStack {
                 Form {
                     sectionGeneral
+                    
+                    if appState.isPremium {
+                        sectionServer
+                    }
+                    
                     sectionTranscription
                     sectionSummarization
-                    sectionPremium
+                    
+                    if !appState.isPremium {
+                        sectionPremium
+                    }
+                    
                     sectionInfo
                 }
             }
@@ -72,8 +81,53 @@ struct SettingsView: View {
             } label: {
                 Text(L(.settings_app_language))
             }
+            
+            
         } header: {
             Text(L(.settings_general))
+        }
+    }
+    
+    @ViewBuilder
+    private var sectionServer: some View {
+        Section {
+            Picker(selection: $config.serverType) {
+                ForEach(ServerType.allCases, id: \.self) { server in
+                    Text(server.displayName)
+                        .tag(server)
+                }
+            } label: {
+                Text(L(.settings_server))
+            }
+            
+            if config.serverType == .custom {
+                NavigationLink(destination: ServerSettingsView()) {
+                    HStack {
+                        Text(L(.settings_server_settings))
+                        Spacer()
+                        
+                        if config.isServerSet {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        } else {
+                            Image(systemName: "exclamationmark.circle.fill")
+                                .foregroundColor(.yellow)
+                        }
+                        
+                    }
+                }
+                
+                Picker(selection: $config.aiModel) {
+                    ForEach(OpenAIChatModel.allCases, id: \.self) {
+                        Text($0.displayName)
+                    }
+                } label: {
+                    Text(L(.settings_sum_ai_model))
+                }
+            }
+            
+        } header: {
+            Text(L(.settings_server))
         }
     }
     
@@ -114,10 +168,6 @@ struct SettingsView: View {
                 if config.transProvider == .apple {
                     Text(L(.trans_provider_apple_notice))
                 }
-                
-                if config.transProvider == .openai  && !config.isApiKeySet {
-                    Text(L(.trans_provider_opanai_api_key_warning))
-                }
             }
         }
         .alert(isPresented: $showTransWarning) {
@@ -133,25 +183,6 @@ struct SettingsView: View {
             }
             
             if config.sumEnabled {
-                Picker(selection: $config.sumProvider) {
-                    ForEach(SummarizationProvider.allCases, id: \.self) {
-                        Text($0.displayName)
-                    }
-                } label: {
-                    Text(L(.settings_sum_provider))
-                }
-                .disabled(!config.sumEnabled)
-                
-                if config.sumProvider == .openai {
-                    Picker(selection: $config.aiModel) {
-                        ForEach(OpenAIChatModel.allCases, id: \.self) {
-                            Text($0.displayName)
-                        }
-                    } label: {
-                        Text(L(.settings_sum_ai_model))
-                    }
-                }
-                
                 NavigationLink {
                     PromptsView()
                 } label: {
@@ -161,20 +192,6 @@ struct SettingsView: View {
         } header: {
             Text(L(.settings_sum))
         } footer: {
-            if config.sumEnabled && config.sumProvider == .openai && !config.isApiKeySet {
-                Text(L(.sum_opanai_api_key_warning))
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private var sectionOpenAI: some View {
-        Section {
-            NavigationLink(destination: ServerSettings().environmentObject(config)) {
-                Text(L(.settings_openai_settings))
-            }
-        } header: {
-            Text(L(.settings_openai))
         }
     }
     

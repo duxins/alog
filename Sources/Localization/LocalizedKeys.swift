@@ -71,6 +71,10 @@ public enum MyLocalizedKey: String {
   case dark_mode_light = "dark_mode_light"
   /**外观 - 深色*/
   case dark_mode_dark = "dark_mode_dark"
+  /**服务器 - 默认*/
+  case server_default = "server_default"
+  /**服务器 - 自定义*/
+  case server_custom = "server_custom"
   /**申请权限 - 标题*/
   case permission_mic_title = "permission_mic_title"
   /**申请权限 - 正文*/
@@ -93,12 +97,14 @@ public enum MyLocalizedKey: String {
   case settings_app_language = "settings_app_language"
   /**设置 - 外观*/
   case settings_app_appearance = "settings_app_appearance"
-  /**设置 - openai*/
-  case settings_openai = "settings_openai"
-  /**设置 - openai - 设置*/
-  case settings_openai_settings = "settings_openai_settings"
-  /**设置 - openai - 设置 - key 获取方式*/
-  case settings_openai_settings_key_method = "settings_openai_settings_key_method"
+  /**设置 - 服务器*/
+  case settings_server = "settings_server"
+  /**设置 - 自定义服务器设置*/
+  case settings_server_settings = "settings_server_settings"
+  /**设置 - 自定义服务器 - 主机*/
+  case settings_server_host = "settings_server_host"
+  /**设置 - 自定义服务器 - 需要 API KEY*/
+  case settings_server_requires_key = "settings_server_requires_key"
   /**设置 - 转写*/
   case settings_trans = "settings_trans"
   /**设置 - 转写 - 语言*/

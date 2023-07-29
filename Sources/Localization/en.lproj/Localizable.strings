@@ -103,6 +103,12 @@
 /*外观 - 深色*/
 "dark_mode_dark" = "Dark";
 
+/*服务器 - 默认*/
+"server_default" = "Default";
+
+/*服务器 - 自定义*/
+"server_custom" = "Custom";
+
 /*申请权限 - 标题*/
 "permission_mic_title" = "Allow ALog to access your microphone?";
 
@@ -136,14 +142,17 @@
 /*设置 - 外观*/
 "settings_app_appearance" = "Appearance";
 
-/*设置 - openai*/
-"settings_openai" = "OpenAI";
+/*设置 - 服务器*/
+"settings_server" = "Server";
 
-/*设置 - openai - 设置*/
-"settings_openai_settings" = "OpenAI Settings";
+/*设置 - 自定义服务器设置*/
+"settings_server_settings" = "Server Settings";
 
-/*设置 - openai - 设置 - key 获取方式*/
-"settings_openai_settings_key_method" = "You can obtain an API Key at";
+/*设置 - 自定义服务器 - 主机*/
+"settings_server_host" = "Host";
+
+/*设置 - 自定义服务器 - 需要 API KEY*/
+"settings_server_requires_key" = "Requires API Key";
 
 /*设置 - 转写*/
 "settings_trans" = "Transcription";

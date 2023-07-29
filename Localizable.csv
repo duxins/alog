@@ -38,6 +38,9 @@
 "dark_mode_auto","外观 - 自动","System Default",跟随系统
 "dark_mode_light","外观 - 浅色","Light",浅色
 "dark_mode_dark","外观 - 深色","Dark",深色
+# Server #
+"server_default","服务器 - 默认","Default",默认
+"server_custom","服务器 - 自定义","Custom",自定义
 # Permission #
 "permission_mic_title","申请权限 - 标题","Allow ALog to access your microphone?",允许 ALog 访问你的麦克风吗？
 "permission_mic_msg","申请权限 - 正文","You can update your choice at any time in Settings.",您可以随时在系统设置中更改你的选择。
@@ -51,9 +54,10 @@
 "settings_day_starts_at","设置 - 新一天开始时间","Start of Day",一天开始时间
 "settings_app_language","设置 - 应用语言","App Language",应用语言
 "settings_app_appearance","设置 - 外观","Appearance",外观
-"settings_openai","设置 - openai","OpenAI",OpenAI
-"settings_openai_settings","设置 - openai - 设置","OpenAI Settings",OpenAI 设置
-"settings_openai_settings_key_method","设置 - openai - 设置 - key 获取方式","You can obtain an API Key at",您可以在此处获取 API 密钥：
+"settings_server","设置 - 服务器","Server",服务器
+"settings_server_settings","设置 - 自定义服务器设置","Server Settings",服务器设置
+"settings_server_host","设置 - 自定义服务器 - 主机","Host",主机
+"settings_server_requires_key","设置 - 自定义服务器 - 需要 API KEY","Requires API Key",需要 API Key
 "settings_trans","设置 - 转写","Transcription",语音转写
 "settings_trans_lang","设置 - 转写 - 语言","Main Language",转写语言
 "settings_trans_provider","设置 - 转写 - 服务","Service",服务

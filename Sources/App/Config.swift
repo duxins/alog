@@ -10,9 +10,11 @@ import KeychainAccess
 import SwiftUI
 import Combine
 
+
 class Config: ObservableObject {
     @AppStorage("day_start_time") var dayStartTime = 2
     @AppStorage("dark_mode") var darkMode = DarkMode.dark
+    @AppStorage("server_type") var serverType = ServerType.app
     
     @AppStorage("trans_enabled") var transEnabled = false
     @AppStorage("trans_provider") var transProvider = TranscriptionProvider.apple
@@ -23,31 +25,40 @@ class Config: ObservableObject {
     
     @AppStorage("openai_model") var aiModel = OpenAIChatModel.gpt_3_5
     
+    @AppStorage("server_host") var serverHost = "" {
+        didSet {
+            validateHost()
+        }
+    }
+    
     @Published var colorScheme = ColorScheme.light
     
     static let shared = Config()
     
     private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
-    private let KEY_NAME = "openai_key"
+    
+    private let KEY_NAME = "openai_api_key"
+    
+    private var cancellables = Set<AnyCancellable>()
     
     private init() {
-        if let key = keychain[string: KEY_NAME] {
-            apiKey = key
-        }
-        
-        $apiKey.map {
-            !$0.isEmpty
-        }.assign(to: &$isApiKeySet)
+        serverAPIKey = keychain[string: KEY_NAME] ?? ""
+        validateHost()
     }
     
-    @Published var apiKey: String = "" {
+    private func validateHost() {
+        isServerSet = !serverHost.isEmpty
+    }
+    
+    @Published var serverAPIKey: String = "" {
         didSet {
-            if apiKey.isEmpty {
+            if serverAPIKey.isEmpty {
                 keychain[KEY_NAME] = nil
             } else {
-                keychain[string: KEY_NAME] = apiKey
+                keychain[string: KEY_NAME] = serverAPIKey
             }
         }
     }
-    @Published var isApiKeySet: Bool = false
+    
+    @Published var isServerSet: Bool = false
 }

@@ -21,6 +21,7 @@ struct Constants {
     
     struct OpenAI {
         static let api_key_url = "https://platform.openai.com/account/api-keys"
+        static let api_host = "https://api.openai.com/"
     }
     
     struct Summary {
@@ -30,4 +31,5 @@ struct Constants {
     struct IAP {
         static let premiumProductId = "app.tarbo.memo.premium"
     }
+    
 }
