@@ -42,9 +42,6 @@ struct ServerSettings: View {
                 
             } header: {
                 Text(L(.api_key))
-            } footer: {
-                footerView
-                    .padding(.top, 40)
             }
         }
         .navigationTitle(L(.settings_openai_settings))
@@ -52,26 +49,6 @@ struct ServerSettings: View {
         } message: {
             Text(vm.lastErrorMessage)
         }
-    }
-    
-    @ViewBuilder
-    private var footerView: some View {
-        HStack {
-            Button {
-                UIApplication.shared.open(URL(string: Constants.OpenAI.api_key_url)!)
-            } label: {
-                Group {
-                    Text(L(.settings_openai_settings_key_method)) +
-                    Text("\n" + Constants.OpenAI.api_key_url.replacingOccurrences(of: "https://", with: ""))
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(.blue)
-                }
-                .foregroundColor(.secondary)
-                .font(.callout)
-                .opacity(0.8)
-            }
-        }
-        .frame(maxWidth: .infinity)
     }
     
     private func dismissKeyboard() {
