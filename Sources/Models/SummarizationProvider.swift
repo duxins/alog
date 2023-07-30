@@ -9,10 +9,4 @@ import Foundation
 
 enum SummarizationProvider: String, CaseIterable {
     case openai
-    
-    var displayName: String {
-        switch self {
-        case .openai: return L(.sum_service_openai)
-        }
-    }
 }

@@ -148,14 +148,8 @@ struct SettingsView: View {
                 }
                 
                 Picker(selection: $config.transProvider) {
-                    if appDelegate.showAdvancedOptions {
-                        ForEach(TranscriptionProvider.allCases, id: \.self) { item in
-                            Text(item.displayName)
-                        }
-                    } else {
-                        ForEach(TranscriptionProvider.allowedCases, id: \.self) { item in
-                            Text(item.displayName)
-                        }
+                    ForEach(TranscriptionProvider.allCases, id: \.self) { item in
+                        Text(item.displayName)
                     }
                 } label: {
                     Text(L(.settings_trans_provider))

@@ -17,7 +17,9 @@ extension AppDelegate {
         AppState.shared.isPremium = true
         
         // MARK: - RESET SETTINGS
-        config.sumEnabled = false
+        config.serverType = .custom
+        config.serverHost = "https://api.openai.com/"
+        config.sumEnabled = true
         config.transEnabled = true
         config.transLang = .en
         config.transProvider = .apple
@@ -33,6 +35,7 @@ extension AppDelegate {
         let items: [[String]]
         
         if Bundle.main.preferredLocalizations.first! == "zh-Hans" {
+            config.transLang = .zh_hans
             items = [
                 ["06:03", "起床，希望今天会有好运。"],
                 ["08:30", "上班，乘坐地铁，人来人往。"],

@@ -171,8 +171,6 @@ public enum MyLocalizedKey: String {
   case trans_provider_openai = "trans_provider_openai"
   /**转写 - Apple - 提示*/
   case trans_provider_apple_notice = "trans_provider_apple_notice"
-  /**转写 - OpenAI - API KEY 警告*/
-  case trans_provider_opanai_api_key_warning = "trans_provider_opanai_api_key_warning"
   /**转写 - 正在转写*/
   case transcribing = "transcribing"
   /**转写 - 语言 - 自动检测*/
@@ -183,10 +181,6 @@ public enum MyLocalizedKey: String {
   case trans_lang_ja = "trans_lang_ja"
   /**简体中文*/
   case trans_lang_zh_hans = "trans_lang_zh_hans"
-  /**总结 - OpenAI*/
-  case sum_service_openai = "sum_service_openai"
-  /**总结 - OpenAI - API KEY 警告*/
-  case sum_opanai_api_key_warning = "sum_opanai_api_key_warning"
   /**总结 - 标题*/
   case sum_title = "sum_title"
   /**总结 - 默认标题*/

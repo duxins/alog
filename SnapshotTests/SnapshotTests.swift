@@ -11,13 +11,13 @@ final class SnapshotTests: XCTestCase {
     let app = XCUIApplication()
     
     override func setUp() {
-//        app.launchArguments.append("--SnapshotTesting")
         setupSnapshot(app)
         app.launch()
     }
     
     func testRecording() throws {
         let app = XCUIApplication()
+        // 启动
         snapshot("01 - LaunchScreen")
         app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
         
@@ -29,6 +29,7 @@ final class SnapshotTests: XCTestCase {
     }
     
     func testSettings() throws {
+        // 设置
         app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["nav_settings"].tap()
         snapshot("03 - Settings")
     }

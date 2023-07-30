@@ -96,7 +96,6 @@
 "trans_provider_apple","转写 - Apple","System",系统
 "trans_provider_openai","转写 - OpenAI (Whisper) ","OpenAI (Whisper)",OpenAI (Whisper)
 "trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration.",准确度较低且仅限于1分钟的音频时长。
-"trans_provider_opanai_api_key_warning","转写 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key.",⚠️ 您需要一个 OpenAI API 密钥
 "transcribing","转写 - 正在转写 ","Transcribing ...",正在转写 ...
 # 转写语言 #
 "trans_lang_auto","转写 - 语言 - 自动检测","Auto-Detect",自动检测
@@ -104,8 +103,6 @@
 "trans_lang_ja","日语","Japanese",日语
 "trans_lang_zh_hans","简体中文","Chinese",简体中文
 # 总结 #
-"sum_service_openai","总结 - OpenAI","OpenAI",OpenAI
-"sum_opanai_api_key_warning","总结 - OpenAI - API KEY 警告","⚠️ You need an OpenAI API Key.",⚠️ 您需要一个 OpenAI API 密钥
 "sum_title","总结 - 标题","Title",标题
 "sum_title_default","总结 - 默认标题","%@",%@
 "sum_no_prompts","总结 - 没有提示词","You haven't added any Prompts",你还没有添加提示词

@@ -21,7 +21,6 @@ class Config: ObservableObject {
     @AppStorage("trans_lang") var transLang = TranscriptionLang.auto
     
     @AppStorage("sum_enabled") var sumEnabled = false
-    @AppStorage("sum_provider") var sumProvider = SummarizationProvider.openai
     
     @AppStorage("openai_model") var aiModel = OpenAIChatModel.gpt_3_5
     
