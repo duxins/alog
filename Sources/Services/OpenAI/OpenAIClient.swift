@@ -8,6 +8,7 @@
 import Foundation
 import XLog
 import CryptoKit
+import ArkanaKeys
 
 struct OpenAIResponse {
     struct Error: Codable {
@@ -150,12 +151,12 @@ class OpenAIClient {
     }
     
     private func generateHMAC(_ message: String) -> String {
-        let keyData = "hello".data(using: .utf8)!
+        let keyData = ArkanaKeys.Global().hMAC_KEY.data(using: .utf8)!
         let key = SymmetricKey(data: keyData)
         let data = message.data(using: .utf8)!
         let hmac = HMAC<SHA256>.authenticationCode(for: data, using: key)
-        let hexString = hmac.map { String(format: "%02hhx", $0) }.joined()
-        return hexString
+        let hmacBase64 = Data(hmac).base64EncodedString()
+        return hmacBase64
     }
     
     func summarize(_ msg: String, model: OpenAIChatModel, temperature: Double = 0.4) async throws -> AsyncThrowingStream<String, Error> {

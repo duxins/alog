@@ -14,6 +14,10 @@ packages:
   KeychainAccess:
     url: https://github.com/kishikawakatsumi/KeychainAccess.git
     from: 4.2.0
+  ArkanaKeys:
+    path: ./ArkanaKeys/ArkanaKeys
+  ArkanaKeysInterfaces:
+    path: ./ArkanaKeys/ArkanaKeysInterfaces
 configs:
   Debug: debug
   Snapshot: debug
@@ -46,6 +50,8 @@ targets:
       - package: XLog
       - package: XLang
       - package: KeychainAccess
+      - package: ArkanaKeys
+      - package: ArkanaKeysInterfaces
     sources:
       - Sources
       - Resources
