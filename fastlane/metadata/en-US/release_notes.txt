@@ -1,1 +1,2 @@
-
+- Added Simplified Chinese translation
+- Added custom server support
