@@ -49,10 +49,17 @@ struct PremiumView: View {
             .font(.system(size: 35, weight: .black, design: .monospaced))
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text(L(.premium_one_time_upgrade).uppercased())
-                .font(.title3)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.secondary)
+            if appState.isPremium {
+                Text(L(.premium_thanks))
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.secondary)
+            } else {
+                Text(L(.premium_one_time_upgrade).uppercased())
+                    .font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.secondary)
+            }
         }
     }
     

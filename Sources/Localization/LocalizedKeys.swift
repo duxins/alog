@@ -89,6 +89,8 @@ public enum MyLocalizedKey: String {
   case premium = "premium"
   /**一次性付费升级*/
   case premium_one_time_upgrade = "premium_one_time_upgrade"
+  /**感谢升级*/
+  case premium_thanks = "premium_thanks"
   /**恢复购买*/
   case premium_restore_purchase = "premium_restore_purchase"
   /**总结数量*/

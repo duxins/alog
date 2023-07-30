@@ -130,6 +130,9 @@
 /*一次性付费升级*/
 "premium_one_time_upgrade" = "一次性付费升级";
 
+/*感谢升级*/
+"premium_thanks" = "感谢您升级到 ALog 高级版";
+
 /*恢复购买*/
 "premium_restore_purchase" = "恢复购买";
 
