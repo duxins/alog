@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     
-    static let api_base_url = URL(string: "https://worker.alog.tarbotech.com/")!
+    static let api_base_url = URL(string: "https://api.alog.tarbotech.com/")!
     static let user_agent = "ALog \(AppInfo.appVersion)"
     
     struct Contact {
