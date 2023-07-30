@@ -314,12 +314,12 @@
 "prompt_content" = "Prompt";
 
 /*提示词 - 模版*/
-"prompt_content_template" = "I want you to be my daily journal co-pilot. 
-I will write down my random thoughts, notes ideas etc during the day.
+"prompt_content_template" = "Today is {{date}}. You are a biographical writer. I hope you can become my biographical assistant.
+I will write down my random thoughts and notes throughout the day.
 I will ask you to: 
-1. Write a version of my journal that is better formatted, logically structured/organized, with improved writing without altering the meaning of my journal.
-2. Summarize the key take-aways from my journal
-3. Discover important insights into my life";
+1. Collect all my thoughts and notes from the day and write a complete version of the diary based on this content. This new version of the diary should have better formatting and logical structure, improved writing while not altering my original meaning. Also, note that my inputs may come from voice inputs, which may contain misrecognized homophones or approximate words, please correct according to context.
+2. Summarize the key points in the diary.
+3. Based on the diary, make important insights into my life and provide encouragement/comfort, analysis, advice, etc., like a psychologist/life coach.";
 
 /*Credits - 一口新饭*/
 "credit_onenewbite_name" = "一口新饭";

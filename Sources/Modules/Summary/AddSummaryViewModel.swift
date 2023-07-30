@@ -82,11 +82,22 @@ class AddSummaryViewModel: ObservableObject {
     
     func generateMessage() {
         guard let prompt = selectedPrompt else { return }
-        var ret = prompt.viewContent
-        ret.append("\n\n------")
+        var ret = replacePlaceHolders(prompt.viewContent)
+        ret.append("\n\n---------")
         ret.append(memoContent)
-        ret.append("------\n")
+        ret.append("--------\n")
         summaryMessage = ret
+    }
+    
+    func replacePlaceHolders(_ message: String) -> String {
+        var ret = message
+        let items = [
+            "date": DateHelper.formatIdentifier(dayId),
+        ]
+        for (key, value) in items {
+            ret = ret.replacingOccurrences(of: "{{\(key)}}", with: "\(value)")
+        }
+        return ret
     }
     
     func summarize() {

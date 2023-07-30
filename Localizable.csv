@@ -119,17 +119,17 @@
 "prompt_temperature","提示词 - 温度","Temperature",温度参数
 "prompt_temperature_desc","提示词 - 温度参数描述","Higher values will make the output more random, while lower values will make it more focused and deterministic.",数值越高，输出结果越随机； 数值越低，输出结果越确定。
 "prompt_content","提示词 - content","Prompt",提示词
-"prompt_content_template","提示词 - 模版","I want you to be my daily journal co-pilot. 
-I will write down my random thoughts, notes ideas etc during the day.
+"prompt_content_template","提示词 - 模版","Today is {{date}}. You are a biographical writer. I hope you can become my biographical assistant.
+I will write down my random thoughts and notes throughout the day.
 I will ask you to: 
-1. Write a version of my journal that is better formatted, logically structured/organized, with improved writing without altering the meaning of my journal.
-2. Summarize the key take-aways from my journal
-3. Discover important insights into my life","我希望你能成为我的日记助手。
+1. Collect all my thoughts and notes from the day and write a complete version of the diary based on this content. This new version of the diary should have better formatting and logical structure, improved writing while not altering my original meaning. Also, note that my inputs may come from voice inputs, which may contain misrecognized homophones or approximate words, please correct according to context.
+2. Summarize the key points in the diary.
+3. Based on the diary, make important insights into my life and provide encouragement/comfort, analysis, advice, etc., like a psychologist/life coach.","今天是 {{date}}。你是一位传记作家。我希望你能成为我的日记助手。 下面是我一天中随机的想法和笔记。
 请你：
-1. 收集我一天内的全部想法和笔记，根据这些内容写一个完整版的日记。
-这个新版本要有更好的格式和逻辑结构，更好的写作水平同时不改变我日记的原意。
+1. 根据这些内容写一个完整版的日记。这个新版本的日记要有更好的格式和逻辑结构，更好的写作水平同时不改变我的原意。
+并且注意我的输入可能来自于语音输入，其中有可能存在错误识别同音字或者近似音单词的情况，请根据上下文进行修正。
 2. 总结日记中的关键要点
-3. 根据日记，对我生活做出的重要洞察并像一位心理专家/人生导师一样给出鼓励/安慰/分析/建议等"
+3. 根据日记，对我生活做出的重要洞察并像一位心理专家/人生导师一样给出鼓励/安慰、分析、建议等"
 # Credits #
 "credit_onenewbite_name","Credits - 一口新饭","一口新饭",一口新饭
 "credit_onenewbite_desc","Credits - 一口新饭 - 描述","Provided innovative thinking and ideas.",为 App 提供灵感和创意
