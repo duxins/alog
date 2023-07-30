@@ -18,7 +18,7 @@ class Config: ObservableObject {
     
     @AppStorage("trans_enabled") var transEnabled = false
     @AppStorage("trans_provider") var transProvider = TranscriptionProvider.apple
-    @AppStorage("trans_lang") var transLang = TranscriptionLang.en
+    @AppStorage("trans_lang") var transLang = TranscriptionLang.auto
     
     @AppStorage("sum_enabled") var sumEnabled = false
     @AppStorage("sum_provider") var sumProvider = SummarizationProvider.openai
