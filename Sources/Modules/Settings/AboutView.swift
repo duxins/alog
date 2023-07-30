@@ -42,6 +42,7 @@ struct AboutView: View {
             
             Section {
                 creditRow(L(.credit_onenewbite_name), desc: L(.credit_onenewbite_desc), url: L(.credit_onenewbite_url))
+                creditRow(L(.credit_goldengrape_name), desc: L(.credit_goldengrape_desc), url: L(.credit_goldengrape_url))
                 creditRow("MingCute Icon", url: "https://www.mingcute.com")
                 creditRow("KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess")
             } header: {
@@ -81,11 +82,11 @@ struct AboutView: View {
             UIApplication.shared.open(URL(string: url)!)
         } label: {
             HStack(spacing: 15) {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 12) {
                     Text(name)
                     if let desc {
                         Text(desc)
-                            .font(.footnote)
+                            .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
                 }

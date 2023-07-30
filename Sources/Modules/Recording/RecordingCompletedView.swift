@@ -12,6 +12,8 @@ struct RecordingCompletedView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var player: AudioPlayer
     
+    let editorMinHeight: CGFloat = 200.0
+    
     @State private var showDeleteAlert = false
     
     init(voiceURL: URL) {
@@ -33,9 +35,9 @@ struct RecordingCompletedView: View {
                                     ProgressView()
                                 }
                                 .frame(maxWidth: .infinity)
-                                .frame(height: 100)
+                                .frame(height: editorMinHeight)
                             } else {
-                                MyTextView(text: $vm.content, minHeight: 100)
+                                MyTextView(text: $vm.content, minHeight: editorMinHeight)
                                     .disabled(vm.isTranscribing)
                             }
                         }

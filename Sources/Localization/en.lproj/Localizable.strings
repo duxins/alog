@@ -329,3 +329,12 @@ I will ask you to:
 
 /*Credits - 一口新饭 - url*/
 "credit_onenewbite_url" = "https://www.youtube.com/watch?v=ZRv0Z-M7NqM";
+
+/*Credits - goldengrape*/
+"credit_goldengrape_name" = "goldengrape";
+
+/*Credits - goldengrape 描述*/
+"credit_goldengrape_desc" = "We referred to his excellent prompts";
+
+/*Credits - goldengrape - url*/
+"credit_goldengrape_url" = "https://quail.ink/goldengrape/p/write-diary-with-chatgpt-en";

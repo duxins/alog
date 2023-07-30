@@ -219,4 +219,10 @@ public enum MyLocalizedKey: String {
   case credit_onenewbite_desc = "credit_onenewbite_desc"
   /**Credits - 一口新饭 - url*/
   case credit_onenewbite_url = "credit_onenewbite_url"
+  /**Credits - goldengrape*/
+  case credit_goldengrape_name = "credit_goldengrape_name"
+  /**Credits - goldengrape 描述*/
+  case credit_goldengrape_desc = "credit_goldengrape_desc"
+  /**Credits - goldengrape - url*/
+  case credit_goldengrape_url = "credit_goldengrape_url"
 }
