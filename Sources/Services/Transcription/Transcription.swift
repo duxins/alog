@@ -14,7 +14,6 @@ enum TranscriptionError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidCustomServer: return L(.error_invalid_custom_server)
-        default: return ""
         }
     }
 }
