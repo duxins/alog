@@ -14,6 +14,8 @@ extension AppDelegate {
         let moc = DataContainer.shared.context
         let config = Config.shared
         
+        AppState.shared.isPremium = true
+        
         // MARK: - RESET SETTINGS
         config.sumEnabled = false
         config.transEnabled = true
