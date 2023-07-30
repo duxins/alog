@@ -69,6 +69,12 @@ public enum MyLocalizedKey: String {
   case terms_of_use = "terms_of_use"
   /**Source Code*/
   case source_code = "source_code"
+  /**Not Now*/
+  case not_now = "not_now"
+  /**Unlimited*/
+  case unlimited = "unlimited"
+  /**无效自定义服务器*/
+  case error_invalid_custom_server = "error_invalid_custom_server"
   /**外观 - 自动*/
   case dark_mode_auto = "dark_mode_auto"
   /**外观 - 浅色*/
@@ -79,6 +85,24 @@ public enum MyLocalizedKey: String {
   case server_default = "server_default"
   /**服务器 - 自定义*/
   case server_custom = "server_custom"
+  /**Premium*/
+  case premium = "premium"
+  /**一次性付费升级*/
+  case premium_one_time_upgrade = "premium_one_time_upgrade"
+  /**恢复购买*/
+  case premium_restore_purchase = "premium_restore_purchase"
+  /**总结数量*/
+  case premium_summary_num = "premium_summary_num"
+  /**提示词数量*/
+  case premium_prompt_num = "premium_prompt_num"
+  /**自定义服务器*/
+  case premium_custom_server = "premium_custom_server"
+  /**每日字符上限*/
+  case premium_daily_character_limit = "premium_daily_character_limit"
+  /**购买按钮 - 展示价格*/
+  case premium_go_premium = "premium_go_premium"
+  /**升级到高级版*/
+  case premium_upgrade_to_premium = "premium_upgrade_to_premium"
   /**申请权限 - 标题*/
   case permission_mic_title = "permission_mic_title"
   /**申请权限 - 正文*/

@@ -14,6 +14,9 @@ packages:
   KeychainAccess:
     url: https://github.com/kishikawakatsumi/KeychainAccess.git
     from: 4.2.0
+  ConfettiSwiftUI:
+    url: https://github.com/simibac/ConfettiSwiftUI.git
+    from: 1.1.0
   ArkanaKeys:
     path: ./ArkanaKeys/ArkanaKeys
   ArkanaKeysInterfaces:
@@ -52,6 +55,7 @@ targets:
       - package: KeychainAccess
       - package: ArkanaKeys
       - package: ArkanaKeysInterfaces
+      - package: ConfettiSwiftUI
     sources:
       - Sources
       - Resources

@@ -100,6 +100,15 @@
 /*Source Code*/
 "source_code" = "Source Code";
 
+/*Not Now*/
+"not_now" = "Not now";
+
+/*Unlimited*/
+"unlimited" = "Unlimited";
+
+/*无效自定义服务器*/
+"error_invalid_custom_server" = "Invalid custom server";
+
 /*外观 - 自动*/
 "dark_mode_auto" = "System Default";
 
@@ -114,6 +123,33 @@
 
 /*服务器 - 自定义*/
 "server_custom" = "Custom";
+
+/*Premium*/
+"premium" = "Premium";
+
+/*一次性付费升级*/
+"premium_one_time_upgrade" = "A one-time upgrade";
+
+/*恢复购买*/
+"premium_restore_purchase" = "Restore Purchase";
+
+/*总结数量*/
+"premium_summary_num" = "Summaries";
+
+/*提示词数量*/
+"premium_prompt_num" = "Prompts";
+
+/*自定义服务器*/
+"premium_custom_server" = "Custom server";
+
+/*每日字符上限*/
+"premium_daily_character_limit" = "Daily character limit";
+
+/*购买按钮 - 展示价格*/
+"premium_go_premium" = "Go Premium: %@";
+
+/*升级到高级版*/
+"premium_upgrade_to_premium" = "Upgrade to Premium";
 
 /*申请权限 - 标题*/
 "permission_mic_title" = "Allow ALog to access your microphone?";

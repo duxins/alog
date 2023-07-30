@@ -10,7 +10,7 @@ import StoreKit
 import XLog
 
 class IAPManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
-    enum State {
+    enum State: Equatable {
         case loading
         case loaded(SKProduct)
         case failed(Error?)

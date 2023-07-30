@@ -100,6 +100,15 @@
 /*Source Code*/
 "source_code" = "源代码";
 
+/*Not Now*/
+"not_now" = "以后再说";
+
+/*Unlimited*/
+"unlimited" = "无限";
+
+/*无效自定义服务器*/
+"error_invalid_custom_server" = "无效自定义服务器";
+
 /*外观 - 自动*/
 "dark_mode_auto" = "跟随系统";
 
@@ -114,6 +123,33 @@
 
 /*服务器 - 自定义*/
 "server_custom" = "自定义";
+
+/*Premium*/
+"premium" = "高级版";
+
+/*一次性付费升级*/
+"premium_one_time_upgrade" = "一次性付费升级";
+
+/*恢复购买*/
+"premium_restore_purchase" = "恢复购买";
+
+/*总结数量*/
+"premium_summary_num" = "总结数量";
+
+/*提示词数量*/
+"premium_prompt_num" = "提示词数量";
+
+/*自定义服务器*/
+"premium_custom_server" = "自定义服务器";
+
+/*每日字符上限*/
+"premium_daily_character_limit" = "每日字符上限";
+
+/*购买按钮 - 展示价格*/
+"premium_go_premium" = "升级到高级版：%@";
+
+/*升级到高级版*/
+"premium_upgrade_to_premium" = "升级到高级版";
 
 /*申请权限 - 标题*/
 "permission_mic_title" = "允许 ALog 访问你的麦克风吗？";

@@ -201,7 +201,7 @@ struct SettingsView: View {
             Button {
                 showPremium = true
             } label:{
-                Label("Premium", systemImage: "crown.fill")
+                Label(L(.premium), systemImage: "crown.fill")
                     .foregroundColor(.orange)
             }
         }
@@ -213,13 +213,14 @@ struct SettingsView: View {
     @ViewBuilder
     private var sectionInfo: some View {
         Section {
-            
             NavigationLink(destination: AboutView()) {
                 Text(L(.about_app))
             }
             
             HStack {
-                Text(L(.version))
+                HStack {
+                    Text(L(.version))
+                }
                 Spacer()
                 HStack {
                     Group {

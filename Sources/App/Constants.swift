@@ -36,4 +36,8 @@ struct Constants {
         static let premiumProductId = "app.tarbo.memo.premium"
     }
     
+    struct Limit {
+        static let prompts = 3
+    }
+    
 }

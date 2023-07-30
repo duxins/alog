@@ -61,4 +61,12 @@ class Config: ObservableObject {
     }
     
     @Published var isServerSet: Bool = false
+    
+    var isServerValid: Bool {
+        guard serverType == .custom else { return true }
+        if let _ = URL(string: serverHost) {
+            return true
+        }
+        return false
+    }
 }

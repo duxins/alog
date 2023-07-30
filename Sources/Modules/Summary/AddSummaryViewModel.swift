@@ -94,6 +94,12 @@ class AddSummaryViewModel: ObservableObject {
         
         var server = "default"
         if Config.shared.serverType == .custom {
+            
+            if !Config.shared.isServerValid {
+                summaryError = L(.error_invalid_custom_server)
+                return
+            }
+            
             server = Config.shared.serverHost
             model = Config.shared.aiModel
         }

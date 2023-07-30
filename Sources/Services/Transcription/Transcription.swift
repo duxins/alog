@@ -8,8 +8,15 @@
 import Foundation
 import XLog
 
-enum TranscriptionError: Error {
+enum TranscriptionError: LocalizedError {
+    case invalidCustomServer
     
+    var errorDescription: String? {
+        switch self {
+        case .invalidCustomServer: return L(.error_invalid_custom_server)
+        default: return ""
+        }
+    }
 }
 
 struct Transcription {
@@ -31,6 +38,10 @@ struct Transcription {
             let text = try await SpeechRecognizer.shared.transcribe(voiceURL, lang: lang)
             return text
         } else if provider == .openai {
+            if Config.shared.serverType == .custom && !Config.shared.isServerSet {
+                throw TranscriptionError.invalidCustomServer
+            }
+            
             let text = try await OpenAIClient.shared.transcribe(voiceURL, lang: lang).text
             if hallucinationList.contains(text) {
                 XLog.info("😵‍💫 skip '\(text)'", source: TAG)
