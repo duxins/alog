@@ -14,6 +14,8 @@ enum TranscriptionError: Error {
 
 struct Transcription {
     
+    private let TAG = "Trans"
+    
     let hallucinationList: Set<String> = [
         "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
         "請不吝點贊訂閱轉發打賞支持明鏡與點點欄目",
@@ -24,13 +26,14 @@ struct Transcription {
     ]
     
     func transcribe(voiceURL: URL, provider: TranscriptionProvider, lang: TranscriptionLang) async throws -> String {
+        XLog.info("Transcribe \(voiceURL.lastPathComponent) using \(provider). lang = \(lang.rawValue)", source: TAG)
         if provider == .apple {
             let text = try await SpeechRecognizer.shared.transcribe(voiceURL, lang: lang)
             return text
         } else if provider == .openai {
-            let text = try await OpenAIClient.shared.transcribe(voiceURL).text
+            let text = try await OpenAIClient.shared.transcribe(voiceURL, lang: lang).text
             if hallucinationList.contains(text) {
-                XLog.info("😵‍💫 skip '\(text)'", source: "Trans")
+                XLog.info("😵‍💫 skip '\(text)'", source: TAG)
                 return ""
             }
             return text

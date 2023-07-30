@@ -82,6 +82,12 @@
 /*总结*/
 "summarize" = "总结";
 
+/*重新总结*/
+"resummarize" = "重新总结";
+
+/*导出*/
+"export" = "导出";
+
 /*Try Again*/
 "try_again" = "重试";
 
@@ -164,7 +170,7 @@
 "settings_trans_provider" = "服务";
 
 /*设置 - 转写 - 隐私警告*/
-"settings_trans_privacy_warning" = "由于转录服务需要互联网连接，请不要录入任何敏感信息。";
+"settings_trans_privacy_warning" = "由于语音转写服务需要互联网连接，请不要录入敏感信息";
 
 /*设置 - 总结*/
 "settings_sum" = "总结";

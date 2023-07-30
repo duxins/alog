@@ -49,26 +49,35 @@ struct AddSummarySummarizeView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                if vm.isSummarizing {
-                    ProgressView()
+                HStack(spacing: 10) {
+                    VStack {
+                        Text(vm.model.displayName)
+                        Text("\(L(.prompt_temperature)): \(String(format: "%.1f", vm.temperature))")
+                    }
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Menu {
-                    Button {
+                if vm.isSummarizing {
+                    ProgressView()
+                } else {
+                    Menu {
+                        Button {
+                        } label: {
+                            Text(L(.save))
+                        }
+                        
+                        Button {
+                            vm.summarize()
+                        } label: {
+                            Text(L(.resummarize))
+                        }
                     } label: {
-                        Text("save")
+                        Image(systemName: "ellipsis")
                     }
-                    
-                    Button {
-                        vm.summarize()
-                    } label: {
-                        Text("Resummarize")
-                    }
-                } label: {
-                    Image(systemName: "ellipsis")
+                    .disabled(vm.isSummarizing || vm.summarizedResponse.isEmpty)
                 }
-                .disabled(vm.isSummarizing || vm.summarizedResponse.isEmpty)
             }
         }
     }

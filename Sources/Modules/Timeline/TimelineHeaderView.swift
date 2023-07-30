@@ -43,7 +43,7 @@ struct TimelineHeaderView: View {
                         appState.activeSheet = ActiveSheet.summarize(SummaryItem.day(dayId))
                     } label: {
                         Image(systemName: "chart.bar.doc.horizontal")
-                        Text("Summarize")
+                        Text(L(.summarize))
                     }
                 }
                 
@@ -52,7 +52,7 @@ struct TimelineHeaderView: View {
                     ShareHelper.share(items: [markdown])
                 } label: {
                     Image(systemName: "square.and.arrow.up.on.square")
-                    Text("Export")
+                    Text(L(.export))
                 }
             } label: {
                 Image(systemName: "ellipsis.circle")

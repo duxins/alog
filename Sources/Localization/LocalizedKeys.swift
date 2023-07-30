@@ -57,6 +57,10 @@ public enum MyLocalizedKey: String {
   case optional = "optional"
   /**总结*/
   case summarize = "summarize"
+  /**重新总结*/
+  case resummarize = "resummarize"
+  /**导出*/
+  case export = "export"
   /**Try Again*/
   case try_again = "try_again"
   /**Privacy Policy*/

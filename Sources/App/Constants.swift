@@ -8,6 +8,10 @@
 import Foundation
 
 struct Constants {
+    
+    static let api_base_url = URL(string: "https://worker.alog.tarbotech.com/")!
+    static let user_agent = "ALog \(AppInfo.appVersion)"
+    
     struct Contact {
         static let twitter = "https://twitter.com/tarbo_du"
         static let github = "https://github.com/duxins"

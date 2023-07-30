@@ -82,6 +82,12 @@
 /*总结*/
 "summarize" = "Summarize";
 
+/*重新总结*/
+"resummarize" = "Resummarize";
+
+/*导出*/
+"export" = "Export";
+
 /*Try Again*/
 "try_again" = "Try again";
 

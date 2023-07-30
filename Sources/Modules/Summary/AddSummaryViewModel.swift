@@ -43,6 +43,7 @@ class AddSummaryViewModel: ObservableObject {
     @Published var summarizedResponse = ""
     @Published var summaryError = ""
     @Published var saved = false
+    @Published var model: OpenAIChatModel = .gpt_3_5_16k
     
     
     private var cancellationTask: Task<Void, Never>? = nil
@@ -90,12 +91,21 @@ class AddSummaryViewModel: ObservableObject {
     
     func summarize() {
         if isSummarizing { return }
+        
+        var server = "default"
+        if Config.shared.serverType == .custom {
+            server = Config.shared.serverHost
+            model = Config.shared.aiModel
+        }
+        
+        XLog.info("Summarize (prompt: \(selectedPrompt?.viewTitle ?? ""), server: \(server), temp: \(temperature), model: \(model.name))", source: "Summary")
+        
         cancellationTask = Task { @MainActor in
             isSummarizing = true
             do {
                 summaryError = ""
                 summarizedResponse = ""
-                let stream = try await OpenAIClient().summarize(summaryMessage, temperature: temperature)
+                let stream = try await OpenAIClient().summarize(summaryMessage, model: model, temperature: temperature)
                 for try await text in stream {
                     summarizedResponse += text
                 }

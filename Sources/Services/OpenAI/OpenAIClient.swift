@@ -7,6 +7,7 @@
 
 import Foundation
 import XLog
+import CryptoKit
 
 struct OpenAIResponse {
     struct Error: Codable {
@@ -15,10 +16,6 @@ struct OpenAIResponse {
             let message: String
             let code: String?
         }
-    }
-    
-    struct Models: Codable {
-        let object: String
     }
     
     struct Transcription: Codable {
@@ -79,33 +76,95 @@ class OpenAIClient {
     static let shared = OpenAIClient()
     private let TAG = "OpenAI"
     
-    let baseURL = URL(string: "https://api.openai.com/")!
+    private var baseURL: URL {
+        guard Config.shared.serverType == .custom else {
+            return Constants.api_base_url
+        }
+        
+        return URL(string: Config.shared.serverHost)!
+    }
     
+    private var apiKey: String? {
+        guard Config.shared.serverType == .custom else {
+            return nil
+        }
+        
+        let key = Config.shared.serverAPIKey
+        return key.isEmpty ? nil : key
+    }
     
-    /// 验证 API KEY
+    private var requiresHMAC: Bool {
+        Config.shared.serverType == .app
+    }
+    
+    /// 验证服务器
+    /// - Parameter host: 服务器主机
     /// - Parameter key: API KEY
-    func verify(_ host: String, key: String?) async throws -> OpenAIResponse.Models {
+    func verify(_ host: String, key: String?) async throws -> OpenAIResponse.Chat {
         guard let hostURL = URL(string: host) else {
             throw URLError(.badURL)
         }
-        let url = hostURL.appending(path: "v1/models")
+        
+        let url = hostURL.appending(path: "v1/chat/completions")
         var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if let key {
             request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         }
-        let sub = try await send(request, type: OpenAIResponse.Models.self)
-        return sub
+        
+        let params: [String: Any] = ["model": "gpt-3.5-turbo", "messages": [["role": "system", "content": "hello"]]]
+        request.httpBody = try JSONSerialization.data(withJSONObject: params)
+        let ret = try await send(request, type: OpenAIResponse.Chat.self)
+        return ret
     }
     
-    func summarize(_ msg: String, temperature: Double = 0.4) async throws -> AsyncThrowingStream<String, Error> {
-        let url = baseURL.appending(path: "v1/chat/completions")
-        let model = Config.shared.aiModel.name
+    private func buildRequest(url: URL, method: String = "POST") -> URLRequest {
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let params: [String: Any] = ["model": model, "stream": true, "temperature": temperature, "messages": [["role": "system", "content": msg]]]
-        request.httpBody = try JSONSerialization.data(withJSONObject: params)
+        request.httpMethod = method
+        
+        XLog.debug("\(method) \(url)", source: TAG)
+        
+        if let key = apiKey {
+            XLog.debug("\t|- API KEY = \(key.prefix(10))...", source: TAG)
+            request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        }
+        
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(Config.shared.serverAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.user_agent, forHTTPHeaderField: "User-Agent")
+        
+        if requiresHMAC {
+            let id = generateRequestId()
+            let hmac = generateHMAC(id)
+            request.setValue(id, forHTTPHeaderField: "x-alog-request-id")
+            request.setValue(hmac, forHTTPHeaderField: "x-alog-hmac")
+            XLog.debug("\t|- request_id = \(id), hmac = \(hmac)", source: TAG)
+        }
+        
+        return request
+    }
+    
+    private func generateRequestId() -> String {
+        let ts = String(Int(Date().timeIntervalSince1970))
+        return "\(ts)-\(UUID().uuidString.lowercased())"
+    }
+    
+    private func generateHMAC(_ message: String) -> String {
+        let keyData = "hello".data(using: .utf8)!
+        let key = SymmetricKey(data: keyData)
+        let data = message.data(using: .utf8)!
+        let hmac = HMAC<SHA256>.authenticationCode(for: data, using: key)
+        let hexString = hmac.map { String(format: "%02hhx", $0) }.joined()
+        return hexString
+    }
+    
+    func summarize(_ msg: String, model: OpenAIChatModel, temperature: Double = 0.4) async throws -> AsyncThrowingStream<String, Error> {
+        let url = baseURL.appending(path: "v1/chat/completions")
+        var request = buildRequest(url: url)
+        
+        let params: [String: Any] = ["model": model.name, "stream": true, "temperature": temperature, "messages": [["role": "system", "content": msg]]]
+        request.httpBody = try JSONSerialization.data(withJSONObject: params)
+        
         let (data, response) = try await URLSession.shared.bytes(for: request)
         
         guard let response = response as? HTTPURLResponse else { throw OpenAIError.badResponse("") }
@@ -131,40 +190,40 @@ class OpenAIClient {
                     continuation.finish(throwing: error)
                 }
                 continuation.onTermination = { @Sendable status in
-                    XLog.info("Stream terminated: \(status)", source: "OpenAI")
+                    XLog.info("Stream terminated with status: \(status)", source: "OpenAI")
                 }
             }
         }
     }
     
-    func parseChunk(_ line: String) -> String? {
+    private func parseChunk(_ line: String) -> String? {
         let components = line.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
         guard components.count == 2, components[0] == "data" else { return nil }
         let message = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
         if message == "[DONE]" { return "\n" }
-        let chunk = try! JSONDecoder().decode(OpenAIResponse.Chunk.self, from: message.data(using: .utf8)!)
-        return chunk.choices.first?.delta.content
+        let chunk = try? JSONDecoder().decode(OpenAIResponse.Chunk.self, from: message.data(using: .utf8)!)
+        return chunk?.choices.first?.delta.content
     }
     
     /// 转写音频文件
     /// - Parameter fileURL: 文件路径
-    func transcribe(_ fileURL: URL) async throws -> OpenAIResponse.Transcription {
+    func transcribe(_ fileURL: URL, lang: TranscriptionLang = .auto) async throws -> OpenAIResponse.Transcription {
         let url = baseURL.appending(path: "v1/audio/transcriptions")
-        var request = URLRequest(url: url)
-        request.setValue("Bearer \(Config.shared.serverAPIKey)", forHTTPHeaderField: "Authorization")
+        var request = buildRequest(url: url)
         
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
+        
         let body: Data!
         do {
             var params = ["model": "whisper-1"]
-            if Config.shared.transLang != .auto {
-                params["language"] = Config.shared.transLang.whisperLangCode
-                if let prompt = Config.shared.transLang.whisperPrompt {
+            if lang != .auto {
+                params["language"] = lang.whisperLangCode
+                if let prompt = lang.whisperPrompt {
                     params["prompt"] = prompt
                 }
             }
+            XLog.debug("Whisper params = \(params)", source: TAG)
             body = try createWhisperBody(boundary: boundary, fileURL: fileURL, params: params)
         } catch {
             throw OpenAIError.unknown(error)
@@ -194,7 +253,6 @@ class OpenAIClient {
     }
     
     private func send<T: Decodable>(_ request: URLRequest, type: T.Type) async throws -> T {
-        XLog.debug("➡ \(request)", source: TAG)
         let (data, response) =  try await URLSession.shared.data(for: request)
         return try decodeResponse(data: data, response: response, type: T.self)
     }

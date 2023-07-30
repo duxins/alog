@@ -16,6 +16,8 @@ struct ServerSettingsView: View {
         Form {
             Section {
                 TextField("", text: $vm.host)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
                     .overlay {
                         HStack {
                             Spacer()

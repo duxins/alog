@@ -30,6 +30,8 @@
 "preview","预览","Preview",预览
 "optional","可选","Optional",可选
 "summarize","总结","Summarize",总结
+"resummarize","重新总结","Resummarize",重新总结
+"export","导出","Export",导出
 "try_again","Try Again","Try again",重试
 "privacy_policy","Privacy Policy","Privacy Policy",隐私权政策
 "terms_of_use","Terms of Use","Terms of Use",使用条款
@@ -61,7 +63,7 @@
 "settings_trans","设置 - 转写","Transcription",语音转写
 "settings_trans_lang","设置 - 转写 - 语言","Main Language",转写语言
 "settings_trans_provider","设置 - 转写 - 服务","Service",服务
-"settings_trans_privacy_warning","设置 - 转写 - 隐私警告","As the transcription services require internet connection, please don't record any sensitive information.",由于转录服务需要互联网连接，请不要录入任何敏感信息。
+"settings_trans_privacy_warning","设置 - 转写 - 隐私警告","As the transcription services require internet connection, please don't record any sensitive information.",由于语音转写服务需要互联网连接，请不要录入敏感信息
 "settings_sum","设置 - 总结","Summarization",总结
 "settings_sum_provider","设置 - 总结 - 服务","Service",服务
 "settings_sum_ai_model","设置 - 总结 - AI 模型","AI Model",AI 模型
