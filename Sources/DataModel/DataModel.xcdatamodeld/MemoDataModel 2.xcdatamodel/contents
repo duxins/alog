@@ -34,4 +34,10 @@
         <attribute name="timezone" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
     </entity>
+    <entity name="UsageEntity" representedClassName="UsageEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="charsReceived" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="charsSent" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="whisperDuration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
 </model>
