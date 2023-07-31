@@ -36,6 +36,7 @@ class AddSummaryViewModel: ObservableObject {
     @Published var showFatalError = false
     @Published var memoContent = ""
     @Published var summaryMessage = ""
+    @Published var summaryMessageCharCount = 0
     
     @Published var navPath: [AddSummaryNavPath] = []
     
@@ -57,6 +58,11 @@ class AddSummaryViewModel: ObservableObject {
         }
         
         self.defaultTitle = L(.sum_title_default, DateHelper.formatIdentifier(dayId, dateFormat: "yyyy-MM-dd"))
+        
+        $summaryMessage.map {
+            $0.count
+        }.assign(to: &$summaryMessageCharCount)
+        
     }
     
     func fetchEntries() {
@@ -124,6 +130,11 @@ class AddSummaryViewModel: ObservableObject {
                 summarizedResponse = ""
                 let stream = try await OpenAIClient().summarize(summaryMessage, model: model, temperature: temperature)
                 for try await text in stream {
+                    // first response
+                    if summarizedResponse == "" {
+                        XLog.info("Sent characters = \(summaryMessageCharCount)", source: "Summary")
+                        DataContainer.shared.recordUsage(charsSent: summaryMessageCharCount)
+                    }
                     summarizedResponse += text
                 }
             } catch {

@@ -16,7 +16,15 @@ struct AddSummaryPreviewView: View {
             Form {
                 Section {
                     MyTextView(text: $vm.summaryMessage)
+                } header: {
+                    HStack {
+                        Spacer()
+                        Text("\(L(.characters)): \(vm.summaryMessageCharCount)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
                 }
+                .headerProminence(.increased)
             }
         }
         .navigationTitle(L(.preview))

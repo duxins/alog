@@ -106,6 +106,9 @@
 /*Unlimited*/
 "unlimited" = "无限";
 
+/*Characters*/
+"characters" = "字数";
+
 /*无效自定义服务器*/
 "error_invalid_custom_server" = "无效自定义服务器";
 

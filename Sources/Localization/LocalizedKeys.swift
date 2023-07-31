@@ -73,6 +73,8 @@ public enum MyLocalizedKey: String {
   case not_now = "not_now"
   /**Unlimited*/
   case unlimited = "unlimited"
+  /**Characters*/
+  case characters = "characters"
   /**无效自定义服务器*/
   case error_invalid_custom_server = "error_invalid_custom_server"
   /**外观 - 自动*/

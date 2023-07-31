@@ -38,6 +38,8 @@ struct Constants {
     
     struct Limit {
         static let prompts = 3
+        static let daily_characters = 20000
+        static let daily_characters_premium = daily_characters * 5
     }
     
 }
