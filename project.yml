@@ -3,7 +3,7 @@ options:
   useBaseInternationalization: false
   enableBaseInternationalization: false
   groupOrdering:
-    - order: [Sources, Resources]
+    - order: [Sources, Resources, Shared]
 settings:
   MARKETING_VERSION: 0.0.2
   CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: true
@@ -61,8 +61,12 @@ targets:
     type: application
     platform: watchOS
     deploymentTarget: "9.0"
+    dependencies:
+      - package: XLog
+      - package: XLang
     sources:
       - Watch
+      - Shared
     info:
       path: Watch/Info.plist
       properties:
