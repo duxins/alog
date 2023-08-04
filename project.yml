@@ -5,7 +5,12 @@ options:
   groupOrdering:
     - order: [Sources, Resources]
 settings:
+  MARKETING_VERSION: 0.0.2
   CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: true
+  CODE_SIGN_STYLE: Manual
+  CURRENT_PROJECT_VERSION: 1
+  VERSIONING_SYSTEM: apple-generic
+  DEVELOPMENT_TEAM: ZTQ4TGAKFX
 packages:
   XLog:
     path: ./Packages/XLog
@@ -36,6 +41,13 @@ schemes:
       commandLineArguments:
         "-com.apple.CoreData.ConcurrencyDebug 1": true
         "-com.apple.CoreData.SQLDebug 1": true
+  ALogWatch:
+    build:
+      targets:
+        ALogWatch: all
+      config: Debug
+    run:
+      config: Debug
   SnapshotTests:
     build:
       targets:
@@ -45,6 +57,29 @@ schemes:
         - SnapshotTests
       config: Snapshot
 targets:
+  ALogWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "9.0"
+    sources:
+      - Watch
+    info:
+      path: Watch/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        WKCompanionAppBundleIdentifier: app.tarbo.memo
+    settings:
+      base: 
+        PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.watch
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: true
+      configs:
+        Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development app.tarbo.memo.watch
+          CODE_SIGN_IDENTITY: iPhone Developer
+        AppStore:
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo.watch
+          CODE_SIGN_IDENTITY: iPhone Distribution
   ALog:
     type: application
     platform: iOS
@@ -56,9 +91,11 @@ targets:
       - package: ArkanaKeys
       - package: ArkanaKeysInterfaces
       - package: ConfettiSwiftUI
+      - target: ALogWatch
     sources:
       - Sources
       - Resources
+      - Shared
     info:
       path: Resources/Info.plist
       properties:
@@ -75,12 +112,7 @@ targets:
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
-        CODE_SIGN_STYLE: Manual
-        MARKETING_VERSION: 0.0.2
-        CURRENT_PROJECT_VERSION: 1
-        VERSIONING_SYSTEM: apple-generic
         PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo
-        DEVELOPMENT_TEAM: ZTQ4TGAKFX
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
       configs:
         Debug:
