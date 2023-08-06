@@ -31,6 +31,7 @@ class DataContainer: ObservableObject {
         
         context = persistentContainer.viewContext
         
+        registerNotifications()
     }
 }
 

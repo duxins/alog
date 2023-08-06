@@ -135,3 +135,8 @@ I will ask you to:
 "credit_goldengrape_name","Credits - goldengrape","goldengrape",goldengrape
 "credit_goldengrape_desc","Credits - goldengrape 描述","We referred to his excellent prompts",我们参考了他的优秀提示词
 "credit_goldengrape_url","Credits - goldengrape - url","https://quail.ink/goldengrape/p/write-diary-with-chatgpt-en",https://quail.ink/goldengrape/p/write-diary-with-chatgpt
+# Watch #
+"watch_permission_title","Watch - 没有权限 - 标题","Microphone Access",麦克风访问权限
+"watch_permission_msg","Watch - 没有权限 - 内容","ALog will not work without access to the microphone. You can enable access in Settings.",没有麦克风访问权限，ALog 将无法正常工作。您可以在系统设置种启用访问权限。
+"watch_recents","Watch - 最近录音","Recents",最近录音
+"watch_recents_empty","Watch - 没有录音","No Recordings",无录音

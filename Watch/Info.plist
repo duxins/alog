@@ -18,6 +18,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ALog requires access to your microphone.</string>
 	<key>WKCompanionAppBundleIdentifier</key>
 	<string>app.tarbo.memo</string>
 </dict>

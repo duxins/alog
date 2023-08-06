@@ -60,6 +60,7 @@ class AudioRecorder: NSObject, ObservableObject {
     
     func terminate() {
         XLog.debug("terminating recording", source: "Audio")
+        guard isRecording else { return }
         self.isTerminating = true
         stopRecording()
         recorder.deleteRecording()
@@ -68,7 +69,11 @@ class AudioRecorder: NSObject, ObservableObject {
     static func requestPermission() {
         AVAudioSession.sharedInstance().requestRecordPermission() { allowed in
             DispatchQueue.main.async {
+                #if os(iOS)
                 AppState.shared.micPermission = AVAudioSession.sharedInstance().recordPermission
+                #else
+                WatchAppState.shared.micPermission = AVAudioSession.sharedInstance().recordPermission
+                #endif
             }
         }
     }
@@ -81,7 +86,11 @@ class AudioRecorder: NSObject, ObservableObject {
             try session.setActive(true)
             session.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
+                    #if os(iOS)
                     AppState.shared.micPermission = AVAudioSession.sharedInstance().recordPermission
+                    #else
+                    WatchAppState.shared.micPermission = AVAudioSession.sharedInstance().recordPermission
+                    #endif
                     if allowed {
                         self.record()
                     }

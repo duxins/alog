@@ -332,3 +332,15 @@
 
 /*Credits - goldengrape - url*/
 "credit_goldengrape_url" = "https://quail.ink/goldengrape/p/write-diary-with-chatgpt";
+
+/*Watch - 没有权限 - 标题*/
+"watch_permission_title" = "麦克风访问权限";
+
+/*Watch - 没有权限 - 内容*/
+"watch_permission_msg" = "没有麦克风访问权限，ALog 将无法正常工作。您可以在系统设置种启用访问权限。";
+
+/*Watch - 最近录音*/
+"watch_recents" = "最近录音";
+
+/*Watch - 没有录音*/
+"watch_recents_empty" = "无录音";

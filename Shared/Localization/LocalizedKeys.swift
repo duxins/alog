@@ -221,4 +221,12 @@ public enum MyLocalizedKey: String {
   case credit_goldengrape_desc = "credit_goldengrape_desc"
   /**Credits - goldengrape - url*/
   case credit_goldengrape_url = "credit_goldengrape_url"
+  /**Watch - 没有权限 - 标题*/
+  case watch_permission_title = "watch_permission_title"
+  /**Watch - 没有权限 - 内容*/
+  case watch_permission_msg = "watch_permission_msg"
+  /**Watch - 最近录音*/
+  case watch_recents = "watch_recents"
+  /**Watch - 没有录音*/
+  case watch_recents_empty = "watch_recents_empty"
 }

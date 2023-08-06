@@ -332,3 +332,15 @@ I will ask you to:
 
 /*Credits - goldengrape - url*/
 "credit_goldengrape_url" = "https://quail.ink/goldengrape/p/write-diary-with-chatgpt-en";
+
+/*Watch - 没有权限 - 标题*/
+"watch_permission_title" = "Microphone Access";
+
+/*Watch - 没有权限 - 内容*/
+"watch_permission_msg" = "ALog will not work without access to the microphone. You can enable access in Settings.";
+
+/*Watch - 最近录音*/
+"watch_recents" = "Recents";
+
+/*Watch - 没有录音*/
+"watch_recents_empty" = "No Recordings";

@@ -72,6 +72,7 @@ targets:
       properties:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         WKCompanionAppBundleIdentifier: app.tarbo.memo
+        NSMicrophoneUsageDescription: "ALog requires access to your microphone."
     settings:
       base: 
         PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.watch

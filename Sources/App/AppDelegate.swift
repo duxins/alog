@@ -20,6 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         #endif
         XLog.config(label: Bundle.main.bundleIdentifier!, level: loggerLevel)
         
+        Connectivity.shared.activate()
+        
         applyTheme()
         return true
     }
