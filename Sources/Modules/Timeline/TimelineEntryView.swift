@@ -55,21 +55,38 @@ struct TimelineEntryView: View {
     
     @ViewBuilder
     private func contentLabel() -> some View {
-        Text(memo.viewContent)
-            .foregroundColor(.app_timeline_text)
+        if vm.transcribingMemos.contains(memo) {
+            Text(L(.transcribing))
+                .foregroundColor(.secondary)
+        } else {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(memo.viewContent)
+                    .foregroundColor(.app_timeline_text)
+                if let err = vm.failedMemos[memo] {
+                    Text(err.localizedDescription)
+                        .font(.caption2)
+                        .foregroundColor(.red)
+                }
+            }
+        }
     }
     
     @ViewBuilder
     private func menu() -> some View {
-        Menu {
-            editButton
-            if memo.viewContent.count > 0 { shareButton }
-            if memo.file != nil { shareAudioButton }
-            deleteButton
-        } label: {
-            Image(systemName: "ellipsis")
-                .foregroundColor(.app_timeline_time)
-                .frame(width: 30, height: 30)
+        if vm.transcribingMemos.contains(memo) {
+            ProgressView()
+        } else {
+            Menu {
+                transButton
+                editButton
+                if memo.viewContent.count > 0 { shareButton }
+                if memo.file != nil { shareAudioButton }
+                deleteButton
+            } label: {
+                Image(systemName: "ellipsis")
+                    .foregroundColor(.app_timeline_time)
+                    .frame(width: 30, height: 30)
+            }
         }
     }
     
@@ -145,6 +162,19 @@ struct TimelineEntryView: View {
         } label: {
             Image(systemName: "doc.on.doc")
             Text(L(.copy))
+        }
+    }
+    
+    private var transButton: some View {
+        Button {
+            vm.transcribe(memo)
+        } label: {
+            Image(systemName: "pencil.and.outline")
+            if memo.transcribed {
+                Text(L(.retranscribe))
+            } else {
+                Text(L(.transcribe))
+            }
         }
     }
 }

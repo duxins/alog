@@ -7,10 +7,10 @@
 
 import Foundation
 import XLog
+import Combine
 
 enum TranscriptionError: LocalizedError {
     case invalidCustomServer
-    
     var errorDescription: String? {
         switch self {
         case .invalidCustomServer: return L(.error_invalid_custom_server)
@@ -18,9 +18,15 @@ enum TranscriptionError: LocalizedError {
     }
 }
 
-struct Transcription {
+class Transcription {
+    
+    static let shared = Transcription()
     
     private let TAG = "Trans"
+    
+    var memoQueue = [(MemoEntity, (Result<String, Error>) -> Void)]()
+    var activeTask = 0
+    var maxConcurrent = 2
     
     let hallucinationList: Set<String> = [
         "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
@@ -51,4 +57,28 @@ struct Transcription {
         return ""
     }
     
+    func transcribe(_ memo: MemoEntity, completion: @escaping (Result<String, Error>) -> Void) {
+        memoQueue.append((memo, completion))
+        processNext()
+    }
+    
+    private func processNext() {
+        while !memoQueue.isEmpty && activeTask < maxConcurrent {
+            activeTask += 1
+            let (memo, completion) = memoQueue.removeFirst()
+            
+            Task { @MainActor in
+                do {
+//                    try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+                    let voiceURL = FileHelper.fullAudioURL(for: memo.file!)
+                    let text = try await transcribe(voiceURL: voiceURL, provider: Config.shared.transProvider, lang: Config.shared.transLang)
+                    completion(.success(text))
+                } catch {
+                    completion(.failure(error))
+                }
+                activeTask -= 1
+                processNext()
+            }
+        }
+    }
 }

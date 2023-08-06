@@ -85,6 +85,12 @@
 /*重新总结*/
 "resummarize" = "Resummarize";
 
+/*转写*/
+"transcribe" = "Transcribe";
+
+/*重新转写*/
+"retranscribe" = "Re-transcribe";
+
 /*导出*/
 "export" = "Export";
 

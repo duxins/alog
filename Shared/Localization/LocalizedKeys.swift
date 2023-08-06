@@ -59,6 +59,10 @@ public enum MyLocalizedKey: String {
   case summarize = "summarize"
   /**重新总结*/
   case resummarize = "resummarize"
+  /**转写*/
+  case transcribe = "transcribe"
+  /**重新转写*/
+  case retranscribe = "retranscribe"
   /**导出*/
   case export = "export"
   /**Try Again*/
