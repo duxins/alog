@@ -44,14 +44,26 @@ struct RecordingCompletedView: View {
                     } header: {
                         Text(L(.memo))
                     } footer: {
-                        if let err = vm.transcriptionError {
-                            Text(err)
-                                .foregroundColor(.red)
-                                .frame(maxWidth: .infinity)
+                        VStack(spacing: 20) {
+                            if let err = vm.transcriptionError {
+                                Text(err)
+                                    .foregroundColor(.red)
+                                    .frame(maxWidth: .infinity)
+                                Button {
+                                    vm.transcriptionError = nil
+                                    vm.transcribe()
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "arrow.clockwise")
+                                        Text(L(.try_again))
+                                    }
+                                }
+                                .buttonStyle(TryAgainButtonStyle())
+                            }
+                            
+                            playerView()
+                                .padding(.top, 20)
                         }
-                        
-                        playerView()
-                            .padding(.top, 30)
                     }
                 }
             }
