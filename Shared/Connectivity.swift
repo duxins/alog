@@ -67,10 +67,11 @@ extension Connectivity: WCSessionDelegate {
         return true
     }
     
-    func sendFile(_ url: URL, createdAt: Date, timezone: String = TimeZone.current.identifier) {
+    func sendFile(_ url: URL, createdAt: Date, timezone: String = TimeZone.current.identifier, duration: Double = 0) {
         guard canSendFile() else { return }
         WCSession.default.transferFile(url, metadata: [
             "timezone": timezone,
+            "duration": duration,
             "createdAt": createdAt
         ])
     }

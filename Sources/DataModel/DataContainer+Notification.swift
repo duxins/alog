@@ -36,6 +36,7 @@ extension DataContainer {
                 XLog.info(metadata, source: "DC")
                 memo.timezone = (metadata["timezone"] as? String) ?? TimeZone.current.identifier
                 memo.createdAt = (metadata["createdAt"] as? Date) ?? Date()
+                memo.duration = (metadata["duration"] as? Double) ?? 0
             }
             
             do {

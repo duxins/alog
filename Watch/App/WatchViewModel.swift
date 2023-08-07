@@ -45,7 +45,7 @@ class WatchViewModel: ObservableObject {
     private func sendRecording(_ rec: RecordingEntity) {
         guard let file = rec.file else { return }
         let url = FileHelper.fullAudioURL(for: file)
-        conn.sendFile(url, createdAt: rec.viewCreatedAt, timezone: rec.viewTimeZone)
+        conn.sendFile(url, createdAt: rec.viewCreatedAt, timezone: rec.viewTimeZone, duration: rec.duration)
     }
     
     func saveFile(_ url: URL, sync: Bool = true) {
