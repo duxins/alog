@@ -29,19 +29,18 @@ class Transcription {
     
     /// 转写最大并发
     var maxConcurrent: Int {
-        // 默认服务器（whisper)
-        if Config.shared.serverType == .app && Config.shared.transProvider == .openai {
-            return 2
+        if Config.shared.transProvider == .apple {
+            return 1
         }
-        return 4
+        return Config.shared.serverType == .app ? 2 : 4
     }
     
     /// 延迟
     var delay: UInt64 {
-        if Config.shared.serverType == .app && Config.shared.transProvider == .openai {
+        if Config.shared.transProvider == .apple {
             return 1
         }
-        return 0
+        return Config.shared.serverType == .app ? 1 : 0
     }
     
     let hallucinationList: Set<String> = [
