@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import XLog
+import CoreData
 
 class TimelineViewModel: ObservableObject {
     @Published var showDeleteAlert = false
@@ -23,6 +24,26 @@ class TimelineViewModel: ObservableObject {
     
     @Published var transcribingMemos = Set<MemoEntity>()
     @Published var failedMemos = [MemoEntity: Error]()
+    
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave), name: .NSManagedObjectContextDidSave, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func contextDidSave(notification: Notification) {
+        guard Config.shared.transEnabled else { return }
+        guard let userInfo = notification.userInfo else { return }
+        if let insertedObjects = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, !insertedObjects.isEmpty {
+            for obj in insertedObjects {
+                guard let memo = obj as? MemoEntity else { continue }
+                guard memo.isFromWatch else { continue }
+                transcribe(memo)
+            }
+        }
+    }
     
     func transcribe(_ memo: MemoEntity) {
         guard memo.file != nil else { return }

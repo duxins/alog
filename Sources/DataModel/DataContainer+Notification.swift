@@ -31,6 +31,13 @@ extension DataContainer {
             memo.content = ""
             memo.transcribed = false
             memo.isFromWatch = true
+            
+            if let metadata = file.metadata {
+                XLog.info(metadata, source: "DC")
+                memo.timezone = (metadata["timezone"] as? String) ?? TimeZone.current.identifier
+                memo.createdAt = (metadata["createdAt"] as? Date) ?? Date()
+            }
+            
             do {
                 try self.context.save()
             } catch {

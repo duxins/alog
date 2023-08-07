@@ -26,7 +26,23 @@ class Transcription {
     
     var memoQueue = [(MemoEntity, (Result<String, Error>) -> Void)]()
     var activeTask = 0
-    var maxConcurrent = 2
+    
+    /// 转写最大并发
+    var maxConcurrent: Int {
+        // 默认服务器（whisper)
+        if Config.shared.serverType == .app && Config.shared.transProvider == .openai {
+            return 2
+        }
+        return 4
+    }
+    
+    /// 延迟
+    var delay: UInt64 {
+        if Config.shared.serverType == .app && Config.shared.transProvider == .openai {
+            return 1
+        }
+        return 0
+    }
     
     let hallucinationList: Set<String> = [
         "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
@@ -69,7 +85,7 @@ class Transcription {
             
             Task { @MainActor in
                 do {
-//                    try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+                    try await Task.sleep(nanoseconds: delay * 1_000_000_000)
                     let voiceURL = FileHelper.fullAudioURL(for: memo.file!)
                     let text = try await transcribe(voiceURL: voiceURL, provider: Config.shared.transProvider, lang: Config.shared.transLang)
                     completion(.success(text))
