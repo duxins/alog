@@ -1,1 +1,1 @@
-audio diary,语音日记,voice memo,AI,总结,语音识别,笔记,录音,语音助手,开源,日记
+audio diary,语音日记,voice memo,AI,总结,语音识别,笔记,录音,语音助手,开源,日记,watch,手表
