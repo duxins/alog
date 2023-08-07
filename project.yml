@@ -64,6 +64,7 @@ targets:
     dependencies:
       - package: XLog
       - package: XLang
+      - target: ALogWatchWidget
     sources:
       - Watch
       - Shared
@@ -84,6 +85,31 @@ targets:
           CODE_SIGN_IDENTITY: iPhone Developer
         AppStore:
           PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo.watch
+          CODE_SIGN_IDENTITY: iPhone Distribution
+  ALogWatchWidget:
+    type: app-extension
+    platform: watchOS
+    deploymentTarget: "9.0"
+    sources:
+      - WatchWidget
+    info:
+      path: WatchWidget/Info.plist
+      properties:
+        CFBundleDisplayName: ALog
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+    settings:
+      base: 
+        PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.watch.widget
+        GENERATE_INFOPLIST_FILE: true
+      configs:
+        Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development app.tarbo.memo.watch.widget
+          CODE_SIGN_IDENTITY: iPhone Developer
+        AppStore:
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo.watch.widget
           CODE_SIGN_IDENTITY: iPhone Distribution
   ALog:
     type: application
