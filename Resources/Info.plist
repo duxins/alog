@@ -31,7 +31,7 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Access to speech recognition functionality is required.</string>
 	<key>RELEASE_DATE</key>
-	<string>20230729</string>
+	<string>20230808</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UISupportedInterfaceOrientations</key>
