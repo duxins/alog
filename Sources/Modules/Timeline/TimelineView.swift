@@ -57,9 +57,7 @@ struct TimelineView: View {
             .alert(isPresented: $vm.showDeleteAlert) {
                 Alert(title: Text(L(.are_you_sure)), primaryButton: .destructive(Text(L(.delete))) {
                     guard let item = vm.memoToDelete else { return }
-                    withAnimation(.linear(duration: 0.1)) {
-                        MemoEntity.delete(moc: moc, memo: item)
-                    }
+                    MemoEntity.delete(moc: moc, memo: item)
                 }, secondaryButton: .cancel() {
                     vm.memoToDelete = nil
                 })
