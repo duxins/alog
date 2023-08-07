@@ -257,7 +257,7 @@
 "trans_provider_apple" = "System";
 
 /*转写 - OpenAI (Whisper)*/
-"trans_provider_openai" = "OpenAI (Whisper)";
+"trans_provider_openai" = "Whisper";
 
 /*转写 - Apple - 提示*/
 "trans_provider_apple_notice" = "Less accurate and limited to 1 minute audio duration.";

@@ -97,7 +97,7 @@
 "summary_empty","Summary - ""no summaries""","No Summaries",无记录
 # 转写 #
 "trans_provider_apple","转写 - Apple","System",系统
-"trans_provider_openai","转写 - OpenAI (Whisper) ","OpenAI (Whisper)",OpenAI (Whisper)
+"trans_provider_openai","转写 - OpenAI (Whisper) ","Whisper",Whisper
 "trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration.",准确度较低且仅限于1分钟的音频时长。
 "transcribing","转写 - 正在转写 ","Transcribing ...",正在转写 ...
 # 转写语言 #
