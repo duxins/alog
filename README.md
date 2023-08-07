@@ -1,5 +1,7 @@
 # ALog
 
+<img src="Images/Promo.png" style="height: 400px" />
+
 ## Installation
 
 [![Download ALog on the App Store](https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg)](https://apps.apple.com/us/app/alog/id6451082482)
