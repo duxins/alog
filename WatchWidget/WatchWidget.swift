@@ -48,7 +48,7 @@ struct WatchWidgetEntryView : View {
 
 @main
 struct WatchWidget: Widget {
-    let kind: String = "XXX"
+    let kind: String = "main"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
