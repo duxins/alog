@@ -1,2 +1,1 @@
-- Added Simplified Chinese translation
-- Added custom server support
+- Added Support for watchOS
