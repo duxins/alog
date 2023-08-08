@@ -43,6 +43,7 @@ struct WatchWidgetEntryView : View {
                 Image("logo-corner")
             }
         }
+        .widgetAccentable()
     }
 }
 
