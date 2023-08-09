@@ -122,6 +122,12 @@ targets:
       - Tests
     dependencies:
       - target: ALog
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.tests
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_MACCATALYST: NO
   ALog:
     type: application
     platform: iOS
