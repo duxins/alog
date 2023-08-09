@@ -36,6 +36,9 @@ schemes:
       targets:
         ALog: all
       config: Debug
+    test:
+      targets:
+        - name: ALogTests
     run:
       config: Debug
       commandLineArguments:
@@ -111,6 +114,14 @@ targets:
         AppStore:
           PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo.watch.widget
           CODE_SIGN_IDENTITY: iPhone Distribution
+  ALogTests:
+    type: bundle.unit-test
+    platform: iOS
+    path: Tests/Info.plist
+    sources:
+      - Tests
+    dependencies:
+      - target: ALog
   ALog:
     type: application
     platform: iOS

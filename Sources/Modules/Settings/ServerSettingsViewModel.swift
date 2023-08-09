@@ -51,15 +51,7 @@ class ServerSettingsViewModel: ObservableObject {
     func verify() {
         guard isVerifying == false else { return }
         
-        host = host.replacingOccurrences(of: " ", with: "")
-        
-        if !host.isEmpty && host.range(of: "^https?://", options: .regularExpression) == nil {
-            host = "https://" + host
-        }
-        
-        if !host.isEmpty && host.suffix(1) != "/" {
-            host = host + "/"
-        }
+        host = host.formattedHostName()
         
         isVerifying = true
         
