@@ -9,7 +9,6 @@ struct ALogApp: App {
     let conn = Connectivity.shared
     
     @StateObject var config = Config.shared
-    @StateObject var iap = IAPManager()
     
     var body: some Scene {
         WindowGroup {
@@ -18,7 +17,6 @@ struct ALogApp: App {
                 .environmentObject(container)
                 .environmentObject(appState)
                 .environmentObject(config)
-                .environmentObject(iap)
                 .environmentObject(conn)
                 .environment(\.managedObjectContext, container.context)
                 .preferredColorScheme(.dark)

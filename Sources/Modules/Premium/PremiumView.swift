@@ -10,8 +10,9 @@ import ConfettiSwiftUI
 
 struct PremiumView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var iap: IAPManager
     @Environment(\.dismiss) var dismiss
+    
+    @StateObject var iap = IAPManager.shared
     
     @State private var counter = 0
     
@@ -38,6 +39,9 @@ struct PremiumView: View {
                     dismiss()
                 }
             }
+        }
+        .task {
+            iap.start()
         }
     }
     
@@ -175,6 +179,5 @@ struct PremiumView_Previews: PreviewProvider {
     static var previews: some View {
         PremiumView()
             .preferredColorScheme(.dark)
-            .environmentObject(IAPManager())
     }
 }

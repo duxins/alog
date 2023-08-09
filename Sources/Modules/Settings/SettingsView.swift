@@ -12,7 +12,6 @@ struct SettingsView: View {
     @EnvironmentObject var config: Config
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var appDelegate: AppDelegate
-    @EnvironmentObject var iap: IAPManager
     
     @State private var showPremium = false
     

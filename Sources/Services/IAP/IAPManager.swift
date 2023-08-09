@@ -10,6 +10,9 @@ import StoreKit
 import XLog
 
 class IAPManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
+    
+    static let shared = IAPManager()
+    
     enum State: Equatable {
         case loading
         case loaded(SKProduct)
@@ -54,14 +57,15 @@ class IAPManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKPr
     private let request: SKProductsRequest
     private var products = [SKProduct]()
     
-    override init() {
+    private override init() {
         let IDs = Set([Constants.IAP.premiumProductId])
         request = SKProductsRequest(productIdentifiers: IDs)
         super.init()
-        
-        if AppState.shared.isPremium {
-            return
-        }
+    }
+    
+    func start() {
+        guard !AppState.shared.isPremium else { return }
+        guard request.delegate == nil else { return }
         
         SKPaymentQueue.default().add(self)
         request.delegate = self
