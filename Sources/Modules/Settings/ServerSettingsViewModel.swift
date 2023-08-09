@@ -53,6 +53,10 @@ class ServerSettingsViewModel: ObservableObject {
         
         host = host.replacingOccurrences(of: " ", with: "")
         
+        if !host.isEmpty && host.range(of: "^https?://", options: .regularExpression) == nil {
+            host = "https://" + host
+        }
+        
         if !host.isEmpty && host.suffix(1) != "/" {
             host = host + "/"
         }
