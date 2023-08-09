@@ -15,7 +15,7 @@ struct ServerSettingsView: View {
     var body: some View {
         Form {
             Section {
-                TextField("", text: $vm.host)
+                TextField(Constants.OpenAI.api_host, text: $vm.host)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .overlay {
