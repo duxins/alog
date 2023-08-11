@@ -115,6 +115,9 @@
 /*Characters*/
 "characters" = "Characters";
 
+/*Default*/
+"_default" = "Default";
+
 /*无效自定义服务器*/
 "error_invalid_custom_server" = "Invalid custom server";
 

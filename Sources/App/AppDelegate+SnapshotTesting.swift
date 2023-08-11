@@ -18,11 +18,12 @@ extension AppDelegate {
         
         // MARK: - RESET SETTINGS
         config.serverType = .custom
-        config.serverHost = "https://api.openai.com/"
+        config.serverHost = "http://127.0.0.1:8888/"
+        config.aiModel = .gpt_4
         config.sumEnabled = true
         config.transEnabled = true
         config.transLang = .en
-        config.transProvider = .apple
+        config.transProvider = .openai
         
         // MARK: - RESET MEMOS
         let request = MemoEntity.fetchRequest()
@@ -71,6 +72,17 @@ extension AppDelegate {
             m.createdAt = DateHelper.timeToDate(h: time[0], m: time[1])
         }
         
+        // MARK: - RESET PROMPTS
+        let prompts = try! moc.fetch(PromptEntity.fetchRequest())
+        for prompt in prompts {
+            moc.delete(prompt)
+        }
+        
+        let prompt = PromptEntity(context: moc)
+        prompt.title = L(._default)
+        prompt.temperature = 0.5
+        prompt.content = L(.prompt_content_template)
+        prompt.createdAt = Date()
         try! moc.save()
     }
 }

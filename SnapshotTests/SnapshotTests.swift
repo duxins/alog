@@ -32,6 +32,25 @@ final class SnapshotTests: XCTestCase {
         // 设置
         app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["nav_settings"].tap()
         snapshot("03 - Settings")
+        app.terminate()
+    }
+    
+    func testSummarization() throws {
+        app.buttons["timeline_more"].firstMatch.tap()
+        app.buttons["timeline_more_summarize"].firstMatch.tap()
+//      print(XCUIApplication().debugDescription)
+        
+        snapshot("04 - Prompt")
+        
+        let _ = XCTWaiter.wait(for: [XCTestExpectation(description: "")], timeout: 1)
+        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons.element(boundBy: 1).tap()
+        snapshot("05 - Preview")
+        
+//        app.navigationBars.firstMatch.buttons.element(boundBy: 1).tap()
+//        let _ = XCTWaiter.wait(for: [XCTestExpectation(description: "")], timeout: 20)
+//        snapshot("06 - Summarization")
+        
+        app.terminate()
     }
     
 }

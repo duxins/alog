@@ -45,6 +45,7 @@ struct TimelineHeaderView: View {
                         Image(systemName: "chart.bar.doc.horizontal")
                         Text(L(.summarize))
                     }
+                    .accessibilityLabel("timeline_more_summarize")
                 }
                 
                 Button {
@@ -58,6 +59,7 @@ struct TimelineHeaderView: View {
                 Image(systemName: "ellipsis.circle")
                     .padding(8)
             }
+            .accessibilityLabel("timeline_more")
         }
         .padding(.vertical, 10)
         .padding(.horizontal, 18)
