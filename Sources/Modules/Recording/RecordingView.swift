@@ -36,6 +36,9 @@ struct RecordingView: View {
                 dismiss()
             }
         }
+        .onChange(of: recorder.isRecording) { newValue in
+            UIApplication.shared.isIdleTimerDisabled = newValue
+        }
     }
     
     @ViewBuilder
