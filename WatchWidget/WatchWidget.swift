@@ -38,7 +38,11 @@ struct WatchWidgetEntryView : View {
         ZStack {
             AccessoryWidgetBackground()
             if family == .accessoryCircular {
+                #if os(watchOS)
                 Image("logo-circular")
+                #else
+                Image("logo-circular-ios")
+                #endif
             } else {
                 Image("logo-corner")
             }
@@ -57,13 +61,21 @@ struct WatchWidget: Widget {
         }
         .configurationDisplayName("ALog")
         .description("")
+        #if os(watchOS)
         .supportedFamilies([.accessoryCircular, .accessoryCorner])
+        #else
+        .supportedFamilies([.accessoryCircular])
+        #endif
     }
 }
 
 struct WatchWidget_Previews: PreviewProvider {
     static var previews: some View {
         WatchWidgetEntryView(entry: SimpleEntry(date: Date()))
+        #if os(watchOS)
             .previewContext(WidgetPreviewContext(family: .accessoryCorner))
+        #else
+            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+        #endif
     }
 }

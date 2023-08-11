@@ -129,6 +129,31 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.tests
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
         SUPPORTS_MACCATALYST: NO
+  ALogWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - WatchWidget
+    info:
+      path: WatchWidget/Info.plist
+      properties:
+        CFBundleDisplayName: ALog
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+    settings:
+      base: 
+        PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo.widget
+        GENERATE_INFOPLIST_FILE: true
+        SKIP_INSTALL: true
+      configs:
+        Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development app.tarbo.memo.widget
+          CODE_SIGN_IDENTITY: iPhone Developer
+        AppStore:
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore app.tarbo.memo.widget
+          CODE_SIGN_IDENTITY: iPhone Distribution
   ALog:
     type: application
     platform: iOS
@@ -141,6 +166,7 @@ targets:
       - package: ArkanaKeysInterfaces
       - package: ConfettiSwiftUI
       - target: ALogWatch
+      - target: ALogWidget
     sources:
       - Sources
       - Resources
