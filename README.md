@@ -1,6 +1,6 @@
 # ALog
 
-<img src="Images/Promo.png" style="height: 400px" />
+<img src="Images/Promo.png" style="max-height: 400px" />
 
 ## Installation
 
@@ -41,7 +41,7 @@ Update the keys as needed within the .env file.
 #### 5. Generate the Arkana package
 
 ```shell
-bin/arkana
+bundle exec bin/arkana
 ```
 
 #### 6. Generate the project
@@ -68,7 +68,7 @@ Once you've followed these steps, you should have a fully built project ready fo
 #### 2. Configure your worker
 
 * After deploying, you'll see a "**Quick Edit**" button. Click on it.
-* Paste the contents of [/Server/src/worker.js](Server/src/worker.js) into the Cloudflare Worker editor.
+* Paste the contents of [Server/src/worker.js](Server/src/worker.js) into the Cloudflare Worker editor.
 * Click on "**Save and deploy**"
 
 #### 3. Set Environment variables:
@@ -78,7 +78,7 @@ Once you've followed these steps, you should have a fully built project ready fo
 
 | Variable         |            | Description          |
 |------------------|------------|----------------------|
-| **`OPENAI_KEY`** |            | Your OpenAI API key. |
+| **`OPENAI_KEY`** | *Required* | Your OpenAI API key. |
 | **`HMAC_KEY`**   | *Optional* | This should be consistent with the key used on the client side. If this variable is not set, HMAC validation will not be performed. |
 | **`AI_MODEL`**   | *Optional* | Represents the default model. If not set, the model specified by the client will be used.                                           |
 
