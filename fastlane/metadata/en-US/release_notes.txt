@@ -1,1 +1,2 @@
-- Added Support for watchOS
+- Added support for recording audio with screen locked
+- Added support for Lock Screen widget
