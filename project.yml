@@ -5,7 +5,7 @@ options:
   groupOrdering:
     - order: [Sources, Resources, Shared]
 settings:
-  MARKETING_VERSION: 0.0.4
+  MARKETING_VERSION: 0.0.5
   CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: true
   CODE_SIGN_STYLE: Manual
   CURRENT_PROJECT_VERSION: 1
