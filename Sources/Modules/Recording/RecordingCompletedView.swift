@@ -45,6 +45,9 @@ struct RecordingCompletedView: View {
                         Text(L(.memo))
                     } footer: {
                         VStack(spacing: 20) {
+                            playerView()
+                                .padding(.top, 20)
+                            
                             if let err = vm.transcriptionError {
                                 Text(err)
                                     .foregroundColor(.red)
@@ -60,9 +63,6 @@ struct RecordingCompletedView: View {
                                 }
                                 .buttonStyle(TryAgainButtonStyle())
                             }
-                            
-                            playerView()
-                                .padding(.top, 20)
                         }
                     }
                 }
