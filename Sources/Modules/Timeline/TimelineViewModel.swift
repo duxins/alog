@@ -19,7 +19,6 @@ class TimelineViewModel: ObservableObject {
             }
         }
     }
-    @Published var memoToEdit: MemoEntity?
     @Published var memoToShare: MemoEntity?
     
     @Published var transcribingMemos = Set<MemoEntity>()

@@ -12,9 +12,9 @@ struct SummaryDetailView: View {
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appState: AppState
     
     @State private var showDeleteAlert = false
-    @State private var showEditView = false
     
     var body: some View {
         ScrollView(.vertical) {
@@ -32,7 +32,7 @@ struct SummaryDetailView: View {
                         }
                         
                         Button {
-                            showEditView = true
+                            appState.activeSheet = .editSummary(summary)
                         } label: {
                             Image(systemName: "square.and.pencil")
                             Text(L(.edit))
@@ -55,9 +55,6 @@ struct SummaryDetailView: View {
                     try? moc.save()
                     dismiss()
                 }, secondaryButton: .cancel())
-            }
-            .sheet(isPresented: $showEditView) {
-                EditSummaryView(summary: summary)
             }
         }
         .navigationBarTitleDisplayMode(.large)

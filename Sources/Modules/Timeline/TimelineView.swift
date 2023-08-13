@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct TimelineView: View {
-    @State private var showMicPermission = false
-    @State private var showRecording = false
-    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var container: DataContainer
     @Environment(\.managedObjectContext) var moc
@@ -42,12 +39,6 @@ struct TimelineView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(item: $vm.memoToEdit) { m in
-                MemoEditView(memo: m)
-            }
-            .fullScreenCover(isPresented: $showRecording) {
-                RecordingView()
-            }
             .task {
                 appState.checkMicPermission()
             }
@@ -118,18 +109,10 @@ struct TimelineView: View {
             .accessibilityIdentifier("microphone")
         }
         .padding(.bottom, 20)
-        .sheet(isPresented: $showMicPermission) {
-            MicPermissionView()
-        }
     }
     
     private func startRecording() {
-        guard appState.micPermission != .denied else {
-            showMicPermission = true
-            return
-        }
-        stopPlayer()
-        showRecording = true
+        appState.startRecording()
     }
 }
 

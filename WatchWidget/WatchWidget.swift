@@ -37,17 +37,30 @@ struct WatchWidgetEntryView : View {
     var body: some View {
         ZStack {
             AccessoryWidgetBackground()
-            if family == .accessoryCircular {
-                #if os(watchOS)
-                Image("logo-circular")
-                #else
-                Image("logo-circular-ios")
-                #endif
-            } else {
-                Image("logo-corner")
-            }
+            #if os(watchOS)
+            watch()
+            #else
+            ios()
+            #endif
         }
         .widgetAccentable()
+        #if os(iOS)
+        .widgetURL(URL(string: "alog://record")!)
+        #endif
+    }
+    
+    @ViewBuilder
+    private func watch() -> some View {
+        if family == .accessoryCircular {
+            Image("logo-circular")
+        } else {
+            Image("logo-corner")
+        }
+    }
+    
+    @ViewBuilder
+    private func ios() -> some View {
+        Image("logo-circular-ios")
     }
 }
 

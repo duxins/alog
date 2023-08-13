@@ -38,6 +38,7 @@ class AppState: ObservableObject {
     
     @Published var activeSheet: ActiveSheet?
     @Published var activeTab: Int = 0
+    @Published var showRecording = false
     
     private let PREMIUM_KEY = "is_premium"
     @Published var isPremium: Bool = false {
@@ -53,5 +54,27 @@ class AppState: ObservableObject {
     func checkMicPermission() {
         let audioSession = AVAudioSession.sharedInstance()
         micPermission = audioSession.recordPermission
+    }
+    
+    func startRecording() {
+        guard showRecording == false else { return }
+        guard micPermission != .denied else {
+            activeSheet = .micPermission
+            return
+        }
+        activeSheet = nil
+        activeTab = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.showRecording = true
+        }
+    }
+    
+    func openURL(_ url: URL) {
+        guard let host = url.host() else { return }
+        switch host {
+        case "record":
+            startRecording()
+        default: return
+        }
     }
 }

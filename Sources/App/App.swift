@@ -20,6 +20,9 @@ struct ALogApp: App {
                 .environmentObject(conn)
                 .environment(\.managedObjectContext, container.context)
                 .preferredColorScheme(.dark)
+                .onOpenURL { url in
+                    appState.openURL(url)
+                }
         }
     }
 }

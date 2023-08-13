@@ -36,7 +36,16 @@ struct MainView: View {
             case .summarize(let item):
                 AddSummaryPromptView(item: item)
                     .interactiveDismissDisabled()
+            case .micPermission:
+                MicPermissionView()
+            case .editMemo(let memo):
+                MemoEditView(memo: memo)
+            case .editSummary(let summary):
+                EditSummaryView(summary: summary)
             }
+        }
+        .fullScreenCover(isPresented: $appState.showRecording) {
+            RecordingView()
         }
     }
 }

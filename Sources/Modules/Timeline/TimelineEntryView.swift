@@ -14,6 +14,8 @@ struct TimelineEntryView: View {
     @EnvironmentObject var vm: TimelineViewModel
     
     @ObservedObject var memo: MemoEntity
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack(alignment: .leading, spacing: 10) {
@@ -127,7 +129,7 @@ struct TimelineEntryView: View {
     @ViewBuilder
     private var editButton: some View {
         Button {
-            vm.memoToEdit = memo
+            appState.activeSheet = .editMemo(memo)
         } label: {
             Image(systemName: "square.and.pencil")
             Text(L(.edit))
