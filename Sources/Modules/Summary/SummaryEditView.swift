@@ -1,5 +1,5 @@
 //
-//  EditSummaryView.swift
+//  SummaryEditView.swift
 //  ALog
 //
 //  Created by Xin Du on 2023/07/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditSummaryView: View {
+struct SummaryEditView: View {
     @ObservedObject var summary: SummaryEntity
     
     @State private var title = ""
@@ -72,7 +72,7 @@ struct EditSummaryView: View {
 #if DEBUG
 struct EditSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        EditSummaryView(summary: SummaryEntity.preview())
+        SummaryEditView(summary: SummaryEntity.preview())
     }
 }
 #endif

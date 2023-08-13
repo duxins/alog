@@ -41,7 +41,7 @@ struct MainView: View {
             case .editMemo(let memo):
                 MemoEditView(memo: memo)
             case .editSummary(let summary):
-                EditSummaryView(summary: summary)
+                SummaryEditView(summary: summary)
             }
         }
         .fullScreenCover(isPresented: $appState.showRecording) {
