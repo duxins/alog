@@ -185,6 +185,11 @@ targets:
         NSSpeechRecognitionUsageDescription: "Access to speech recognition functionality is required."
         NSMicrophoneUsageDescription: "ALog requires access to your microphone so that you can record entries in your journal."
         UIBackgroundModes: [audio]
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Editor
+            CFBundleURLName: app.tarbo.memo
+            CFBundleURLSchemes: 
+              - alog
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
