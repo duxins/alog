@@ -84,7 +84,8 @@ async function calculateHMAC(message) {
     });
     
     const response = await fetch(newRequest);
-    return modifyResponse(response)
+
+    return await modifyResponse(response)
 }
 
 async function handleSummaryRequest(request, headers) {
@@ -99,10 +100,10 @@ async function handleSummaryRequest(request, headers) {
         body: JSON.stringify(requestBody),
     });
     const response = await fetch(newRequest);
-    return modifyResponse(response)
+    return await modifyResponse(response)
 }
 
-function modifyResponse(response) {
+async function modifyResponse(response) {
     const ret = new Response(response.body, response);
     const excludedHeaders = [
         "x-request-id",
@@ -118,6 +119,12 @@ function modifyResponse(response) {
     excludedHeaders.forEach(key => {
         ret.headers.delete(key);
     });
+
+    if ([401, 403, 404, 429].includes(response.status)) {
+        console.error(await response.text())
+        return errorResponse(response.status)
+    }
+
     return ret
 }
 
@@ -127,6 +134,7 @@ function errorResponse(status = 400, message = "") {
         401: "Unauthorized",
         403: "Forbidden",
         404: "Not Found",
+        429: "Too Many Requests",
         500: "Internal Server Error",
         503: "Service Unavailable",
     };
