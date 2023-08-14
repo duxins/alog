@@ -43,6 +43,7 @@ class AudioRecorder: NSObject, ObservableObject {
         guard isRecording == false else {
             return
         }
+        self.isTerminating = false
         requestPermissionAndStartRecording()
     }
     
