@@ -98,10 +98,10 @@ class OpenAIClient {
         Config.shared.serverType == .app
     }
     
-    /// 验证服务器
-    /// - Parameter host: 服务器主机
-    /// - Parameter key: API KEY
-    func verify(_ host: String, key: String?) async throws -> OpenAIResponse.Chat {
+    // MARK: - Verification
+    
+    /// 验证 chat 接口
+    func verify(_ host: String, key: String?) async throws {
         guard let hostURL = URL(string: host) else {
             throw URLError(.badURL)
         }
@@ -116,47 +116,37 @@ class OpenAIClient {
         
         let params: [String: Any] = ["model": "gpt-3.5-turbo", "messages": [["role": "system", "content": "hello"]]]
         request.httpBody = try JSONSerialization.data(withJSONObject: params)
-        let ret = try await send(request, type: OpenAIResponse.Chat.self)
-        return ret
+        let _ = try await send(request, type: OpenAIResponse.Chat.self)
     }
     
-    private func buildRequest(url: URL, method: String = "POST") -> URLRequest {
+    /// 验证 Whisper 接口
+    func verifyWhisper(_ host: String, key: String?) async throws {
+        guard let hostURL = URL(string: host) else {
+            throw URLError(.badURL)
+        }
+        
+        guard let fileURL = Bundle.main.url(forResource: "hi", withExtension: "m4a") else {
+            throw URLError(.fileDoesNotExist)
+        }
+        
+        let url = hostURL.appending(path: "v1/audio/transcriptions")
         var request = URLRequest(url: url)
-        request.httpMethod = method
-        
-        XLog.debug("\(method) \(url)", source: TAG)
-        
-        if let key = apiKey {
-            XLog.debug("\t|- API KEY = \(key.prefix(10))...", source: TAG)
+        if let key {
             request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         }
         
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(Constants.user_agent, forHTTPHeaderField: "User-Agent")
-        
-        if requiresHMAC {
-            let id = generateRequestId()
-            let hmac = generateHMAC(id)
-            request.setValue(id, forHTTPHeaderField: "x-alog-request-id")
-            request.setValue(hmac, forHTTPHeaderField: "x-alog-hmac")
-            XLog.debug("\t|- request_id = \(id), hmac = \(hmac)", source: TAG)
+        let boundary = generateBoundary()
+        request.httpMethod = "POST"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let body: Data!
+        do {
+            let params = ["model": "whisper-1"]
+            body = try createWhisperBody(boundary: boundary, fileURL: fileURL, params: params)
+        } catch {
+            throw OpenAIError.unknown(error)
         }
-        
-        return request
-    }
-    
-    private func generateRequestId() -> String {
-        let ts = String(Int(Date().timeIntervalSince1970))
-        return "\(ts)-\(UUID().uuidString.lowercased())"
-    }
-    
-    private func generateHMAC(_ message: String) -> String {
-        let keyData = ArkanaKeys.Global().hMAC_KEY.data(using: .utf8)!
-        let key = SymmetricKey(data: keyData)
-        let data = message.data(using: .utf8)!
-        let hmac = HMAC<SHA256>.authenticationCode(for: data, using: key)
-        let hmacBase64 = Data(hmac).base64EncodedString()
-        return hmacBase64
+        let (data, response) = try await URLSession.shared.upload(for: request, from: body)
+        let _ = try decodeResponse(data: data, response: response, type: OpenAIResponse.Transcription.self)
     }
     
     func summarize(_ msg: String, model: OpenAIChatModel, temperature: Double = 0.4) async throws -> AsyncThrowingStream<String, Error> {
@@ -197,22 +187,12 @@ class OpenAIClient {
         }
     }
     
-    private func parseChunk(_ line: String) -> String? {
-        let components = line.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
-        guard components.count == 2, components[0] == "data" else { return nil }
-        let message = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
-        if message == "[DONE]" { return "\n" }
-        let chunk = try? JSONDecoder().decode(OpenAIResponse.Chunk.self, from: message.data(using: .utf8)!)
-        return chunk?.choices.first?.delta.content
-    }
-    
     /// 转写音频文件
     /// - Parameter fileURL: 文件路径
     func transcribe(_ fileURL: URL, lang: TranscriptionLang = .auto) async throws -> OpenAIResponse.Transcription {
         let url = baseURL.appending(path: "v1/audio/transcriptions")
         var request = buildRequest(url: url)
-        
-        let boundary = "Boundary-\(UUID().uuidString)"
+        let boundary = generateBoundary()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
         let body: Data!
@@ -234,6 +214,51 @@ class OpenAIClient {
         return try decodeResponse(data: data, response: response, type: OpenAIResponse.Transcription.self)
     }
     
+    // MARK: - Private Methods
+    
+    private func generateRequestId() -> String {
+        let ts = String(Int(Date().timeIntervalSince1970))
+        return "\(ts)-\(UUID().uuidString.lowercased())"
+    }
+    
+    private func generateHMAC(_ message: String) -> String {
+        let keyData = ArkanaKeys.Global().hMAC_KEY.data(using: .utf8)!
+        let key = SymmetricKey(data: keyData)
+        let data = message.data(using: .utf8)!
+        let hmac = HMAC<SHA256>.authenticationCode(for: data, using: key)
+        let hmacBase64 = Data(hmac).base64EncodedString()
+        return hmacBase64
+    }
+    
+    private func generateBoundary() -> String {
+        "Boundary-\(UUID().uuidString)"
+    }
+    
+    private func buildRequest(url: URL, method: String = "POST") -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        
+        XLog.debug("\(method) \(url)", source: TAG)
+        
+        if let key = apiKey {
+            XLog.debug("\t|- API KEY = \(key.prefix(10))...", source: TAG)
+            request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        }
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Constants.user_agent, forHTTPHeaderField: "User-Agent")
+        
+        if requiresHMAC {
+            let id = generateRequestId()
+            let hmac = generateHMAC(id)
+            request.setValue(id, forHTTPHeaderField: "x-alog-request-id")
+            request.setValue(hmac, forHTTPHeaderField: "x-alog-hmac")
+            XLog.debug("\t|- request_id = \(id), hmac = \(hmac)", source: TAG)
+        }
+        
+        return request
+    }
+    
     private func createWhisperBody(boundary: String, fileURL: URL, params: [String: String]) throws -> Data {
         var body = Data()
         let filename = fileURL.lastPathComponent
@@ -251,6 +276,15 @@ class OpenAIClient {
         }
         body.append("--\(boundary)--\r\n".data(using: .utf8)!)
         return body
+    }
+    
+    private func parseChunk(_ line: String) -> String? {
+        let components = line.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: true)
+        guard components.count == 2, components[0] == "data" else { return nil }
+        let message = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
+        if message == "[DONE]" { return "\n" }
+        let chunk = try? JSONDecoder().decode(OpenAIResponse.Chunk.self, from: message.data(using: .utf8)!)
+        return chunk?.choices.first?.delta.content
     }
     
     private func send<T: Decodable>(_ request: URLRequest, type: T.Type) async throws -> T {

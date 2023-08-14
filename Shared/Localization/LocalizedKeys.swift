@@ -143,6 +143,10 @@ public enum MyLocalizedKey: String {
   case settings_server_host = "settings_server_host"
   /**设置 - 自定义服务器 - 需要 API KEY*/
   case settings_server_requires_key = "settings_server_requires_key"
+  /**设置 - 自定义服务器 - 验证 chat api*/
+  case settings_server_verify_item_chat = "settings_server_verify_item_chat"
+  /**设置 - 自定义服务器 - 验证 whisper*/
+  case settings_server_verify_item_whisper = "settings_server_verify_item_whisper"
   /**设置 - 转写*/
   case settings_trans = "settings_trans"
   /**设置 - 转写 - 语言*/

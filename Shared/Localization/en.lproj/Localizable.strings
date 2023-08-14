@@ -211,6 +211,12 @@
 /*设置 - 自定义服务器 - 需要 API KEY*/
 "settings_server_requires_key" = "Requires API Key";
 
+/*设置 - 自定义服务器 - 验证 chat api*/
+"settings_server_verify_item_chat" = "Summarization";
+
+/*设置 - 自定义服务器 - 验证 whisper*/
+"settings_server_verify_item_whisper" = "Whisper Transcription";
+
 /*设置 - 转写*/
 "settings_trans" = "Transcription";
 
