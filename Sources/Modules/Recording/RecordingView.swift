@@ -15,7 +15,7 @@ struct RecordingView: View {
     @StateObject var recorder = AudioRecorder()
     
     @State var configuration: Waveform.Configuration = .init(
-        style: .striped(.init(color: .white.withAlphaComponent(0.5), width: 3, spacing: 3))
+        style: .striped(.init(color: .white.withAlphaComponent(0.7), width: 3, spacing: 3))
     )
     
     var body: some View {
@@ -59,7 +59,7 @@ struct RecordingView: View {
         VStack {
             Spacer()
             WaveformLiveCanvas(samples: recorder.samples, configuration: configuration)
-                .frame(height: 40)
+                .frame(height: 50)
                 .padding(.bottom, 30)
             StopRecordingButton {
                 recorder.stopRecording()
