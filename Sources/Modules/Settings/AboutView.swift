@@ -35,19 +35,26 @@ struct AboutView: View {
             Section {
                 socialRow("Twitter", icon: "icon_twitter", color: .blue, url: Constants.Contact.twitter)
                 socialRow("Github", icon: "icon_github", color: .primary, url: Constants.Contact.github)
-            } footer: {
-                Spacer()
-                    .frame(height: 20)
             }
             
             Section {
-                creditRow(L(.credit_onenewbite_name), desc: L(.credit_onenewbite_desc), url: L(.credit_onenewbite_url))
-                creditRow(L(.credit_goldengrape_name), desc: L(.credit_goldengrape_desc), url: L(.credit_goldengrape_url))
-                creditRow("MingCute Icon", url: "https://www.mingcute.com")
-                creditRow("KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess")
+                creditRow(L(.credit_onenewbite_name), url: L(.credit_onenewbite_url))
+                creditRow(L(.credit_goldengrape_name),url: L(.credit_goldengrape_url))
+                creditRow("Cʜᴇɴɢ", url: "https://twitter.com/scomper")
             } header: {
                 Text("Credits")
             }
+            
+            
+            Section {
+                creditRow("MingCute Icon", url: "https://www.mingcute.com")
+                creditRow("KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess")
+                creditRow("ConfettiSwiftUI", url: "https://github.com/simibac/ConfettiSwiftUI")
+                creditRow("DSWaveformImage", url: "https://github.com/dmrschmidt/DSWaveformImage")
+            } header: {
+                Text("Libraries")
+            }
+            
         }
         .navigationTitle(L(.about))
         .background(Color.app_bg)
