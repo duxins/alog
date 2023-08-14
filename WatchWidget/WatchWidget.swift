@@ -72,11 +72,13 @@ struct WatchWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             WatchWidgetEntryView(entry: entry)
         }
+        #if os(watchOS)
         .configurationDisplayName("ALog")
         .description("")
-        #if os(watchOS)
         .supportedFamilies([.accessoryCircular, .accessoryCorner])
         #else
+        .configurationDisplayName("Start Recording")
+        .description("")
         .supportedFamilies([.accessoryCircular])
         #endif
     }
