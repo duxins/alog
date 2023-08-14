@@ -22,6 +22,9 @@ packages:
   ConfettiSwiftUI:
     url: https://github.com/simibac/ConfettiSwiftUI.git
     from: 1.1.0
+  DSWaveformImage:
+    url: https://github.com/dmrschmidt/DSWaveformImage
+    from: 13.0.2
   ArkanaKeys:
     path: ./ArkanaKeys/ArkanaKeys
   ArkanaKeysInterfaces:
@@ -165,6 +168,10 @@ targets:
       - package: ArkanaKeys
       - package: ArkanaKeysInterfaces
       - package: ConfettiSwiftUI
+      - package: DSWaveformImage
+        product: DSWaveformImage
+      - package: DSWaveformImage
+        product: DSWaveformImageViews
       - target: ALogWatch
       - target: ALogWidget
     sources:

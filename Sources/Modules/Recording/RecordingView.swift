@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import DSWaveformImage
+import DSWaveformImageViews
 
 struct RecordingView: View {
     @EnvironmentObject var appState: AppState
     @Environment(\.dismiss) var dismiss
     @StateObject var recorder = AudioRecorder()
+    
+    @State var configuration: Waveform.Configuration = .init(
+        style: .striped(.init(color: .white.withAlphaComponent(0.5), width: 3, spacing: 3))
+    )
     
     var body: some View {
         ZStack {
@@ -52,6 +58,9 @@ struct RecordingView: View {
     var recordingButtons: some View {
         VStack {
             Spacer()
+            WaveformLiveCanvas(samples: recorder.samples, configuration: configuration)
+                .frame(height: 40)
+                .padding(.bottom, 30)
             StopRecordingButton {
                 recorder.stopRecording()
             }

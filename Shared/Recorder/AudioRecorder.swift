@@ -14,6 +14,7 @@ class AudioRecorder: NSObject, ObservableObject {
     @Published var isCompleted = false
     @Published var recordedTime: Int = 0
     @Published var voiceFile: URL?
+    @Published var samples: [Float] = []
     
     var didFinishCallback: (() -> Void)?
     
@@ -104,6 +105,12 @@ class AudioRecorder: NSObject, ObservableObject {
     private func startMonitoring() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in
             self.recordedTime = Int(self.recorder.currentTime)
+            
+            #if os(iOS)
+            self.recorder.updateMeters()
+            let linear = 1 - pow(10, self.recorder.averagePower(forChannel: 0) / 20)
+            self.samples += [linear, linear]
+            #endif
         })
     }
     
