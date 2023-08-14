@@ -44,9 +44,7 @@ struct WatchWidgetEntryView : View {
             #endif
         }
         .widgetAccentable()
-        #if os(iOS)
         .widgetURL(URL(string: "alog://record")!)
-        #endif
     }
     
     @ViewBuilder

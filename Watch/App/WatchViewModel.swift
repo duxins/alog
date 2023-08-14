@@ -16,9 +16,6 @@ class WatchViewModel: ObservableObject {
     
     static let shared = WatchViewModel()
     
-    @Published var showPermissionAlert = false
-    @Published var showRecordingView = false
-    
     private init() {
         XLog.debug("✓ WatchViewModel", source: "VM")
         NotificationCenter.default.addObserver(self, selector: #selector(didSendRecording), name: .recordingSentToIphone, object: nil)

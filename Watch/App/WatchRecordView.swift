@@ -23,7 +23,7 @@ struct WatchRecordView: View {
             }.task {
                 appState.checkMicPermission()
             }
-            .alert(L(.watch_permission_title), isPresented: $vm.showPermissionAlert) {
+            .alert(L(.watch_permission_title), isPresented: $appState.showPermissionAlert) {
             } message: {
                 Text(L(.watch_permission_msg))
             }
@@ -33,7 +33,7 @@ struct WatchRecordView: View {
                 }
                 resetRecorder()
             }
-            .fullScreenCover(isPresented: $vm.showRecordingView) {
+            .fullScreenCover(isPresented: $appState.showRecording) {
                 WatchRecordingView(recorder: recorder)
             }
         }
@@ -41,7 +41,9 @@ struct WatchRecordView: View {
     
     private var recordButton: some View {
         Button {
-            startRecording()
+            withoutAnimation {
+                appState.startRecording()
+            }
         } label: {
             Circle()
                 .fill(.red)
@@ -52,18 +54,6 @@ struct WatchRecordView: View {
         .clipShape(Circle())
         .buttonStyle(.borderless)
         .animation(.default, value: recorder.isRecording)
-    }
-    
-    private func startRecording() {
-        WKInterfaceDevice.current().play(.start)
-        guard appState.micPermission != .denied else {
-            vm.showPermissionAlert = true
-            return
-        }
-        
-        withoutAnimation {
-            vm.showRecordingView = true
-        }
     }
     
     private func resetRecorder() {

@@ -41,6 +41,9 @@ struct ALogWatchApp: App {
                 .environmentObject(container)
                 .environment(\.managedObjectContext, container.context)
                 .preferredColorScheme(.dark)
+                .onOpenURL { url in
+                    appState.openURL(url)
+                }
         }
     }
 }
