@@ -7,6 +7,9 @@
 /*分享*/
 "share_app" = "分享 ALog";
 
+/*分享给朋友*/
+"share_with_friends" = "分享给朋友";
+
 /*关于*/
 "about_app" = "关于 ALog";
 

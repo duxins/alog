@@ -210,6 +210,10 @@ struct SettingsView: View {
                 Text(L(.about_app))
             }
             
+            ShareLink(item: AppInfo.appStoreURL) {
+                Text(L(.share_with_friends))
+            }
+            
             HStack {
                 HStack {
                     Text(L(.version))
