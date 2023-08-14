@@ -44,7 +44,7 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Access to speech recognition functionality is required.</string>
 	<key>RELEASE_DATE</key>
-	<string>20230810</string>
+	<string>20230815</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

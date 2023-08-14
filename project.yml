@@ -185,7 +185,7 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         AppStoreURL: https://apps.apple.com/us/app/alog/id6451082482
         GIT_HASH: "${GIT_HASH}"
-        RELEASE_DATE: "20230810"
+        RELEASE_DATE: "20230815"
         UILaunchStoryboardName: Launch Screen
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         ITSAppUsesNonExemptEncryption: false

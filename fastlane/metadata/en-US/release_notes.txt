@@ -1,2 +1,3 @@
-- Added support for recording audio with screen locked
-- Added support for Lock Screen widget
+- Added support for auto-record when opening from Lock Screen widget
+- Added support for auto-record when opening from widgets on watchOS
+- Resolved synchronization issues on watchOS
