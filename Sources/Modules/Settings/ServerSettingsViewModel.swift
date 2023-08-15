@@ -11,13 +11,15 @@ import Combine
 import XLog
 
 enum ServerVerificationItem: CaseIterable {
-    case chat
+    case gpt_3_5
+    case gpt_4
     case whisper
     
     var displayName: String {
         switch self {
-        case .chat: return L(.settings_server_verify_item_chat)
-        case .whisper: return L(.settings_server_verify_item_whisper)
+        case .gpt_3_5: return "GPT-3.5"
+        case .gpt_4: return "GPT-4"
+        case .whisper: return "Whisper"
         }
     }
 }
@@ -51,7 +53,7 @@ class ServerSettingsViewModel: ObservableObject {
     @Published var requiresKey = false
     @Published var key = ""
     
-    @Published var verificationItems: [ServerVerificationItem: ServerVerificationStatus] = [ .chat: .pending, .whisper: .pending ]
+    @Published var verificationItems: [ServerVerificationItem: ServerVerificationStatus] = [ .gpt_3_5: .pending, .gpt_4: .pending, .whisper: .pending ]
     
     @Published var isServerValid = false
     
@@ -94,13 +96,22 @@ class ServerSettingsViewModel: ObservableObject {
         Task { @MainActor in
             let keyToUse = requiresKey ? key : nil
             
-            // 测试 chat
-            verificationItems[.chat] = .inProgress
+            // 测试 gpt_3_5
+            verificationItems[.gpt_3_5] = .inProgress
             do {
-                try await OpenAIClient.shared.verify(host, key: keyToUse)
-                verificationItems[.chat] = .success
+                try await OpenAIClient.shared.verify(host, key: keyToUse, model: .gpt_3_5)
+                verificationItems[.gpt_3_5] = .success
             } catch {
-                verificationItems[.chat] = .failure(ErrorHelper.desc(error))
+                verificationItems[.gpt_3_5] = .failure(ErrorHelper.desc(error))
+            }
+            
+            // 测试 gpt_4
+            verificationItems[.gpt_4] = .inProgress
+            do {
+                try await OpenAIClient.shared.verify(host, key: keyToUse, model: .gpt_4)
+                verificationItems[.gpt_4] = .success
+            } catch {
+                verificationItems[.gpt_4] = .failure(ErrorHelper.desc(error))
             }
             
             // 测试 Whisper

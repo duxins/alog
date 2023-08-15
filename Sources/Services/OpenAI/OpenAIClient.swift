@@ -101,7 +101,7 @@ class OpenAIClient {
     // MARK: - Verification
     
     /// 验证 chat 接口
-    func verify(_ host: String, key: String?) async throws {
+    func verify(_ host: String, key: String?, model: OpenAIChatModel = .gpt_3_5) async throws {
         guard let hostURL = URL(string: host) else {
             throw URLError(.badURL)
         }
@@ -114,7 +114,7 @@ class OpenAIClient {
             request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         }
         
-        let params: [String: Any] = ["model": "gpt-3.5-turbo", "messages": [["role": "system", "content": "hello"]]]
+        let params: [String: Any] = ["model": model.name, "messages": [["role": "system", "content": "Hi"]]]
         request.httpBody = try JSONSerialization.data(withJSONObject: params)
         let _ = try await send(request, type: OpenAIResponse.Chat.self)
     }
