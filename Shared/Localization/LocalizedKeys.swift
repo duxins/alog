@@ -185,6 +185,8 @@ public enum MyLocalizedKey: String {
   case trans_provider_openai = "trans_provider_openai"
   /**转写 - Apple - 提示*/
   case trans_provider_apple_notice = "trans_provider_apple_notice"
+  /**转写 - Whisper - 提示*/
+  case trans_provider_openai_notice = "trans_provider_openai_notice"
   /**转写 - 正在转写*/
   case transcribing = "transcribing"
   /**转写 - 语言 - 自动检测*/

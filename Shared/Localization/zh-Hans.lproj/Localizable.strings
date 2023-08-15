@@ -274,6 +274,9 @@
 /*转写 - Apple - 提示*/
 "trans_provider_apple_notice" = "准确度较低且仅限于1分钟的音频时长。";
 
+/*转写 - Whisper - 提示*/
+"trans_provider_openai_notice" = "请确保您的服务器支持 Whisper。";
+
 /*转写 - 正在转写*/
 "transcribing" = "正在转写 ...";
 

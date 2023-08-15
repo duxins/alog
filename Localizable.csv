@@ -103,6 +103,7 @@
 "trans_provider_apple","转写 - Apple","System",系统
 "trans_provider_openai","转写 - OpenAI (Whisper) ","Whisper",Whisper
 "trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration.",准确度较低且仅限于1分钟的音频时长。
+"trans_provider_openai_notice","转写 - Whisper - 提示","Please ensure your custom server supports Whisper.",请确保您的服务器支持 Whisper。
 "transcribing","转写 - 正在转写 ","Transcribing ...",正在转写 ...
 # 转写语言 #
 "trans_lang_auto","转写 - 语言 - 自动检测","Auto-Detect",自动检测

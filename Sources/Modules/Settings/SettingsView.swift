@@ -160,6 +160,8 @@ struct SettingsView: View {
             if config.transEnabled {
                 if config.transProvider == .apple {
                     Text(L(.trans_provider_apple_notice))
+                } else if config.transProvider == .openai && config.serverType == .custom {
+                    Text(L(.trans_provider_openai_notice))
                 }
             }
         }
