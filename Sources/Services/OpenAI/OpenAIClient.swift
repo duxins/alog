@@ -114,6 +114,8 @@ class OpenAIClient {
             request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         }
         
+        XLog.debug("Request \(host) \(key == nil ? "" : "<KEY>") [\(model.name)] ", source: "Verify")
+      
         let params: [String: Any] = ["model": model.name, "messages": [["role": "system", "content": "Hi"]]]
         request.httpBody = try JSONSerialization.data(withJSONObject: params)
         let _ = try await send(request, type: OpenAIResponse.Chat.self)
@@ -134,6 +136,8 @@ class OpenAIClient {
         if let key {
             request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
         }
+        
+        XLog.debug("Request \(host) \(key == nil ? "" : "<KEY>") [whisper]", source: "Verify")
         
         let boundary = generateBoundary()
         request.httpMethod = "POST"
