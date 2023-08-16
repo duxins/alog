@@ -1,1 +1,1 @@
-- Fixed bugs, improved performance
+- Added support for summarizing selected notes
