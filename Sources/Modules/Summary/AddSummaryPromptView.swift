@@ -31,8 +31,8 @@ struct AddSummaryPromptView: View {
                         }
                     }
                     .padding(.top, 20)
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
             }
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $vm.showAddPrompt) {
@@ -46,7 +46,7 @@ struct AddSummaryPromptView: View {
                 toolbarItems()
             }
             .task {
-                if prompts.count == 1 {
+                if prompts.count > 0 {
                     vm.selectedPrompt = prompts.first
                 }
                 vm.fetchEntries()
@@ -61,6 +61,9 @@ struct AddSummaryPromptView: View {
             .navigationDestination(for: AddSummaryNavPath.self) { s in
                 if s == .preview {
                     AddSummaryPreviewView()
+                        .environmentObject(vm)
+                } else if s == .memoSelection {
+                    AddSummaryMemoSelectionView()
                         .environmentObject(vm)
                 } else if s == .summarize {
                     AddSummarySummarizeView()
@@ -103,6 +106,7 @@ struct AddSummaryPromptView: View {
             .padding(5)
         ForEach(prompts) { p in
             Button {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 vm.selectedPrompt = p
             } label: {
                 SummaryPromptEntryView(prompt: p, selected: vm.selectedPrompt == p)
@@ -123,7 +127,7 @@ struct AddSummaryPromptView: View {
         
         ToolbarItem(placement: .confirmationAction) {
             Button {
-                vm.navPath.append(.preview)
+                vm.navPath.append(.memoSelection)
             } label: {
                 Text(L(.next))
             }

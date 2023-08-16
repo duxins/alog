@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import XLog
+import Combine
 
 class AddSummaryViewModel: ObservableObject {
     let item: SummaryItem
@@ -46,8 +47,13 @@ class AddSummaryViewModel: ObservableObject {
     @Published var saved = false
     @Published var model: OpenAIChatModel = .gpt_3_5_16k
     
+    @Published var validMemos = [MemoEntity]()
+    @Published var excludedMemos = Set<MemoEntity>()
+    @Published var selectedMemos = [MemoEntity]()
     
     private var cancellationTask: Task<Void, Never>? = nil
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(item: SummaryItem, moc: NSManagedObjectContext) {
         self.item = item
@@ -62,7 +68,12 @@ class AddSummaryViewModel: ObservableObject {
         $summaryMessage.map {
             $0.count
         }.assign(to: &$summaryMessageCharCount)
-        
+    }
+    
+    deinit {
+        #if DEBUG
+            XLog.debug("✖︎ AddSummaryViewModel", source: "Summary")
+        #endif
     }
     
     func fetchEntries() {
@@ -72,6 +83,7 @@ class AddSummaryViewModel: ObservableObject {
         var ret = ""
         do {
             let memos = try moc.fetch(fetchRequest).filter { !$0.viewContent.isEmpty }
+            validMemos = memos
             for memo in memos {
                 ret.append("\n[\(memo.viewTime)] \(memo.viewContent)\n")
             }
@@ -84,14 +96,28 @@ class AddSummaryViewModel: ObservableObject {
         } catch {
             XLog.error(error, source: "Sumary")
         }
+        
+        $excludedMemos.sink { [unowned self] s in
+            selectedMemos = validMemos.filter { !s.contains($0) }
+        }.store(in: &cancellables)
     }
     
     func generateMessage() {
         guard let prompt = selectedPrompt else { return }
+        
+        var content = ""
+        for memo in selectedMemos {
+            content.append("\n[\(memo.viewTime)] \(memo.viewContent)\n")
+        }
+        
+        if content.count < Constants.Summary.lengthLimit {
+            fatalErrorMessage = L(.sum_text_too_short)
+        }
+        
         var ret = replacePlaceHolders(prompt.viewContent)
-        ret.append("\n\n---------")
-        ret.append(memoContent)
-        ret.append("--------\n")
+        ret.append("\n\n------")
+        ret.append(content)
+        ret.append("------\n")
         summaryMessage = ret
     }
     

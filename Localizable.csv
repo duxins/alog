@@ -117,6 +117,7 @@
 "sum_choose_prompt","总结 - 选择提示词","Choose a prompt",选择一个提示词
 "sum_add_prompt","总结 - 添加提示词按钮","Add Prompt",添加提示词
 "sum_text_too_short","总结 - 字数不够","Text too short for a summary.",文本过短，无法进行总结
+"sum_select_memos_title","总结 - 选择日记 - 标题","Select entries you're going to summarize",请选择要总结的笔记
 # 提示词 #
 "prompt","提示词","Prompt",提示词
 "prompt_title","提示词 - title","Title",标题

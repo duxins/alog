@@ -209,6 +209,8 @@ public enum MyLocalizedKey: String {
   case sum_add_prompt = "sum_add_prompt"
   /**总结 - 字数不够*/
   case sum_text_too_short = "sum_text_too_short"
+  /**总结 - 选择日记 - 标题*/
+  case sum_select_memos_title = "sum_select_memos_title"
   /**提示词*/
   case prompt = "prompt"
   /**提示词 - title*/

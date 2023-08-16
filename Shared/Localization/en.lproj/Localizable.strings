@@ -310,6 +310,9 @@
 /*总结 - 字数不够*/
 "sum_text_too_short" = "Text too short for a summary.";
 
+/*总结 - 选择日记 - 标题*/
+"sum_select_memos_title" = "Select entries you're going to summarize";
+
 /*提示词*/
 "prompt" = "Prompt";
 

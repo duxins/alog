@@ -14,33 +14,46 @@ struct SummaryPromptEntryView: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Text(prompt.viewTitle)
+                
                 if prompt.viewDesc.count > 0 {
                     Text(prompt.viewDesc)
                         .font(.footnote)
+                        .foregroundColor(textColor.opacity(0.6))
                 }
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             if selected {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
+                Image(systemName: "checkmark")
+                    .foregroundColor(.white)
             }
         }
         .foregroundColor(textColor)
         .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(bgColor)
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(borderColor, lineWidth: borderWidth)
+        }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.app_bg.opacity(0.1))
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(borderColor , lineWidth: borderWidth))
         .padding(.horizontal, 5)
     }
     
+    private var bgColor: Color {
+        selected ? Color(uiColor: .tertiarySystemBackground)
+            .opacity(0.2)
+        : Color(uiColor: .tertiarySystemBackground).opacity(0.1)
+    }
+    
     private var textColor: Color {
-        selected ? .primary : Color(uiColor: .tertiaryLabel)
+        selected ? .primary : .primary.opacity(0.3)
     }
     
     private var borderColor: Color {
-        selected ? .secondary : Color(uiColor: .quaternaryLabel)
+        selected ? .primary.opacity(0.8) : .primary.opacity(0.2)
     }
     
     private var borderWidth: CGFloat {
