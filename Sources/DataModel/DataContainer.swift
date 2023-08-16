@@ -32,6 +32,12 @@ class DataContainer: ObservableObject {
         context = persistentContainer.viewContext
         
         registerNotifications()
+        
+        #if DEBUG
+        if inMemory {
+            addPreviewData()
+        }
+        #endif
     }
 }
 
