@@ -53,11 +53,11 @@ struct SummaryPromptEntryView: View {
     }
     
     private var borderColor: Color {
-        selected ? .primary.opacity(0.8) : .primary.opacity(0.2)
+        selected ? .primary.opacity(0.8) : .primary.opacity(0.1)
     }
     
     private var borderWidth: CGFloat {
-        selected ? 2 : 1
+        selected ? 1 : 1
     }
 }
 
