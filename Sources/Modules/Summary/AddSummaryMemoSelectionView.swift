@@ -47,6 +47,7 @@ struct AddSummaryMemoSelectionView: View {
                     .foregroundColor(.secondary)
                 Text(memo.viewContent)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 5)
             }
             if isSelected(memo) {
                 Image(systemName: "checkmark.circle.fill")
@@ -64,7 +65,7 @@ struct AddSummaryMemoSelectionView: View {
                 )
                 .opacity(0.6)
         }
-        .opacity(isSelected(memo) ? 1 : 0.5)
+        .opacity(isSelected(memo) ? 1 : 0.4)
         .onTapGesture {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             if isSelected(memo) {

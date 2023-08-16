@@ -311,7 +311,7 @@
 "sum_text_too_short" = "文本过短，无法进行总结";
 
 /*总结 - 选择日记 - 标题*/
-"sum_select_memos_title" = "请选择要总结的笔记";
+"sum_select_memos_title" = "选择要总结的笔记";
 
 /*提示词*/
 "prompt" = "提示词";
