@@ -13,6 +13,10 @@ struct AppInfo {
         return URL(string: urlString)!
     }()
     
+    static let reviewURL: URL = {
+        return appStoreURL.appending(queryItems: [.init(name: "action", value: "write-review")])
+    }()
+    
     static let appVersion: String = {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }()

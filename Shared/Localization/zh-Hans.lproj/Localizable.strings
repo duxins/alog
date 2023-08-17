@@ -4,6 +4,9 @@
 /*评价*/
 "review_app" = "评价 ALog";
 
+/*评分*/
+"rate_on_the_app_store" = "在 App Store 上评分";
+
 /*分享*/
 "share_app" = "分享 ALog";
 

@@ -220,6 +220,14 @@ struct SettingsView: View {
                 Text(L(.share_with_friends))
             }
             
+            Link(destination: AppInfo.reviewURL) {
+                HStack {
+                    Text(L(.rate_on_the_app_store))
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.red)
+                }
+            }
+            
             HStack {
                 HStack {
                     Text(L(.version))

@@ -5,6 +5,8 @@ public enum MyLocalizedKey: String {
   case app_name = "app_name"
   /**评价*/
   case review_app = "review_app"
+  /**评分*/
+  case rate_on_the_app_store = "rate_on_the_app_store"
   /**分享*/
   case share_app = "share_app"
   /**分享给朋友*/
