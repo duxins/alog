@@ -1,1 +1,2 @@
-- Added support for summarizing selected notes
+- Added support for auto-save after recording
+- Added support for auto-save when interrupted by incoming phone calls
