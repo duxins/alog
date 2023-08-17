@@ -107,9 +107,9 @@ struct TimelineView: View {
                 Image(systemName: "mic.fill")
                     .font(.system(size: 25))
                     .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 64, height: 64)
             }
-            .padding()
-            .frame(width: 64, height: 64)
             .background(.red)
             .clipShape(Circle())
             .accessibilityIdentifier("microphone")
