@@ -34,7 +34,9 @@ struct TimelineView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         stopPlayer()
-                        appState.activeSheet = .settings
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            appState.activeSheet = .settings
+                        }
                     } label: {
                         Image("nav_settings")
                     }
