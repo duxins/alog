@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct TimelineView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var container: DataContainer
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.requestReview) var requestReview
     @SectionedFetchRequest(fetchRequest: MemoEntity.all, sectionIdentifier: \.day) var days
     @StateObject private var player = AudioPlayer.shared
     @StateObject private var vm = TimelineViewModel()
@@ -52,6 +54,10 @@ struct TimelineView: View {
                 }, secondaryButton: .cancel() {
                     vm.memoToDelete = nil
                 })
+            }
+            .onChange(of: vm.showReviewDialog) { newValue in
+                guard newValue else { return }
+                requestReview()
             }
         }
     }

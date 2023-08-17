@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import XLog
 import CoreData
+import SwiftUI
 
 class TimelineViewModel: ObservableObject {
     @Published var showDeleteAlert = false
@@ -23,6 +24,11 @@ class TimelineViewModel: ObservableObject {
     
     @Published var transcribingMemos = Set<MemoEntity>()
     @Published var failedMemos = [MemoEntity: Error]()
+    @Published var showReviewDialog = false
+    
+    @AppStorage("requested_review_at") var requestedReviewAt = Date(timeIntervalSince1970: 0).timeIntervalSince1970
+    
+    private var transCount = 0
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave), name: .NSManagedObjectContextDidSave, object: nil)
@@ -56,11 +62,22 @@ class TimelineViewModel: ObservableObject {
                     memo.content = text
                     memo.transcribed = true
                     try? DataContainer.shared.context.save()
+                    self?.transCount += 1
+                    self?.requestReview()
                 }
             case .failure(let error):
                 self?.failedMemos[memo] = error
                 XLog.error(error, source: "Timeline")
             }
+        }
+    }
+    
+    private func requestReview() {
+        guard transCount > 5 else { return }
+        let timeInterval = Date().timeIntervalSince1970
+        if timeInterval - requestedReviewAt > 3600 * 24 * 10 {
+            showReviewDialog = true
+            requestedReviewAt = timeInterval
         }
     }
     
