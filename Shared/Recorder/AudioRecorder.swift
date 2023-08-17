@@ -30,6 +30,8 @@ class AudioRecorder: NSObject, ObservableObject {
     
     deinit {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
+        
         #if DEBUG
             XLog.debug("✖︎ Audio Recorder", source: "Audio")
         #endif
@@ -37,6 +39,17 @@ class AudioRecorder: NSObject, ObservableObject {
     
     override init() {
         super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: AVAudioSession.interruptionNotification, object: nil)
+    }
+    
+    @objc private func handleInterruption(notification: Notification) {
+        if let info = notification.userInfo,
+            let typeInt = info[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSession.InterruptionType(rawValue: typeInt) {
+            if type == .began && isRecording {
+                stopRecording()
+            }
+        }
     }
     
     func startRecording() {
