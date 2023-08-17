@@ -38,7 +38,7 @@ class TimelineViewModel: ObservableObject {
         if let insertedObjects = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, !insertedObjects.isEmpty {
             for obj in insertedObjects {
                 guard let memo = obj as? MemoEntity else { continue }
-                guard memo.isFromWatch else { continue }
+                guard memo.needsTranscription else { continue }
                 transcribe(memo)
             }
         }

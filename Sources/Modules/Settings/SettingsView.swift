@@ -81,6 +81,10 @@ struct SettingsView: View {
                 Text(L(.settings_app_language))
             }
             
+            MyToggle(isOn: $config.autoSave) {
+                Text(L(.settings_auto_save))
+            }
+            
             
         } header: {
             Text(L(.settings_general))

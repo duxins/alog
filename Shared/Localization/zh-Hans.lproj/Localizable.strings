@@ -202,6 +202,9 @@
 /*设置 - 外观*/
 "settings_app_appearance" = "外观";
 
+/*设置 - 录音结束自动保存*/
+"settings_auto_save" = "录音后自动保存";
+
 /*设置 - 服务器*/
 "settings_server" = "服务器";
 

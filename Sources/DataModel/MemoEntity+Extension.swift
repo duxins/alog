@@ -28,6 +28,18 @@ extension MemoEntity {
 //        formatter.dateFormat = "h:mm a"
         return formatter.string(from: createdAt ?? Date())
     }
+    
+    
+    /// 需要转写
+    var needsTranscription: Bool {
+        if isFromWatch { return true }
+        
+        if Config.shared.transEnabled && Config.shared.autoSave && !transcribed {
+            return true
+        }
+        
+        return false
+    }
 }
 
 extension MemoEntity {

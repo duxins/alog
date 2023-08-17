@@ -28,6 +28,7 @@ struct RecordingView: View {
                 recordingButtons
             } else if recorder.isCompleted {
                 RecordingCompletedView(voiceURL: recorder.voiceFile!)
+                    .opacity(Config.shared.autoSave ? 0 : 1)
             } else {
                 ProgressView()
             }
@@ -62,6 +63,7 @@ struct RecordingView: View {
                 .frame(height: 50)
                 .padding(.bottom, 40)
             StopRecordingButton {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 recorder.stopRecording()
             }
             Spacer()

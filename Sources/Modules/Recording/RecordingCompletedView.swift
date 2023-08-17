@@ -79,7 +79,12 @@ struct RecordingCompletedView: View {
             dismiss()
         }
         .task {
-            vm.transcribe()
+            if Config.shared.autoSave {
+                vm.save()
+                dismiss()
+            } else {
+                vm.transcribe()
+            }
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(title: Text(L(.are_you_sure)), primaryButton: .destructive(Text(L(.delete))) {

@@ -24,6 +24,8 @@ class Config: ObservableObject {
     
     @AppStorage("openai_model") var aiModel = OpenAIChatModel.gpt_3_5
     
+    @AppStorage("auto_save") var autoSave = false
+    
     @AppStorage("server_host") var serverHost = "" {
         didSet {
             validateHost()
