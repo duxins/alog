@@ -163,14 +163,10 @@ struct SettingsView: View {
         } header: {
             Text(L(.settings_trans))
         } footer: {
-            if config.transEnabled {
-                if config.transProvider == .apple {
-                    Text(L(.trans_provider_apple_notice))
-                } else if config.transProvider == .openai && config.serverType == .custom {
-                    Text(L(.trans_provider_openai_notice))
-                }
+            if config.transEnabled && config.transProvider == .apple {
+                Text(L(.trans_provider_apple_notice))
             } else {
-                Text("")
+                Text(" ")
             }
         }
         .alert(isPresented: $showTransWarning) {
