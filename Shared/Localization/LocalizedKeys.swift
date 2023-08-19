@@ -178,9 +178,9 @@ public enum MyLocalizedKey: String {
   /**导出数据 - 类别*/
   case export_category = "export_category"
   /**导出数据 - 类别 - 笔记*/
-  case export_category_notes = "export_category_notes"
+  case export_category_note = "export_category_note"
   /**导出数据 - 类别 - 总结*/
-  case export_category_summaries = "export_category_summaries"
+  case export_category_summary = "export_category_summary"
   /**导出数据 - 格式*/
   case export_format = "export_format"
   /**Timeline*/

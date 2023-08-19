@@ -20,22 +20,22 @@ struct ExportView: View {
         NavigationStack {
             Form {
                 Section {
-                    HStack {
-                        Picker(selection: $vm.category) {
-                            ForEach(ExportCategory.allCases, id: \.self) {
-                                Text($0.displayName)
-                                    .tag($0)
-                            }
-                        } label: {
-                            Text(L(.export_category))
+                    Picker(selection: $vm.category) {
+                        ForEach(ExportCategory.enabledCases, id: \.self) {
+                            Text($0.displayName)
+                                .tag($0)
                         }
+                    } label: {
+                        Text(L(.export_category))
                     }
-                    
-                    HStack {
+                
+                    Picker(selection: $vm.format) {
+                        ForEach(ExportFormat.allCases, id: \.self) {
+                            Text($0.displayName)
+                                .tag($0)
+                        }
+                    } label: {
                         Text(L(.export_format))
-                        Spacer()
-                        Text("CSV")
-                            .foregroundColor(.secondary)
                     }
                 }
                 
@@ -72,6 +72,10 @@ struct ExportView: View {
                         Text(L(.cancel))
                     }
                 }
+            }
+            .alert(L(.error), isPresented: $vm.showError) {
+            } message: {
+                Text(vm.lastErrorMessage)
             }
         }
     }

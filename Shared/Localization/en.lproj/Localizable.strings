@@ -263,10 +263,10 @@
 "export_category" = "Category";
 
 /*导出数据 - 类别 - 笔记*/
-"export_category_notes" = "Notes";
+"export_category_note" = "Note";
 
 /*导出数据 - 类别 - 总结*/
-"export_category_summaries" = "Summaries";
+"export_category_summary" = "Summary";
 
 /*导出数据 - 格式*/
 "export_format" = "Format";

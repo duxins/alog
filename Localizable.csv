@@ -97,8 +97,8 @@
 # Export #
 "export_data","导出数据","Export Data",导出数据
 "export_category","导出数据 - 类别","Category",类别
-"export_category_notes","导出数据 - 类别 - 笔记","Notes",笔记
-"export_category_summaries","导出数据 - 类别 - 总结","Summaries",总结
+"export_category_note","导出数据 - 类别 - 笔记","Note",笔记
+"export_category_summary","导出数据 - 类别 - 总结","Summary",总结
 "export_format","导出数据 - 格式","Format",格式
 # Timeline #
 "timeline","Timeline","Timeline",时间线
