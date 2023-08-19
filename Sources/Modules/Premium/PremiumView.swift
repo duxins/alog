@@ -123,7 +123,7 @@ struct PremiumView: View {
     private func featuresTable() -> some View {
         Grid(verticalSpacing: 20) {
             GridRow {
-                feature(L(.premium_custom_server))
+                feature(L(.premium_export_data))
                 checkMark()
             }
             GridRow {

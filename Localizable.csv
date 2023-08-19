@@ -61,6 +61,7 @@
 "premium_summary_num","总结数量","Summaries",总结数量
 "premium_prompt_num","提示词数量","Prompts",提示词数量
 "premium_custom_server","自定义服务器","Custom server",自定义服务器
+"premium_export_data","导出数据","Export to CSV, Markdown",导出数据为 CSV，Markdown
 "premium_daily_character_limit","每日字符上限","Daily character limit",每日字符上限
 "premium_go_premium","购买按钮 - 展示价格","Go Premium: %@",升级到高级版：%@
 "premium_upgrade_to_premium","升级到高级版","Upgrade to Premium",升级到高级版

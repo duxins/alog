@@ -163,6 +163,9 @@
 /*自定义服务器*/
 "premium_custom_server" = "Custom server";
 
+/*导出数据*/
+"premium_export_data" = "Export to CSV, Markdown";
+
 /*每日字符上限*/
 "premium_daily_character_limit" = "Daily character limit";
 

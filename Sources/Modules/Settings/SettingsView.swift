@@ -42,7 +42,10 @@ struct SettingsView: View {
                         sectionPremium
                     }
                     
-                    sectionData
+                    if appState.isPremium {
+                        sectionData
+                    }
+                    
                     sectionInfo
                 }
             }
