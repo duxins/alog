@@ -25,6 +25,9 @@ packages:
   DSWaveformImage:
     url: https://github.com/dmrschmidt/DSWaveformImage
     from: 13.0.2
+  CSV:
+    url: https://github.com/yaslab/CSV.swift.git
+    from: 2.4.3
   ArkanaKeys:
     path: ./ArkanaKeys/ArkanaKeys
   ArkanaKeysInterfaces:
@@ -168,6 +171,7 @@ targets:
       - package: ArkanaKeys
       - package: ArkanaKeysInterfaces
       - package: ConfettiSwiftUI
+      - package: CSV
       - package: DSWaveformImage
         product: DSWaveformImage
       - package: DSWaveformImage
