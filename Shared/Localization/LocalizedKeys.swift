@@ -173,6 +173,16 @@ public enum MyLocalizedKey: String {
   case settings_sum_prompts_add = "settings_sum_prompts_add"
   /**设置 - 总结 - Edit prompt*/
   case settings_sum_prompts_edit = "settings_sum_prompts_edit"
+  /**导出数据*/
+  case export_data = "export_data"
+  /**导出数据 - 类别*/
+  case export_category = "export_category"
+  /**导出数据 - 类别 - 笔记*/
+  case export_category_notes = "export_category_notes"
+  /**导出数据 - 类别 - 总结*/
+  case export_category_summaries = "export_category_summaries"
+  /**导出数据 - 格式*/
+  case export_format = "export_format"
   /**Timeline*/
   case timeline = "timeline"
   /**Timeline - "no entries"*/

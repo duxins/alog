@@ -256,6 +256,21 @@
 /*设置 - 总结 - Edit prompt*/
 "settings_sum_prompts_edit" = "Edit Prompt";
 
+/*导出数据*/
+"export_data" = "Export Data";
+
+/*导出数据 - 类别*/
+"export_category" = "Category";
+
+/*导出数据 - 类别 - 笔记*/
+"export_category_notes" = "Notes";
+
+/*导出数据 - 类别 - 总结*/
+"export_category_summaries" = "Summaries";
+
+/*导出数据 - 格式*/
+"export_format" = "Format";
+
 /*Timeline*/
 "timeline" = "Timeline";
 

@@ -22,6 +22,13 @@ extension SummaryEntity {
         "# \(viewTitle)" + "\n\n" + viewContent
     }
     
+    var viewCreatedAt: String {
+        let formatter = DateFormatter()
+        if let timezone { formatter.timeZone = TimeZone(identifier: timezone) }
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        return formatter.string(from: createdAt ?? Date())
+    }
+    
     func truncatedContent(_ length: Int) -> String {
         guard let content = content else { return "" }
         let ret = content.prefix(length)

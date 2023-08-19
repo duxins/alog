@@ -14,6 +14,7 @@ struct SettingsView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     
     @State private var showPremium = false
+    @State private var showExport = false
     
     @State private var showTransWarning = false {
         didSet {
@@ -44,6 +45,7 @@ struct SettingsView: View {
                         sectionPremium
                     }
                     
+                    sectionData
                     sectionInfo
                 }
             }
@@ -206,6 +208,20 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showPremium) {
             PremiumView()
+        }
+    }
+    
+    @ViewBuilder
+    private var sectionData: some View {
+        Section {
+            Button {
+                showExport = true
+            } label:{
+                Text(L(.export_data))
+            }
+        }
+        .sheet(isPresented: $showExport) {
+            ExportView()
         }
     }
     
