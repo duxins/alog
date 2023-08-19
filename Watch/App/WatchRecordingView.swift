@@ -29,7 +29,6 @@ struct WatchRecordingView: View {
                 Button {
                     WKInterfaceDevice.current().play(.stop)
                     recorder.stopRecording()
-                    dismiss()
                 } label: {
                     StopRecordingButton()
                 }
@@ -37,12 +36,16 @@ struct WatchRecordingView: View {
                 .opacity(recorder.isRecording ? 1 : 0)
                 .animation(.easeIn(duration: 0.25).delay(0.25), value: recorder.isRecording)
             }
+            .onChange(of: recorder.isRecording) { newValue in
+                if !newValue {
+                    dismiss()
+                }
+            }
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button {
                     recorder.terminate()
-                    dismiss()
                 } label: {
                     Text(L(.cancel))
                         .foregroundColor(.secondary)
