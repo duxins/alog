@@ -1,2 +1,4 @@
-- Added support for auto-save after recording
-- Added support for auto-save when interrupted by incoming phone calls
+- Added support for data export (exclusive to Premium users)
+- "Auto-Save after Recording" option is enabled by default
+- Custom server is now available for all users
+- Added support for auto-save when interrupted by incoming phone calls on watchOS
