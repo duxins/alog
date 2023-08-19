@@ -169,6 +169,8 @@ struct SettingsView: View {
                 } else if config.transProvider == .openai && config.serverType == .custom {
                     Text(L(.trans_provider_openai_notice))
                 }
+            } else {
+                Text("")
             }
         }
         .alert(isPresented: $showTransWarning) {
