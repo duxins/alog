@@ -35,6 +35,7 @@ struct WatchRecordView: View {
             }
             .fullScreenCover(isPresented: $appState.showRecording) {
                 WatchRecordingView(recorder: recorder)
+                    .interactiveDismissDisabled()
             }
         }
     }
