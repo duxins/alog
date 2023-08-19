@@ -21,7 +21,7 @@ struct PremiumView: View {
             VStack(spacing: 50){
                 Spacer().frame(height: 10)
                 titleView()
-                    .confettiCannon(counter: $counter, num: 120, openingAngle: Angle(degrees: 0), closingAngle: Angle(degrees: 360), radius: 240)
+                    .confettiCannon(counter: $counter, num: 140, openingAngle: Angle(degrees: 0), closingAngle: Angle(degrees: 360), radius: 290)
                 featuresTable()
                 Spacer()
             }
@@ -29,13 +29,14 @@ struct PremiumView: View {
             if !appState.isPremium {
                 purchaseButtonAndFooter
             }
+            
         }
         .padding(.horizontal, 30)
         .onChange(of: iap.state) { newValue in
             if case .purchased = newValue {
                 UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 counter += 1
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                     dismiss()
                 }
             }
