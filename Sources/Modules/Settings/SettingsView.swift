@@ -33,10 +33,7 @@ struct SettingsView: View {
             VStack {
                 Form {
                     sectionGeneral
-                    
-                    if appState.isPremium {
-                        sectionServer
-                    }
+                    sectionServer
                     
                     sectionTranscription
                     sectionSummarization
