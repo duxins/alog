@@ -51,6 +51,7 @@ struct AboutView: View {
                 creditRow("KeychainAccess", url: "https://github.com/kishikawakatsumi/KeychainAccess")
                 creditRow("ConfettiSwiftUI", url: "https://github.com/simibac/ConfettiSwiftUI")
                 creditRow("DSWaveformImage", url: "https://github.com/dmrschmidt/DSWaveformImage")
+                creditRow("CSV.swift", url: "https://github.com/yaslab/CSV.swift")
             } header: {
                 Text("Libraries")
             }
