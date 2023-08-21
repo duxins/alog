@@ -32,6 +32,8 @@ extension MemoEntity {
     
     /// 需要转写
     var needsTranscription: Bool {
+        guard file != nil else { return false }
+        
         if isFromWatch { return true }
         
         if Config.shared.transEnabled && Config.shared.autoSave && !transcribed {
