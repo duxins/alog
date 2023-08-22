@@ -52,6 +52,7 @@ struct AboutView: View {
                 creditRow("ConfettiSwiftUI", url: "https://github.com/simibac/ConfettiSwiftUI")
                 creditRow("DSWaveformImage", url: "https://github.com/dmrschmidt/DSWaveformImage")
                 creditRow("CSV.swift", url: "https://github.com/yaslab/CSV.swift")
+                creditRow("TPPDF", url: "https://github.com/techprimate/TPPDF")
             } header: {
                 Text("Libraries")
             }

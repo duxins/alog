@@ -7,6 +7,7 @@
 
 import SwiftUI
 import XLog
+import TPPDF
 
 struct SummaryDetailView: View {
     @ObservedObject var summary: SummaryEntity
@@ -84,33 +85,17 @@ struct SummaryDetailView: View {
     
     private func pdf() -> URL {
         let url = fileName(ext: "pdf")
-        let renderer = ImageRenderer(content:
-            VStack(spacing: 30) {
-                Group {
-                    Text(summary.viewTitle)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Text(summary.viewContent)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                Spacer()
-            }
-            .padding(30)
-            .frame(width: 600)
-            .frame(minHeight: 860)
-        )
+        let document = PDFDocument(format: .a4)
         
-        renderer.render { size, context in
-            var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            guard let pdf = CGContext(url as CFURL, mediaBox: &box, nil) else {
-                return
-            }
-            pdf.beginPDFPage(nil)
-            context(pdf)
-            pdf.endPDFPage()
-            pdf.closePDF()
-        }
+        let title = NSMutableAttributedString(string: summary.viewTitle, attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)
+        ])
+        document.add(attributedTextObject: PDFAttributedText(text: title))
+        document.add(.contentLeft, text: "\n\n")
+        let content = PDFSimpleText(text: summary.viewContent, spacing: 10)
+        document.add(textObject: content)
+        let generator = PDFGenerator(document: document)
+        try? generator.generate(to: url)
         return url
     }
     

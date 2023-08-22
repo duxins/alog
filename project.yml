@@ -32,6 +32,9 @@ packages:
     path: ./ArkanaKeys/ArkanaKeys
   ArkanaKeysInterfaces:
     path: ./ArkanaKeys/ArkanaKeysInterfaces
+  TPPDF:
+    url: https://github.com/techprimate/TPPDF.git
+    from: 2.4.1
 configs:
   Debug: debug
   Snapshot: debug
@@ -172,6 +175,7 @@ targets:
       - package: ArkanaKeysInterfaces
       - package: ConfettiSwiftUI
       - package: CSV
+      - package: TPPDF
       - package: DSWaveformImage
         product: DSWaveformImage
       - package: DSWaveformImage
