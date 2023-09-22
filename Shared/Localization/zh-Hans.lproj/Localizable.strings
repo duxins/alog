@@ -7,9 +7,6 @@
 /*评分*/
 "rate_on_the_app_store" = "在 App Store 上评分";
 
-/*分享*/
-"share_app" = "分享 ALog";
-
 /*分享给朋友*/
 "share_with_friends" = "分享给朋友";
 
@@ -45,9 +42,6 @@
 
 /*Copy*/
 "copy" = "复制";
-
-/*Paste*/
-"paste" = "粘贴";
 
 /*Memo*/
 "memo" = "笔记";
@@ -366,17 +360,11 @@
 /*Credits - 一口新饭*/
 "credit_onenewbite_name" = "一口新饭";
 
-/*Credits - 一口新饭 - 描述*/
-"credit_onenewbite_desc" = "为 App 提供灵感和创意";
-
 /*Credits - 一口新饭 - url*/
 "credit_onenewbite_url" = "https://www.youtube.com/watch?v=ZRv0Z-M7NqM";
 
 /*Credits - goldengrape*/
 "credit_goldengrape_name" = "goldengrape";
-
-/*Credits - goldengrape 描述*/
-"credit_goldengrape_desc" = "我们参考了他的优秀提示词";
 
 /*Credits - goldengrape - url*/
 "credit_goldengrape_url" = "https://quail.ink/goldengrape/p/write-diary-with-chatgpt";

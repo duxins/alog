@@ -7,8 +7,6 @@ public enum MyLocalizedKey: String {
   case review_app = "review_app"
   /**评分*/
   case rate_on_the_app_store = "rate_on_the_app_store"
-  /**分享*/
-  case share_app = "share_app"
   /**分享给朋友*/
   case share_with_friends = "share_with_friends"
   /**关于*/
@@ -33,8 +31,6 @@ public enum MyLocalizedKey: String {
   case enable = "enable"
   /**Copy*/
   case copy = "copy"
-  /**Paste*/
-  case paste = "paste"
   /**Memo*/
   case memo = "memo"
   /**Save*/
@@ -243,14 +239,10 @@ public enum MyLocalizedKey: String {
   case prompt_content_template = "prompt_content_template"
   /**Credits - 一口新饭*/
   case credit_onenewbite_name = "credit_onenewbite_name"
-  /**Credits - 一口新饭 - 描述*/
-  case credit_onenewbite_desc = "credit_onenewbite_desc"
   /**Credits - 一口新饭 - url*/
   case credit_onenewbite_url = "credit_onenewbite_url"
   /**Credits - goldengrape*/
   case credit_goldengrape_name = "credit_goldengrape_name"
-  /**Credits - goldengrape 描述*/
-  case credit_goldengrape_desc = "credit_goldengrape_desc"
   /**Credits - goldengrape - url*/
   case credit_goldengrape_url = "credit_goldengrape_url"
   /**Watch - 没有权限 - 标题*/

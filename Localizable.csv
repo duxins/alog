@@ -5,7 +5,6 @@
 "app_name","应用名称","ALog",ALog
 "review_app","评价","Review ALog",评价 ALog
 "rate_on_the_app_store","评分","Rate on the App Store",在 App Store 上评分
-"share_app","分享","Share ALog",分享 ALog
 "share_with_friends","分享给朋友","Share with Friends",分享给朋友
 "about_app","关于","About ALog",关于 ALog
 "company","公司","Tarbo Tech, LLC","Tarbo Tech, LLC"
@@ -18,7 +17,6 @@
 "ok","OK","OK",好
 "enable","Enable 开关","Enable",开启
 "copy","Copy","Copy",复制
-"paste","Paste","Paste",粘贴
 "memo","Memo","Memo",笔记
 "save","Save","Save",保存
 "api_key","API Key","API Key",API KEY
@@ -147,10 +145,8 @@ I will ask you to:
 3. 根据日记，对我生活做出的重要洞察并像一位心理专家/人生导师一样给出鼓励/安慰、分析、建议等"
 # Credits #
 "credit_onenewbite_name","Credits - 一口新饭","一口新饭",一口新饭
-"credit_onenewbite_desc","Credits - 一口新饭 - 描述","Provided innovative thinking and ideas.",为 App 提供灵感和创意
 "credit_onenewbite_url","Credits - 一口新饭 - url","https://www.youtube.com/watch?v=ZRv0Z-M7NqM",https://www.youtube.com/watch?v=ZRv0Z-M7NqM
 "credit_goldengrape_name","Credits - goldengrape","goldengrape",goldengrape
-"credit_goldengrape_desc","Credits - goldengrape 描述","We referred to his excellent prompts",我们参考了他的优秀提示词
 "credit_goldengrape_url","Credits - goldengrape - url","https://quail.ink/goldengrape/p/write-diary-with-chatgpt-en",https://quail.ink/goldengrape/p/write-diary-with-chatgpt
 # Watch #
 "watch_permission_title","Watch - 没有权限 - 标题","Microphone Access",麦克风访问权限
