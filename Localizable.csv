@@ -42,6 +42,8 @@
 "unlimited","Unlimited","Unlimited",无限
 "characters","Characters","Characters",字数
 "_default","Default","Default",默认
+"show","Show","Show",显示
+"hide","Hide","Hide",隐藏
 # Error #
 "error_invalid_custom_server","无效自定义服务器","Invalid custom server",无效自定义服务器
 # Dark Mode #

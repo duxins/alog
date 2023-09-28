@@ -81,6 +81,10 @@ public enum MyLocalizedKey: String {
   case characters = "characters"
   /**Default*/
   case _default = "_default"
+  /**Show*/
+  case show = "show"
+  /**Hide*/
+  case hide = "hide"
   /**无效自定义服务器*/
   case error_invalid_custom_server = "error_invalid_custom_server"
   /**外观 - 自动*/

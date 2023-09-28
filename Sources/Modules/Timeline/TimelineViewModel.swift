@@ -72,6 +72,15 @@ class TimelineViewModel: ObservableObject {
         }
     }
     
+    func toggleVisibility(_ memo: MemoEntity) {
+        memo.isHidden.toggle()
+        do {
+            try DataContainer.shared.context.save()
+        } catch {
+            XLog.error(error, source: "Timeline")
+        }
+    }
+    
     private func requestReview() {
         guard transCount > 5 else { return }
         let timeInterval = Date().timeIntervalSince1970

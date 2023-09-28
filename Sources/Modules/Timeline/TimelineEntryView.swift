@@ -62,8 +62,13 @@ struct TimelineEntryView: View {
                 .foregroundColor(.secondary)
         } else {
             VStack(alignment: .leading, spacing: 10) {
-                Text(memo.viewContent)
-                    .foregroundColor(.app_timeline_text)
+                if memo.isHidden {
+                    Text(memo.viewContent)
+                        .redacted(reason: .placeholder)
+                } else {
+                    Text(memo.viewContent)
+                        .foregroundColor(.app_timeline_text)
+                }
                 if let err = vm.failedMemos[memo] {
                     Text(err.localizedDescription)
                         .font(.caption2)
@@ -83,6 +88,7 @@ struct TimelineEntryView: View {
                 editButton
                 if memo.viewContent.count > 0 { shareButton }
                 if memo.file != nil { shareAudioButton }
+                showHideButton
                 deleteButton
             } label: {
                 Image(systemName: "ellipsis")
@@ -176,6 +182,20 @@ struct TimelineEntryView: View {
                 Text(L(.retranscribe))
             } else {
                 Text(L(.transcribe))
+            }
+        }
+    }
+    
+    private var showHideButton: some View {
+        Button {
+            vm.toggleVisibility(memo)
+        } label: {
+            if memo.isHidden {
+                Image(systemName: "eye")
+                Text(L(.show))
+            } else {
+                Image(systemName: "eye.slash")
+                Text(L(.hide))
             }
         }
     }
