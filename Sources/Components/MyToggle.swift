@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyToggle<Label: View>: View {
+    @EnvironmentObject var appState: AppState
     @Binding var isOn: Bool
     
     let label: () -> Label
