@@ -1,1 +1,2 @@
-- Added support for exporting summary as PDF
+- Added support for toggling entry visibility
+- Added support for adding diary entries via keyboard input
