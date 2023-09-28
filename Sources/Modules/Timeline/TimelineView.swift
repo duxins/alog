@@ -41,6 +41,16 @@ struct TimelineView: View {
                         Image("nav_settings")
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            appState.activeSheet = .quickMemo
+                        }
+                    } label: {
+                        Image("nav_quick_memo")
+                    }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .task {

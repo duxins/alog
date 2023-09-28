@@ -9,6 +9,7 @@ import Foundation
 
 enum ActiveSheet: Identifiable {
     case settings
+    case quickMemo
     /// Generate summary
     case summarize(SummaryItem)
     case micPermission
@@ -18,6 +19,7 @@ enum ActiveSheet: Identifiable {
     var id: String {
         switch self {
         case .settings: return "settings"
+        case .quickMemo: return "quick"
         case .summarize(let item): return item.id
         case .micPermission: return "mic"
         case .editMemo(let item): return "edit_memo_\(item.id ?? "")"

@@ -33,6 +33,8 @@ struct MainView: View {
             switch item {
             case .settings:
                 SettingsView()
+            case .quickMemo:
+                QuickMemoView()
             case .summarize(let item):
                 AddSummaryPromptView(item: item)
                     .interactiveDismissDisabled()
