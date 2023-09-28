@@ -141,6 +141,7 @@ targets:
   ALogWidget:
     type: app-extension
     platform: iOS
+    deploymentTarget: "16.0"
     sources:
       - WatchWidget
     info:
@@ -221,6 +222,7 @@ targets:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: [DEBUG, SNAPSHOT]
   SnapshotTests:
     type: bundle.ui-testing
+    deploymentTarget: "16.0"
     platform: iOS
     sources: [SnapshotTests]
     dependencies:
