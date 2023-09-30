@@ -85,6 +85,8 @@ public enum MyLocalizedKey: String {
   case show = "show"
   /**Hide*/
   case hide = "hide"
+  /**开始录音*/
+  case start_recording = "start_recording"
   /**无效自定义服务器*/
   case error_invalid_custom_server = "error_invalid_custom_server"
   /**外观 - 自动*/

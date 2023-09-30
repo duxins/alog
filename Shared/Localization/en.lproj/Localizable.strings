@@ -124,6 +124,9 @@
 /*Hide*/
 "hide" = "Hide";
 
+/*开始录音*/
+"start_recording" = "Start Recording";
+
 /*无效自定义服务器*/
 "error_invalid_custom_server" = "Invalid custom server";
 
