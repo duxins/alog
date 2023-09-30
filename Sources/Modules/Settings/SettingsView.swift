@@ -42,9 +42,7 @@ struct SettingsView: View {
                         sectionPremium
                     }
                     
-                    if appState.isPremium {
-                        sectionData
-                    }
+                    sectionData
                     
                     sectionInfo
                 }
@@ -213,9 +211,16 @@ struct SettingsView: View {
     private var sectionData: some View {
         Section {
             Button {
-                showExport = true
+                if appState.isPremium {
+                    showExport = true
+                } else {
+                    showPremium = true
+                }
             } label:{
-                Text(L(.export_data))
+                HStack {
+                    Text(L(.export_data))
+                    premiumLockIcon
+                }
             }
         }
         .sheet(isPresented: $showExport) {
@@ -270,6 +275,15 @@ struct SettingsView: View {
             .font(.caption)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
+        }
+    }
+    
+    @ViewBuilder
+    private var premiumLockIcon: some View {
+        if !appState.isPremium {
+            Image(systemName: "lock.fill")
+                .font(.subheadline)
+                .foregroundColor(Color(uiColor: .tertiaryLabel))
         }
     }
 }
