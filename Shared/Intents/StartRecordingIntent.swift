@@ -13,7 +13,11 @@ struct StartRecordingIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        AppState.shared.startRecording()
+        #if os(iOS)
+            AppState.shared.startRecording()
+        #else
+            WatchAppState.shared.startRecording()
+        #endif
         return .result()
     }
   
