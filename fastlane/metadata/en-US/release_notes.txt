@@ -1,1 +1,2 @@
 - Improved accuracy of punctuation in Chinese transcription
+- Added Shortcuts support for watchOS
