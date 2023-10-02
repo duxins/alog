@@ -1,3 +1,1 @@
-- Added support for toggling entry visibility
-- Added support for adding diary entries via keyboard input
-- Added a "Start Recording" Shortcuts action
+- Improved accuracy of punctuation in Chinese transcription
