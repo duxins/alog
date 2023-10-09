@@ -265,6 +265,12 @@
 /*设置 - 实验功能*/
 "settings_experimental_features" = "Experimental Features";
 
+/*设置 - 自定义 whisper 提示词*/
+"settings_custom_whisper_prompt_enabled" = "Custom Whisper Prompt";
+
+/*设置 - 自定义 whisper 提示词 - 描述*/
+"settings_custom_whisper_desc" = "Whisper only considers the first 244 tokens of the prompt.";
+
 /*导出数据*/
 "export_data" = "Export Data";
 

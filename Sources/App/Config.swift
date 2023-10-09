@@ -32,6 +32,12 @@ class Config: ObservableObject {
         }
     }
     
+    // MARK: - Experimental Features
+    
+    /// 自定义 whisper 提示词
+    @AppStorage("custom_whisper_prompt_enabled") var customWhisperPromptEnabled = false
+    @AppStorage("custom_whisper_prompt") var customWhisperPrompt = ""
+    
     @Published var colorScheme = ColorScheme.light
     
     static let shared = Config()

@@ -179,6 +179,10 @@ public enum MyLocalizedKey: String {
   case settings_sum_prompts_edit = "settings_sum_prompts_edit"
   /**设置 - 实验功能*/
   case settings_experimental_features = "settings_experimental_features"
+  /**设置 - 自定义 whisper 提示词*/
+  case settings_custom_whisper_prompt_enabled = "settings_custom_whisper_prompt_enabled"
+  /**设置 - 自定义 whisper 提示词 - 描述*/
+  case settings_custom_whisper_desc = "settings_custom_whisper_desc"
   /**导出数据*/
   case export_data = "export_data"
   /**导出数据 - 类别*/

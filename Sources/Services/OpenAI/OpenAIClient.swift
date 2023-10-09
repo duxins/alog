@@ -204,9 +204,9 @@ class OpenAIClient {
             var params = ["model": "whisper-1"]
             if lang != .auto {
                 params["language"] = lang.whisperLangCode
-                if let prompt = lang.whisperPrompt {
-                    params["prompt"] = prompt
-                }
+            }
+            if let prompt = lang.whisperPrompt {
+                params["prompt"] = prompt
             }
             XLog.debug("Whisper params = \(params)", source: TAG)
             body = try createWhisperBody(boundary: boundary, fileURL: fileURL, params: params)

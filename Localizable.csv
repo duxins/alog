@@ -97,6 +97,9 @@
 "settings_sum_prompts_add","设置 - 总结 - add prompt","Add Prompt",添加提示词
 "settings_sum_prompts_edit","设置 - 总结 - Edit prompt","Edit Prompt",编辑提示词
 "settings_experimental_features","设置 - 实验功能","Experimental Features",实验功能
+# Experimental Features
+"settings_custom_whisper_prompt_enabled","设置 - 自定义 whisper 提示词","Custom Whisper Prompt",自定义 Whisper 提示词
+"settings_custom_whisper_desc","设置 - 自定义 whisper 提示词 - 描述","Whisper only considers the first 244 tokens of the prompt.",Whisper 只处理提示词的前 244 个 token。
 # Export #
 "export_data","导出数据","Export Data",导出数据
 "export_category","导出数据 - 类别","Category",类别
