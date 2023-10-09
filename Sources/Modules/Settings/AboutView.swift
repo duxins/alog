@@ -41,6 +41,7 @@ struct AboutView: View {
                 creditRow(L(.credit_onenewbite_name), url: L(.credit_onenewbite_url))
                 creditRow(L(.credit_goldengrape_name),url: L(.credit_goldengrape_url))
                 creditRow("Cʜᴇɴɢ", url: "https://twitter.com/scomper")
+                creditRow("Yifan Men", url: "https://github.com/menyf")
             } header: {
                 Text("Credits")
             }
