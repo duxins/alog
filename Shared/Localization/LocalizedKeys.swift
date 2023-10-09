@@ -115,6 +115,8 @@ public enum MyLocalizedKey: String {
   case premium_custom_server = "premium_custom_server"
   /**导出数据*/
   case premium_export_data = "premium_export_data"
+  /**实验功能*/
+  case premium_experimental_features = "premium_experimental_features"
   /**每日字符上限*/
   case premium_daily_character_limit = "premium_daily_character_limit"
   /**购买按钮 - 展示价格*/

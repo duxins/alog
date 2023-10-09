@@ -128,6 +128,10 @@ struct PremiumView: View {
                 checkMark()
             }
             GridRow {
+                feature(L(.premium_experimental_features))
+                checkMark()
+            }
+            GridRow {
                 feature(L(.premium_summary_num))
                 highlightText(L(.unlimited))
             }
