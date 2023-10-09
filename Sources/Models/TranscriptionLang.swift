@@ -42,9 +42,14 @@ enum TranscriptionLang: String, CaseIterable {
     
     var whisperPrompt: String? {
         switch self {
-        case .zh_hans: return "以下是普通话的句子。"
-        default: return nil
+        case .zh_hans: return "以下是普通话的句子。" + (customWhisperPrompt ?? "")
+        default: return customWhisperPrompt
         }
+    }
+    
+    var customWhisperPrompt: String? {
+        guard Config.shared.customWhisperPromptEnabled else { return nil }
+        return Config.shared.customWhisperPrompt
     }
 }
 
