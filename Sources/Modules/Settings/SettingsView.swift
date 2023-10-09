@@ -44,6 +44,8 @@ struct SettingsView: View {
                     
                     sectionData
                     
+                    sectionExperiments
+                    
                     sectionInfo
                 }
             }
@@ -225,6 +227,26 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showExport) {
             ExportView()
+        }
+    }
+    
+    @ViewBuilder
+    private var sectionExperiments: some View {
+        Section {
+            if appState.isPremium {
+                NavigationLink(destination: ExperimentsView()) {
+                    Text(L(.settings_experimental_features))
+                }
+            } else {
+                Button {
+                    showPremium = true
+                } label:{
+                    HStack {
+                        Text(L(.settings_experimental_features))
+                        premiumLockIcon
+                    }
+                }
+            }
         }
     }
     

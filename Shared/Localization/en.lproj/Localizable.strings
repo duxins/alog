@@ -262,6 +262,9 @@
 /*设置 - 总结 - Edit prompt*/
 "settings_sum_prompts_edit" = "Edit Prompt";
 
+/*设置 - 实验功能*/
+"settings_experimental_features" = "Experimental Features";
+
 /*导出数据*/
 "export_data" = "Export Data";
 

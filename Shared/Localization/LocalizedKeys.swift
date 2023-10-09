@@ -177,6 +177,8 @@ public enum MyLocalizedKey: String {
   case settings_sum_prompts_add = "settings_sum_prompts_add"
   /**设置 - 总结 - Edit prompt*/
   case settings_sum_prompts_edit = "settings_sum_prompts_edit"
+  /**设置 - 实验功能*/
+  case settings_experimental_features = "settings_experimental_features"
   /**导出数据*/
   case export_data = "export_data"
   /**导出数据 - 类别*/
