@@ -38,6 +38,9 @@ class Config: ObservableObject {
     @AppStorage("custom_whisper_prompt_enabled") var customWhisperPromptEnabled = false
     @AppStorage("custom_whisper_prompt") var customWhisperPrompt = ""
     
+    /// feature: 自动停止录音
+    @AppStorage("feature_auto_stop") var autoStopEnabled = false
+    
     @Published var colorScheme = ColorScheme.light
     
     static let shared = Config()

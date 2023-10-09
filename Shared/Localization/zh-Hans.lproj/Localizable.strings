@@ -274,6 +274,12 @@
 /*设置 - 自定义 whisper 提示词 - 描述*/
 "settings_custom_whisper_desc" = "Whisper 只处理提示词的前 244 个 token。";
 
+/*设置 - 功能 - 自动结束录音*/
+"settings_feature_auto_stop" = "自动停止录音";
+
+/*设置 - 功能 - 自动结束录音 - 描述*/
+"settings_feature_auto_stop_desc" = "录音将在设定的时间后自动停止。";
+
 /*导出数据*/
 "export_data" = "导出数据";
 

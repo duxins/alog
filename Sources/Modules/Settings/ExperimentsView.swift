@@ -14,32 +14,52 @@ struct ExperimentsView: View {
     
     var body: some View {
         Form {
-            Section {
-                MyToggle(isOn: $config.customWhisperPromptEnabled) {
-                    Text(L(.settings_custom_whisper_prompt_enabled))
-                }
-                
-                if config.customWhisperPromptEnabled {
-                    TextEditor(text: $config.customWhisperPrompt)
-                        .focused($whisperPromptFocused)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                        .foregroundColor(.secondary)
-                        .frame(minHeight: 80)
-                }
-            } footer: {
-                if config.customWhisperPromptEnabled {
-                    Text(L(.settings_custom_whisper_desc))
-                } else {
-                    Text(" ")
-                }
-            }
+            whisperSection
+            autoStopSection
         }
         .navigationTitle(L(.settings_experimental_features))
+    }
+    
+    
+    @ViewBuilder
+    /// 自定义提示词
+    private var whisperSection: some View {
+        Section {
+            MyToggle(isOn: $config.customWhisperPromptEnabled) {
+                Text(L(.settings_custom_whisper_prompt_enabled))
+            }
+            
+            if config.customWhisperPromptEnabled {
+                TextEditor(text: $config.customWhisperPrompt)
+                    .focused($whisperPromptFocused)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .foregroundColor(.secondary)
+                    .frame(minHeight: 80)
+            }
+        } footer: {
+            if config.customWhisperPromptEnabled {
+                Text(L(.settings_custom_whisper_desc))
+            } else {
+                Text(" ")
+            }
+        }
         .onChange(of: config.customWhisperPromptEnabled) { newValue in
             if newValue == true {
                 whisperPromptFocused = true
             }
+        }
+    }
+    
+    @ViewBuilder
+    /// 自动停止录音
+    private var autoStopSection: some View {
+        Section {
+            MyToggle(isOn: $config.autoStopEnabled) {
+                Text(L(.settings_feature_auto_stop))
+            }
+        } footer: {
+            Text(L(.settings_feature_auto_stop_desc))
         }
     }
 }

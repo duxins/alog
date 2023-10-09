@@ -274,6 +274,12 @@
 /*设置 - 自定义 whisper 提示词 - 描述*/
 "settings_custom_whisper_desc" = "Whisper only considers the first 244 tokens of the prompt.";
 
+/*设置 - 功能 - 自动结束录音*/
+"settings_feature_auto_stop" = "Auto-Stop Recording";
+
+/*设置 - 功能 - 自动结束录音 - 描述*/
+"settings_feature_auto_stop_desc" = "Recording will stop automatically at a set time.";
+
 /*导出数据*/
 "export_data" = "Export Data";
 

@@ -185,6 +185,10 @@ public enum MyLocalizedKey: String {
   case settings_custom_whisper_prompt_enabled = "settings_custom_whisper_prompt_enabled"
   /**设置 - 自定义 whisper 提示词 - 描述*/
   case settings_custom_whisper_desc = "settings_custom_whisper_desc"
+  /**设置 - 功能 - 自动结束录音*/
+  case settings_feature_auto_stop = "settings_feature_auto_stop"
+  /**设置 - 功能 - 自动结束录音 - 描述*/
+  case settings_feature_auto_stop_desc = "settings_feature_auto_stop_desc"
   /**导出数据*/
   case export_data = "export_data"
   /**导出数据 - 类别*/
