@@ -48,7 +48,7 @@ extension MemoEntity {
         guard createdAt != time else { return }
         createdAt = time
         timezone = TimeZone.current.identifier
-        day = Int32(DateHelper.identifier(from: time))
+        day = Int32(DateHelper.identifier(from: time.realDate))
     }
 }
 
