@@ -55,7 +55,7 @@ struct ExperimentsView: View {
     /// 自动停止录音
     private var autoStopSection: some View {
         Section {
-            MyToggle(isOn: $config.autoStopEnabled) {
+            MyToggle(isOn: $config.featureAutoStop) {
                 Text(L(.settings_feature_auto_stop))
             }
         } footer: {

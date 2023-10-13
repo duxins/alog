@@ -14,6 +14,8 @@ struct RecordingView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var recorder = AudioRecorder()
     
+    @State private var showAutoStopTimer = false
+    
     @State var configuration: Waveform.Configuration = .init(
         style: .striped(.init(color: .white.withAlphaComponent(0.5), width: 3, spacing: 3))
     )
@@ -62,6 +64,16 @@ struct RecordingView: View {
             WaveformLiveCanvas(samples: recorder.samples, configuration: configuration)
                 .frame(height: 50)
                 .padding(.bottom, 40)
+            
+            // Buttons
+            HStack {
+                if Config.shared.featureAutoStop {
+                    autoStopButton
+                }
+            }
+            .frame(height: 50)
+            .padding(.bottom, 20)
+            
             StopRecordingButton {
                 UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 recorder.stopRecording()
@@ -97,6 +109,39 @@ struct RecordingView: View {
             }
             Spacer()
         }
+    }
+    
+    @ViewBuilder
+    /// 自动停止录音定时器
+    private var autoStopButton: some View {
+        Button {
+            showAutoStopTimer = true
+        } label: {
+            VStack(spacing: 5) {
+                Image(systemName: "stopwatch")
+                    .foregroundColor(recorder.autoStopAt == nil ? .secondary : .primary)
+                    .frame(height: 30)
+                Text(recorder.formattedRemainingTime)
+                    .font(.system(size: 12, design: .monospaced))
+                    .foregroundColor(.red)
+                    .opacity(0.8)
+            }
+        }
+        .confirmationDialog(L(.auto_stop_dialog_title), isPresented: $showAutoStopTimer, titleVisibility: .visible) {
+            Button(L(.auto_stop_dialog_off)) { autoStopAfter(nil) }
+            Button(L(.auto_stop_dialog_minutes, "5"))  { autoStopAfter(5) }
+            Button(L(.auto_stop_dialog_minutes, "10")) { autoStopAfter(10) }
+            Button(L(.auto_stop_dialog_minutes, "20")) { autoStopAfter(20) }
+            Button(L(.cancel), role: .cancel) { }
+        }
+    }
+    
+    private func autoStopAfter(_ m: Int?) {
+        guard let m = m else {
+            recorder.autoStopAt = nil
+            return
+        }
+        recorder.autoStopAt = recorder.recordedTime + m * 60
     }
 }
 

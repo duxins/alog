@@ -87,6 +87,12 @@ public enum MyLocalizedKey: String {
   case hide = "hide"
   /**开始录音*/
   case start_recording = "start_recording"
+  /**自动停止 - 标题*/
+  case auto_stop_dialog_title = "auto_stop_dialog_title"
+  /**自动停止 - 关闭*/
+  case auto_stop_dialog_off = "auto_stop_dialog_off"
+  /**自动停止 - 定时器 - 分钟*/
+  case auto_stop_dialog_minutes = "auto_stop_dialog_minutes"
   /**无效自定义服务器*/
   case error_invalid_custom_server = "error_invalid_custom_server"
   /**外观 - 自动*/

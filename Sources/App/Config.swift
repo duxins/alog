@@ -39,7 +39,7 @@ class Config: ObservableObject {
     @AppStorage("custom_whisper_prompt") var customWhisperPrompt = ""
     
     /// feature: 自动停止录音
-    @AppStorage("feature_auto_stop") var autoStopEnabled = false
+    @AppStorage("feature_auto_stop") var featureAutoStop = false
     
     @Published var colorScheme = ColorScheme.light
     

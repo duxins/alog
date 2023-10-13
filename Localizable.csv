@@ -45,6 +45,10 @@
 "show","Show","Show",显示
 "hide","Hide","Hide",隐藏
 "start_recording","开始录音","Start Recording",开始录音
+# Recording #
+"auto_stop_dialog_title","自动停止 - 标题","Auto-Stop Recording after...",自动停止录音设置
+"auto_stop_dialog_off","自动停止 - 关闭","Off",关闭
+"auto_stop_dialog_minutes","自动停止 - 定时器 - 分钟","%@ minutes",%@ 分钟
 # Error #
 "error_invalid_custom_server","无效自定义服务器","Invalid custom server",无效自定义服务器
 # Dark Mode #

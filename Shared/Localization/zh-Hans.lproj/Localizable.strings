@@ -127,6 +127,15 @@
 /*开始录音*/
 "start_recording" = "开始录音";
 
+/*自动停止 - 标题*/
+"auto_stop_dialog_title" = "自动停止录音设置";
+
+/*自动停止 - 关闭*/
+"auto_stop_dialog_off" = "关闭";
+
+/*自动停止 - 定时器 - 分钟*/
+"auto_stop_dialog_minutes" = "%@ 分钟";
+
 /*无效自定义服务器*/
 "error_invalid_custom_server" = "无效自定义服务器";
 

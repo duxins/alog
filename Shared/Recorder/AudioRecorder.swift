@@ -28,6 +28,14 @@ class AudioRecorder: NSObject, ObservableObject {
         String(format: "%02d:%02d", recordedTime / 60, recordedTime % 60)
     }
     
+    var formattedRemainingTime: String {
+        guard let time = autoStopAt else { return "" }
+        let s = time - recordedTime
+        return String(format: "%02d:%02d", s / 60, s % 60)
+    }
+    
+    var autoStopAt: Int?
+    
     deinit {
         timer?.invalidate()
         NotificationCenter.default.removeObserver(self)
@@ -121,6 +129,12 @@ class AudioRecorder: NSObject, ObservableObject {
             self.recordedTime = Int(self.recorder.currentTime)
             
             #if os(iOS)
+            
+            // 自动停止录音
+            if let stopTime = self.autoStopAt, self.recordedTime == stopTime {
+                self.stopRecording()
+            }
+            
             self.recorder.updateMeters()
             let linear = 1 - pow(10, self.recorder.averagePower(forChannel: 0) / 20)
             self.samples += [linear, linear]
