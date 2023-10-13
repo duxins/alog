@@ -32,7 +32,7 @@ struct MemoEditView: View {
                 
                 Section {
                     DatePicker(selection: $time, displayedComponents: [.date, .hourAndMinute]) {
-                        Text("Time")
+                        Text(L(.time))
                     }
                     .tint(.gray)
                 } footer: {
