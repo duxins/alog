@@ -45,6 +45,7 @@
 "show","Show","Show",显示
 "hide","Hide","Hide",隐藏
 "start_recording","开始录音","Start Recording",开始录音
+"time","Time（日记创建时间）","Time",时间
 # Recording #
 "auto_stop_dialog_title","自动停止 - 标题","Auto-Stop Recording after...",自动停止录音设置
 "auto_stop_dialog_off","自动停止 - 关闭","Off",关闭

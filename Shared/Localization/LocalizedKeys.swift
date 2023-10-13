@@ -87,6 +87,8 @@ public enum MyLocalizedKey: String {
   case hide = "hide"
   /**开始录音*/
   case start_recording = "start_recording"
+  /**Time（日记创建时间）*/
+  case time = "time"
   /**自动停止 - 标题*/
   case auto_stop_dialog_title = "auto_stop_dialog_title"
   /**自动停止 - 关闭*/

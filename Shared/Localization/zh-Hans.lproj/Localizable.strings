@@ -127,6 +127,9 @@
 /*开始录音*/
 "start_recording" = "开始录音";
 
+/*Time（日记创建时间）*/
+"time" = "时间";
+
 /*自动停止 - 标题*/
 "auto_stop_dialog_title" = "自动停止录音设置";
 

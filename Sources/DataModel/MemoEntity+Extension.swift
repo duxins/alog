@@ -42,6 +42,14 @@ extension MemoEntity {
         
         return false
     }
+    
+    /// 修改 "创建时间"
+    func updateCreationTime(_ time: Date) {
+        guard createdAt != time else { return }
+        createdAt = time
+        timezone = TimeZone.current.identifier
+        day = Int32(DateHelper.identifier(from: time))
+    }
 }
 
 extension MemoEntity {
