@@ -127,6 +127,9 @@
 /*开始录音*/
 "start_recording" = "开始录音";
 
+/*Time（日记创建时间）*/
+"time" = "时间";
+
 /*无效自定义服务器*/
 "error_invalid_custom_server" = "无效自定义服务器";
 

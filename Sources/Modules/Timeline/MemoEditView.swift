@@ -13,6 +13,7 @@ struct MemoEditView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @State private var content: String = ""
+    @State private var time = Date()
     
     @StateObject var player = AudioPlayer.shared
     
@@ -27,6 +28,13 @@ struct MemoEditView: View {
                     MyTextView(text: $content, minHeight: 120)
                 } header: {
                     Text(L(.memo))
+                }
+                
+                Section {
+                    DatePicker(selection: $time, displayedComponents: [.date, .hourAndMinute]) {
+                        Text("Time")
+                    }
+                    .tint(.gray)
                 } footer: {
                     if memo.file != nil {
                         playerView()
@@ -48,6 +56,7 @@ struct MemoEditView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button() {
                         memo.content = content
+                        memo.updateCreationTime(time)
                         try? moc.save()
                         dismiss()
                     } label: {
@@ -58,6 +67,7 @@ struct MemoEditView: View {
         }
         .task {
             content = memo.viewContent
+            time = memo.createdAt ?? Date()
             player.stop()
         }
     }
