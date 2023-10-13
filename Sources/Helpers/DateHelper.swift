@@ -48,12 +48,7 @@ class DateHelper {
     }
     
     static func todayIdentifier() -> Int {
-        var date = Date()
-        let hour = Calendar.current.component(.hour, from: date)
-        if hour < Config.shared.dayStartTime {
-            date = Calendar.current.date(byAdding: .day, value: -1, to: date) ?? date
-        }
-        return identifier(from: date)
+        return identifier(from: Date().realDate)
     }
     
     static func timeToDate(h: Int, m: Int, s: Int = 0) -> Date {
@@ -62,5 +57,16 @@ class DateHelper {
         components.minute = m
         components.second = s
         return Calendar.current.date(from: components) ?? Date()
+    }
+}
+
+extension Date {
+    var realDate: Date {
+        var ret = self
+        let hour = Calendar.current.component(.hour, from: ret)
+        if hour < Config.shared.dayStartTime {
+            ret = Calendar.current.date(byAdding: .day, value: -1, to: ret) ?? ret
+        }
+        return ret
     }
 }
