@@ -232,6 +232,9 @@
 /*设置 - 服务器*/
 "settings_server" = "Server";
 
+/*设置 - 服务器 - Footer*/
+"settings_server_footer" = "The default server uses GPT-3.5,  while using a custom server allows you to specify the AI model.";
+
 /*设置 - 自定义服务器设置*/
 "settings_server_settings" = "Server Settings";
 

@@ -87,6 +87,7 @@
 "settings_app_appearance","设置 - 外观","Appearance",外观
 "settings_auto_save","设置 - 录音结束自动保存","Auto-Save after Recording",录音后自动保存
 "settings_server","设置 - 服务器","Server",服务器
+"settings_server_footer","设置 - 服务器 - Footer","The default server uses GPT-3.5,  while using a custom server allows you to specify the AI model.",默认服务器使用 GPT-3.5，使用自定义服务器可以指定 AI 模型。
 "settings_server_settings","设置 - 自定义服务器设置","Server Settings",服务器设置
 "settings_server_host","设置 - 自定义服务器 - 主机","Host",主机
 "settings_server_requires_key","设置 - 自定义服务器 - 需要 API KEY","Requires API Key",需要 API Key
