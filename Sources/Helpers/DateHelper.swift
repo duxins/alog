@@ -67,6 +67,6 @@ extension Date {
         if hour < Config.shared.dayStartTime {
             ret = Calendar.current.date(byAdding: .day, value: -1, to: ret) ?? ret
         }
-        return ret
+        return Calendar.current.startOfDay(for: ret)
     }
 }
