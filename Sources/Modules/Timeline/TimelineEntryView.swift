@@ -84,7 +84,7 @@ struct TimelineEntryView: View {
             ProgressView()
         } else {
             Menu {
-                if memo.file != nil { transButton }
+                if memo.file != nil && Config.shared.transEnabled { transButton }
                 editButton
                 if memo.viewContent.count > 0 { shareButton }
                 if memo.file != nil { shareAudioButton }
