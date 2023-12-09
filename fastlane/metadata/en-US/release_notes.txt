@@ -1,2 +1,2 @@
-- Improved accuracy of punctuation in Chinese transcription
-- Added Shortcuts support for watchOS
+- Added support for Cantonese transcription.
+- Added support for custom Whisper prompt.
