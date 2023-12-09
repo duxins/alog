@@ -221,6 +221,8 @@ public enum MyLocalizedKey: String {
   case trans_lang_ja = "trans_lang_ja"
   /**简体中文*/
   case trans_lang_zh_hans = "trans_lang_zh_hans"
+  /**粤语*/
+  case trans_lang_zh_hant_hk = "trans_lang_zh_hant_hk"
   /**总结 - 标题*/
   case sum_title = "sum_title"
   /**总结 - 默认标题*/

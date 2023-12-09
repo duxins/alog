@@ -124,6 +124,7 @@
 "trans_lang_en","英语","English",英文
 "trans_lang_ja","日语","Japanese",日语
 "trans_lang_zh_hans","简体中文","Chinese",简体中文
+"trans_lang_zh_hant_hk","粤语","Cantonese",粤语
 # 总结 #
 "sum_title","总结 - 标题","Title",标题
 "sum_title_default","总结 - 默认标题","%@",%@

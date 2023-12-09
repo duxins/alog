@@ -328,6 +328,9 @@
 /*简体中文*/
 "trans_lang_zh_hans" = "简体中文";
 
+/*粤语*/
+"trans_lang_zh_hant_hk" = "粤语";
+
 /*总结 - 标题*/
 "sum_title" = "标题";
 
