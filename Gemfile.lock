@@ -3,7 +3,7 @@ GEM
   specs:
     CFPropertyList (3.0.6)
       rexml
-    addressable (2.8.5)
+    addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     arkana (1.6.0)
       dotenv (~> 2.7)
