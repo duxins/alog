@@ -40,6 +40,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     func play() {
+        try? AVAudioSession.sharedInstance().setCategory(.playback)
         audioPlayer?.play()
         isPlaying = true
     }
