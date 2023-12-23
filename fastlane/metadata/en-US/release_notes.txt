@@ -1,2 +1,2 @@
-- Added support for Cantonese transcription.
-- Added support for custom Whisper prompt.
+- Added support for audio playback in silent mode.
+- Added support for entry time modification.
