@@ -4,7 +4,7 @@
 
 ## Installation
 
-[![Download ALog on the App Store](https://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.svg)](https://apps.apple.com/us/app/alog/id6451082482)
+[![Download ALog on the App Store](./Images/badge_appstore-lrg.svg)](https://apps.apple.com/us/app/alog/id6451082482)
 
 ## Building the project
 
