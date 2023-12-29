@@ -197,6 +197,11 @@ targets:
         RELEASE_DATE: "20230815"
         UILaunchStoryboardName: Launch Screen
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad: 
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
         ITSAppUsesNonExemptEncryption: false
         NSSpeechRecognitionUsageDescription: "Access to speech recognition functionality is required."
         NSMicrophoneUsageDescription: "ALog requires access to your microphone so that you can record entries in your journal."
