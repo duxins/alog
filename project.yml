@@ -208,7 +208,7 @@ targets:
               - alog
     settings:
       base:
-        TARGETED_DEVICE_FAMILY: 1
+        TARGETED_DEVICE_FAMILY: 1,2
         PRODUCT_BUNDLE_IDENTIFIER: app.tarbo.memo
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
       configs:
