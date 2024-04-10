@@ -9,6 +9,14 @@ async function handleRequest(request) {
     const url = new URL(request.url)
     const method = request.method
 
+    if (request.method === 'POST') {
+        const clone = request.clone();
+        const arrayBuffer = await clone.arrayBuffer();
+        if (arrayBuffer.byteLength > 1024 * 1024 * 3) {
+          return errorResponse(413, 'Content too large')
+        }
+    }
+
     const key = request.headers.get('Authorization')?.replace('Bearer ', '') || randomKey()
     if (!key) { return errorResponse(401, 'Authorization Key is missing') }
 
