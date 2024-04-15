@@ -75,6 +75,9 @@ enum OpenAIError: LocalizedError {
 
 class OpenAIClient {
     static let shared = OpenAIClient()
+    
+    static let timeoutForWhisper: TimeInterval = 60.0 * 20.0
+
     private let TAG = "OpenAI"
     
     private var baseURL: URL {
@@ -198,6 +201,7 @@ class OpenAIClient {
         var request = buildRequest(url: url)
         let boundary = generateBoundary()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = OpenAIClient.timeoutForWhisper
         
         let body: Data!
         do {
@@ -214,7 +218,11 @@ class OpenAIClient {
             throw OpenAIError.unknown(error)
         }
         
-        let (data, response) = try await URLSession.shared.upload(for: request, from: body)
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest  = OpenAIClient.timeoutForWhisper
+        configuration.timeoutIntervalForResource = OpenAIClient.timeoutForWhisper
+        let session = URLSession(configuration: configuration)
+        let (data, response) = try await session.upload(for: request, from: body)
         return try decodeResponse(data: data, response: response, type: OpenAIResponse.Transcription.self)
     }
     
