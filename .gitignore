@@ -89,9 +89,19 @@ iOSInjectionProject/
 # End of https://www.toptal.com/developers/gitignore/api/swift
 
 .env
-*.xcodeproj
-*.xcworkspace
 
 fastlane/metadata/review_information/
 fastlane/screenshots/**/*.html
 ArkanaKeys
+
+# Check in the Package.resolved
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/Usage.md#swift-package
+# Taken from https://github.com/yonaskolb/XcodeGen/issues/743#issuecomment-1255426914
+*.xcodeproj/**
+!*.xcodeproj/project.xcworkspace
+*.xcodeproj/project.xcworkspace/*
+!*.xcodeproj/project.xcworkspace/xcshareddata
+*.xcodeproj/project.xcworkspace/xcshareddata/*
+!*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/*
+!*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved

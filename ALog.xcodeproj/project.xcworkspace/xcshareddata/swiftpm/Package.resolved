@@ -1,0 +1,59 @@
+{
+  "pins" : [
+    {
+      "identity" : "confettiswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simibac/ConfettiSwiftUI.git",
+      "state" : {
+        "revision" : "f45961f97bbae6fff6e2e64546fea0189425ad92",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "csv.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yaslab/CSV.swift.git",
+      "state" : {
+        "revision" : "81d2874c51db364d7e1d71b0d99018a294c87ac1",
+        "version" : "2.4.3"
+      }
+    },
+    {
+      "identity" : "dswaveformimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dmrschmidt/DSWaveformImage",
+      "state" : {
+        "revision" : "e670b8da140c39036f171b9754ed25126b8d414b",
+        "version" : "13.0.2"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "state" : {
+        "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
+        "version" : "4.2.2"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "532d8b529501fb73a2455b179e0bbb6d49b652ed",
+        "version" : "1.5.3"
+      }
+    },
+    {
+      "identity" : "tppdf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/techprimate/TPPDF.git",
+      "state" : {
+        "revision" : "1955ebbc090a3fb2149fb53e703595c3146689af",
+        "version" : "2.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}
