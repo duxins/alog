@@ -1,2 +1,2 @@
-- Added support for audio playback in silent mode.
-- Added support for entry time modification.
+- Added basic support for iPad.
+- Extended the timeout duration for Whisper.
