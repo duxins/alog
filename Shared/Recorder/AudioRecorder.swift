@@ -97,7 +97,11 @@ class AudioRecorder: NSObject, ObservableObject {
         do {
             session = AVAudioSession.sharedInstance()
             try session.setAllowHapticsAndSystemSoundsDuringRecording(true)
+            #if os(iOS)
+            try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.duckOthers, .allowBluetooth])
+            #else
             try session.setCategory(.playAndRecord, mode: .default, options: .duckOthers)
+            #endif
             try session.setActive(true)
             session.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
