@@ -23,11 +23,37 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         Connectivity.shared.activate()
         
         applyTheme()
+        
+        registerQuickActions()
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        if let item = options.shortcutItem {
+            QuickAction.handle(item)
+        }
+        let configuration = UISceneConfiguration(
+           name: connectingSceneSession.configuration.name,
+           sessionRole: connectingSceneSession.role
+        )
+        configuration.delegateClass = SceneDelegate.self
+        return configuration
     }
 }
 
-private func applyTheme() {
-    UITabBar.appearance().unselectedItemTintColor = UIColor(named: "tabbar_unselected")
-    UITextView.appearance().backgroundColor = .clear
+extension AppDelegate {
+    private func registerQuickActions() {
+        UIApplication.shared.shortcutItems = [
+            QuickAction.record.shortcutItem
+        ]
+    }
 }
+
+extension AppDelegate {
+    private func applyTheme() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "tabbar_unselected")
+        UITextView.appearance().backgroundColor = .clear
+    }
+}
+
