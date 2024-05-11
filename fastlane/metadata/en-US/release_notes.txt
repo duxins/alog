@@ -1,2 +1,2 @@
-- Added basic support for iPad.
-- Extended the timeout duration for Whisper.
+- Added support for recording with AirPods.
+- Added support for Home Screen quick action.

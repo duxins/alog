@@ -1,2 +1,2 @@
-- 支持 iPad 
-- 延长 Whisper 超时时间
+- 支持 AirPods
+- 支持主屏幕快速操作
