@@ -12,7 +12,7 @@ async function handleRequest(request) {
     if (request.method === 'POST') {
         const clone = request.clone();
         const arrayBuffer = await clone.arrayBuffer();
-        if (arrayBuffer.byteLength > 1024 * 1024 * 3) {
+        if (arrayBuffer.byteLength > 1024 * 1024 * 4) {
           return errorResponse(413, 'Content too large')
         }
     }
