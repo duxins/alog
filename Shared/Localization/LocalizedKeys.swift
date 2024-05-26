@@ -149,6 +149,8 @@ public enum MyLocalizedKey: String {
   case settings_auto_save = "settings_auto_save"
   /**设置 - 服务器*/
   case settings_server = "settings_server"
+  /**设置 - 服务器 - footer*/
+  case settings_server_desc = "settings_server_desc"
   /**设置 - 自定义服务器设置*/
   case settings_server_settings = "settings_server_settings"
   /**设置 - 自定义服务器 - 主机*/

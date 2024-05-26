@@ -133,6 +133,12 @@ struct SettingsView: View {
             
         } header: {
             Text(L(.settings_server))
+        } footer: {
+            if config.serverType == .app {
+                Text(L(.settings_server_desc))
+            } else {
+                Text(" ")
+            }
         }
     }
     
