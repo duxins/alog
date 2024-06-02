@@ -38,6 +38,9 @@ class Config: ObservableObject {
     @AppStorage("custom_whisper_prompt_enabled") var customWhisperPromptEnabled = false
     @AppStorage("custom_whisper_prompt") var customWhisperPrompt = ""
     
+    /// Hold to Record
+    @AppStorage("hold_to_record_enabled") var holdToRecordEnabled = false
+    
     @Published var colorScheme = ColorScheme.light
     
     static let shared = Config()
