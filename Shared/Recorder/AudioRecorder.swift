@@ -17,6 +17,7 @@ class AudioRecorder: NSObject, ObservableObject {
     @Published var samples: [Float] = []
     
     var didFinishCallback: (() -> Void)?
+    var didCompleteCallback: (() -> Void)?
     
     private var recorder: AVAudioRecorder!
     private var session: AVAudioSession!
@@ -175,6 +176,7 @@ extension AudioRecorder: AVAudioRecorderDelegate {
         if flag && !isTerminating {
             voiceFile = recorder.url
             isCompleted = true
+            didCompleteCallback?()
         }
         
         didFinishCallback?()
