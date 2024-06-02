@@ -107,10 +107,10 @@ struct TimelineView: View {
         VStack {
             Spacer()
             
-            if days.isEmpty {
+            if days.isEmpty && !vm.isHoldingToRecord {
                 VStack(spacing: 15) {
                     Group {
-                        Text(L(.timeline_recbtn_tap_here))
+                        Text(config.holdToRecordEnabled ? L(.timeline_recbtn_hold_here) : L(.timeline_recbtn_tap_here))
                         Image(systemName: "arrow.down")
                     }
                     .font(.subheadline)

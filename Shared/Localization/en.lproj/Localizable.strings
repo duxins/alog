@@ -304,6 +304,9 @@
 /*Timeline - 录音按钮 - "tap here"*/
 "timeline_recbtn_tap_here" = "Tap here to get started";
 
+/*Timeline - 录音按钮 - "hold here"*/
+"timeline_recbtn_hold_here" = "Hold here to get started";
+
 /*Summary*/
 "summary" = "Summary";
 

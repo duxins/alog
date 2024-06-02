@@ -23,7 +23,6 @@ struct HoldToRecordView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
                 if isRecording {
                     Image(systemName: "xmark")
                         .font(.system(size: 14))

@@ -205,6 +205,8 @@ public enum MyLocalizedKey: String {
   case timeline_empty = "timeline_empty"
   /**Timeline - 录音按钮 - "tap here"*/
   case timeline_recbtn_tap_here = "timeline_recbtn_tap_here"
+  /**Timeline - 录音按钮 - "hold here"*/
+  case timeline_recbtn_hold_here = "timeline_recbtn_hold_here"
   /**Summary*/
   case summary = "summary"
   /**Summary - "no summaries"*/
