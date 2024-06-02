@@ -33,7 +33,7 @@ struct AboutView: View {
             .headerProminence(.increased)
             
             Section {
-                socialRow("Twitter", icon: "icon_twitter", color: .blue, url: Constants.Contact.twitter)
+                socialRow("Twitter", icon: "icon_twitter", color: .primary, url: Constants.Contact.twitter)
                 socialRow("Github", icon: "icon_github", color: .primary, url: Constants.Contact.github)
             }
             
