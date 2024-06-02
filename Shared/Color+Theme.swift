@@ -27,6 +27,9 @@ extension Color {
     static let app_timeline_text = Color("timeline_text")
     static let app_timeline_time = Color.secondary
     
+    static let app_btn_hold_cancel = Color("btn_hold_cancel")
+    static let app_btn_hold_cancel_xmark = Color("btn_hold_cancel_xmark")
+    
     // MARK: - Watch
     static let watch_bg = Color("bg")
     static let watch_rec_btn_border = Color("rec_btn_border")

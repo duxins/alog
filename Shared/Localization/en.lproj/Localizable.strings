@@ -127,6 +127,9 @@
 /*开始录音*/
 "start_recording" = "Start Recording";
 
+/*按住录音*/
+"hold_to_record" = "Hold to Record";
+
 /*Time（日记创建时间）*/
 "time" = "Time";
 
