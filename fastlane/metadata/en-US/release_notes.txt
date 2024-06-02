@@ -1,2 +1,2 @@
-- Added support for recording with AirPods.
-- Added support for Home Screen quick action.
+- Added support for hold-to-record (experimental feature).
+- Custom servers now support using GPT-4o.
