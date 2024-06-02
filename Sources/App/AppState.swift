@@ -78,4 +78,17 @@ class AppState: ObservableObject {
         default: return
         }
     }
+    
+    func canStartRecording() -> Bool {
+        guard showRecording == false else { return false }
+        guard micPermission != .denied else {
+            activeSheet = .micPermission
+            return false
+        }
+        activeSheet = nil
+        activeTab = 0
+        AudioPlayer.shared.stop()
+        return true
+    }
+    
 }

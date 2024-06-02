@@ -26,6 +26,10 @@ class TimelineViewModel: ObservableObject {
     @Published var failedMemos = [MemoEntity: Error]()
     @Published var showReviewDialog = false
     
+    @Published var isHoldingToRecord = false
+    
+    let recorder = AudioRecorder()
+    
     @AppStorage("requested_review_at") var requestedReviewAt = Date(timeIntervalSince1970: 0).timeIntervalSince1970
     
     private var transCount = 0
@@ -87,6 +91,41 @@ class TimelineViewModel: ObservableObject {
         if timeInterval - requestedReviewAt > 3600 * 24 * 10 {
             showReviewDialog = true
             requestedReviewAt = timeInterval
+        }
+    }
+    
+    
+    func beginHoldToRecord() {
+        recorder.startRecording()
+        isHoldingToRecord = true
+    }
+    
+    func endHoldToRecord() {
+        isHoldingToRecord = false
+        recorder.didCompleteCallback = { [weak self] in
+            guard let self = self, let url = self.recorder.voiceFile else {
+                return
+            }
+            self.saveVoice(url)
+        }
+        recorder.stopRecording()
+    }
+    
+    func cancelHoldToRecord() {
+        recorder.terminate()
+        isHoldingToRecord = false
+    }
+    
+    private func saveVoice(_ voiceURL: URL) {
+        guard let voiceURL = recorder.voiceFile else { return }
+        let moc = DataContainer.shared.context
+        let memo = MemoEntity.newEntity(moc: moc)
+        memo.file = voiceURL.lastPathComponent
+        do {
+            try moc.save()
+            _ = try FileHelper.moveAudioFile(voiceURL)
+        } catch {
+            XLog.error(error, source: "recording")
         }
     }
     

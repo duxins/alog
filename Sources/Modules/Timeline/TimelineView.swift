@@ -11,6 +11,7 @@ import StoreKit
 struct TimelineView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var container: DataContainer
+    @EnvironmentObject var config: Config
     @Environment(\.managedObjectContext) var moc
     @Environment(\.requestReview) var requestReview
     @SectionedFetchRequest(fetchRequest: MemoEntity.all, sectionIdentifier: \.day) var days
@@ -26,6 +27,9 @@ struct TimelineView: View {
                     timelineList
                         .environmentObject(player)
                         .environmentObject(vm)
+                }
+                if vm.isHoldingToRecord {
+                    Color.black.opacity(0.8)
                 }
                 recordButton
             }
@@ -115,22 +119,45 @@ struct TimelineView: View {
                 .padding(.bottom, 15)
             }
             
-            FeedbackButton(action: startRecording) {
-                Image(systemName: "mic.fill")
-                    .font(.system(size: 25))
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 64, height: 64)
+            if !config.holdToRecordEnabled {
+                FeedbackButton(action: startRecording) {
+                    Image(systemName: "mic.fill")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 64, height: 64)
+                }
+                .background(.red)
+                .clipShape(Circle())
+                .accessibilityIdentifier("microphone")
+            } else {
+                HoldToRecordView {
+                    beginHoldToRecord()
+                } onStop: {
+                    endHoldToRecord()
+                } onCancel: {
+                    cancelHoldToRecord()
+                }
             }
-            .background(.red)
-            .clipShape(Circle())
-            .accessibilityIdentifier("microphone")
         }
         .padding(.bottom, 20)
     }
     
     private func startRecording() {
         appState.startRecording()
+    }
+    
+    private func beginHoldToRecord() {
+        guard appState.canStartRecording() else { return }
+        vm.beginHoldToRecord()
+    }
+    
+    private func endHoldToRecord() {
+        vm.endHoldToRecord()
+    }
+    
+    private func cancelHoldToRecord() {
+        vm.cancelHoldToRecord()
     }
 }
 
