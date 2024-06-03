@@ -23,4 +23,8 @@ platform :ios do
         skip_waiting_for_build_processing: true
     )
   end
+
+  lane :tests do
+    run_tests(scheme: "ALog", devices: ["iPhone 15 Pro"])
+  end
 end

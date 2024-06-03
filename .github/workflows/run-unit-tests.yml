@@ -1,0 +1,19 @@
+name: Run Unit Tests
+on: 
+  push:
+    branches:
+      - release/*
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          echo "HMAC_KEY=ABC-123" > .env
+          bundle install
+          bin/arkana
+          brew install xcodegen
+          xcodegen
+          bundle exec fastlane tests
