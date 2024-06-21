@@ -65,9 +65,18 @@ class AppState: ObservableObject {
         activeSheet = nil
         activeTab = 0
         AudioPlayer.shared.stop()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.showRecording = true
         }
+    }
+    
+    func startCreatingNote() {
+        guard showRecording == false else { return }
+        guard activeSheet != .quickMemo else { return }
+        activeSheet = nil
+        activeTab = 0
+        AudioPlayer.shared.stop()
+        self.activeSheet = .quickMemo
     }
     
     func openURL(_ url: URL) {

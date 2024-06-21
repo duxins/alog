@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ActiveSheet: Identifiable {
+enum ActiveSheet: Identifiable, Equatable {
     case settings
     case quickMemo
     /// Generate summary
@@ -25,5 +25,9 @@ enum ActiveSheet: Identifiable {
         case .editMemo(let item): return "edit_memo_\(item.id ?? "")"
         case .editSummary(let item): return "edit_summary_\(item.id ?? "")"
         }
+    }
+    
+    static func == (lhs: ActiveSheet, rhs: ActiveSheet) -> Bool {
+        return lhs.id == rhs.id
     }
 }

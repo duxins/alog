@@ -42,8 +42,18 @@ struct ExperimentsView: View {
             }
             
             Section {
-                MyToggle(isOn: $config.autoRecordOnStartup) {
+                MyToggle(isOn: Binding(
+                    get: { config.autoStartOnStartup == StartupOption.record },
+                    set: { config.autoStartOnStartup = $0 ? StartupOption.record : "" }
+                )) {
                     Text(L(.auto_record_on_startup))
+                }
+                
+                MyToggle(isOn: Binding(
+                    get: { config.autoStartOnStartup == StartupOption.createNote },
+                    set: { config.autoStartOnStartup = $0 ? StartupOption.createNote : ""}
+                )) {
+                    Text(L(.auto_create_note_on_startup))
                 }
             }
         }

@@ -10,6 +10,10 @@ import KeychainAccess
 import SwiftUI
 import Combine
 
+struct StartupOption {
+    static let record = "record"
+    static let createNote = "create_note"
+}
 
 class Config: ObservableObject {
     @AppStorage("day_start_time") var dayStartTime = 2
@@ -41,8 +45,8 @@ class Config: ObservableObject {
     /// Hold to Record
     @AppStorage("hold_to_record_enabled") var holdToRecordEnabled = false
     
-    /// Auto Record On Startup
-    @AppStorage("auto_record_on_startup") var autoRecordOnStartup = false
+    /// Auto Record / Create Note On Startup
+    @AppStorage("auto_start_on_startup") var autoStartOnStartup = ""
     
     @Published var colorScheme = ColorScheme.light
     

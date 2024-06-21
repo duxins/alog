@@ -133,6 +133,9 @@
 /*打开 App 后自动录音*/
 "auto_record_on_startup" = "Auto Record on Startup";
 
+/*打开 App 后自动新建笔记*/
+"auto_create_note_on_startup" = "Auto Create Note on Startup";
+
 /*Time（日记创建时间）*/
 "time" = "Time";
 

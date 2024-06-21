@@ -15,8 +15,16 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        if Config.shared.autoRecordOnStartup {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.handleAutoStart()
+        }
+    }
+    
+    private func handleAutoStart() {
+        if Config.shared.autoStartOnStartup == StartupOption.record {
             AppState.shared.startRecording()
+        } else if Config.shared.autoStartOnStartup == StartupOption.createNote {
+            AppState.shared.startCreatingNote()
         }
     }
 }
