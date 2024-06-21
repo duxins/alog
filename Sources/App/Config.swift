@@ -41,6 +41,9 @@ class Config: ObservableObject {
     /// Hold to Record
     @AppStorage("hold_to_record_enabled") var holdToRecordEnabled = false
     
+    /// Auto Record On Startup
+    @AppStorage("auto_record_on_startup") var autoRecordOnStartup = false
+    
     @Published var colorScheme = ColorScheme.light
     
     static let shared = Config()

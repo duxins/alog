@@ -130,6 +130,9 @@
 /*按住录音*/
 "hold_to_record" = "按住录音";
 
+/*打开 App 后自动录音*/
+"auto_record_on_startup" = "打开 App 后自动录音";
+
 /*Time（日记创建时间）*/
 "time" = "时间";
 

@@ -40,6 +40,12 @@ struct ExperimentsView: View {
                     Text(L(.hold_to_record))
                 }
             }
+            
+            Section {
+                MyToggle(isOn: $config.autoRecordOnStartup) {
+                    Text(L(.auto_record_on_startup))
+                }
+            }
         }
         .navigationTitle(L(.settings_experimental_features))
         .onChange(of: config.customWhisperPromptEnabled) { newValue in

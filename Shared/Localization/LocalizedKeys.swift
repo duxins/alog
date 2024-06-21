@@ -89,6 +89,8 @@ public enum MyLocalizedKey: String {
   case start_recording = "start_recording"
   /**按住录音*/
   case hold_to_record = "hold_to_record"
+  /**打开 App 后自动录音*/
+  case auto_record_on_startup = "auto_record_on_startup"
   /**Time（日记创建时间）*/
   case time = "time"
   /**无效自定义服务器*/
