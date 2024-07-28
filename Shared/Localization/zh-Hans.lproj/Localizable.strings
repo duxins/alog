@@ -230,7 +230,7 @@
 "settings_server" = "服务器";
 
 /*设置 - 服务器 - footer*/
-"settings_server_desc" = "默认服务器使用 GPT-4o mini，自定义服务器可指定 AI 模型。";
+"settings_server_desc" = "默认服务器使用 GPT-3.5，自定义服务器可指定 AI 模型。";
 
 /*设置 - 自定义服务器设置*/
 "settings_server_settings" = "服务器设置";

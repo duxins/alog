@@ -45,7 +45,7 @@ class AddSummaryViewModel: ObservableObject {
     @Published var summarizedResponse = ""
     @Published var summaryError = ""
     @Published var saved = false
-    @Published var model: OpenAIChatModel = .gpt_4o_mini
+    @Published var model: OpenAIChatModel = .gpt_3_5_16k
     
     @Published var validMemos = [MemoEntity]()
     @Published var excludedMemos = Set<MemoEntity>()
