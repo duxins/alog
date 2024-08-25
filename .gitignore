@@ -105,3 +105,5 @@ ArkanaKeys
 !*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/*
 !*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+Server/.wrangler/
