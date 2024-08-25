@@ -128,6 +128,14 @@ async function modifyResponse(response) {
         ret.headers.delete(key);
     });
 
+    if (response.status === 403) {
+        const json = await response.json();
+        console.error(JSON.stringify(json));
+        if (json.error.code == "unsupported_country_region_territory") {
+          return errorResponse(403, "The OpenAI API is blocked in your country. Please consider using a VPN or proxy server to access 'api.alog.tarbotech.com'"); 
+        }
+    }
+
     if ([401, 403, 404, 429].includes(response.status)) {
         console.error(await response.text())
         return errorResponse(response.status)
