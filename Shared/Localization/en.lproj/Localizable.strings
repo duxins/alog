@@ -230,7 +230,7 @@
 "settings_server" = "Server";
 
 /*设置 - 服务器 - footer*/
-"settings_server_desc" = "The default server utilizes GPT-3.5, while custom servers allow for the specification of different AI models.";
+"settings_server_desc" = "The default server utilizes GPT-4o mini, while custom servers allow for the specification of different AI models.";
 
 /*设置 - 自定义服务器设置*/
 "settings_server_settings" = "Server Settings";
