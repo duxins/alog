@@ -2,11 +2,6 @@ import UIKit
 import XLog
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
-    
-    var timeSinceRelease: TimeInterval {
-        AppInfo.releaseDate.timeIntervalSinceNow
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         #if SNAPSHOT

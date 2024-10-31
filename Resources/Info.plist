@@ -43,8 +43,6 @@
 	<string>ALog requires access to your microphone so that you can record entries in your journal.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Access to speech recognition functionality is required.</string>
-	<key>RELEASE_DATE</key>
-	<string>20230815</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
