@@ -190,7 +190,7 @@ targets:
     info:
       path: Resources/Info.plist
       properties:
-        NSHumanReadableCopyright: Copyright © 2023 Tarbo Tech, LLC
+        NSHumanReadableCopyright: Copyright © 2024 Tarbo Tech, LLC
         CFBundleShortVersionString: $(MARKETING_VERSION)
         AppStoreURL: https://apps.apple.com/us/app/alog/id6451082482
         GIT_HASH: "${GIT_HASH}"
