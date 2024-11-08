@@ -33,6 +33,7 @@ struct AboutView: View {
             .headerProminence(.increased)
             
             Section {
+                socialRow("Email", icon: "icon_email", color: .primary, url: "mailto:\(Constants.Contact.email)")
                 socialRow("Twitter", icon: "icon_twitter", color: .primary, url: Constants.Contact.twitter)
                 socialRow("Github", icon: "icon_github", color: .primary, url: Constants.Contact.github)
             }
@@ -75,7 +76,7 @@ struct AboutView: View {
                     .frame(width: 24, height: 24)
                 VStack(alignment: .leading, spacing: 5) {
                     Text(title)
-                    Text(url.replacingOccurrences(of: "https://", with: ""))
+                    Text(url.replacingOccurrences(of: "https://", with: "").replacingOccurrences(of: "mailto:", with: ""))
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }

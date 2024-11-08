@@ -15,6 +15,7 @@ struct Constants {
     struct Contact {
         static let twitter = "https://twitter.com/tarbo_du"
         static let github = "https://github.com/duxins"
+        static let email = "support@tarbotech.com"
     }
     
     struct Legal {
