@@ -1,2 +1,1 @@
-- Added support for hold-to-record (experimental feature).
-- Custom servers now support using GPT-4o.
+- Custom servers now support using GPT-4o-mini.
