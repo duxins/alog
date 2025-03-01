@@ -14,6 +14,7 @@
 "error","Error","Error",错误
 "delete","Delete","Delete",删除
 "edit","Edit","Edit",编辑
+select,Select,Select,选择
 "ok","OK","OK",好
 "enable","Enable 开关","Enable",开启
 "copy","Copy","Copy",复制
@@ -25,6 +26,7 @@
 "about","关于","About",关于
 "recording","Recording","Recording",正在录音
 "are_you_sure","确认对话框","Are you sure?",您确定吗？
+multi_delete_alert,批量删除确认,Are you sure you want to delete %d selected items?,确定要删除选中的 %d 条笔记吗？
 "share","分享","Share",分享
 "share_audio","分享音频","Share audio",分享录音
 "preview","预览","Preview",预览

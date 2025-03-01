@@ -35,13 +35,21 @@ struct TimelineEntryView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color(uiColor: .quaternarySystemFill))
+                .fill(Color(uiColor: (isSelected ? .secondarySystemFill : .quaternarySystemFill)))
         )
         .padding(.bottom, 15)
         .contextMenu {
-            if memo.viewContent.count > 0 { copyButton }
-            editButton
-            deleteButton
+            if !vm.isMultiSelectMode {
+                if memo.viewContent.count > 0 { copyButton }
+                editButton
+                selectButton
+                deleteButton
+            }
+        }
+        .onTapGesture {
+            if vm.isMultiSelectMode {
+                vm.toggleMemoSelection(memo)
+            }
         }
     }
     
@@ -80,7 +88,10 @@ struct TimelineEntryView: View {
     
     @ViewBuilder
     private func menu() -> some View {
-        if vm.transcribingMemos.contains(memo) {
+        if vm.isMultiSelectMode {
+            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                .foregroundStyle(isSelected ? .green : .secondary)
+        } else if vm.transcribingMemos.contains(memo) {
             ProgressView()
         } else {
             Menu {
@@ -143,6 +154,17 @@ struct TimelineEntryView: View {
     }
     
     @ViewBuilder
+    private var selectButton: some View {
+        Button {
+            vm.isMultiSelectMode = true
+            vm.selectedMemos.insert(memo)
+        } label: {
+            Image(systemName: "checkmark.circle")
+            Text(L(.select))
+        }
+    }
+
+    @ViewBuilder
     private var shareButton: some View {
         ShareLink(item: memo.viewContent) {
             Image(systemName: "square.and.arrow.up")
@@ -198,6 +220,10 @@ struct TimelineEntryView: View {
                 Text(L(.hide))
             }
         }
+    }
+    
+    private var isSelected: Bool {
+        vm.isMultiSelectMode && vm.selectedMemos.contains(memo)
     }
 }
 

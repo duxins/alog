@@ -25,6 +25,8 @@ public enum MyLocalizedKey: String {
   case delete = "delete"
   /**Edit*/
   case edit = "edit"
+  /**Select*/
+  case select = "select"
   /**OK*/
   case ok = "ok"
   /**Enable 开关*/
@@ -47,6 +49,8 @@ public enum MyLocalizedKey: String {
   case recording = "recording"
   /**确认对话框*/
   case are_you_sure = "are_you_sure"
+  /**批量删除确认*/
+  case multi_delete_alert = "multi_delete_alert"
   /**分享*/
   case share = "share"
   /**分享音频*/

@@ -28,6 +28,9 @@ class TimelineViewModel: ObservableObject {
     
     @Published var isHoldingToRecord = false
     
+    @Published var isMultiSelectMode = false
+    @Published var selectedMemos = Set<MemoEntity>()
+    
     let recorder = AudioRecorder()
     
     @AppStorage("requested_review_at") var requestedReviewAt = Date(timeIntervalSince1970: 0).timeIntervalSince1970
@@ -126,6 +129,27 @@ class TimelineViewModel: ObservableObject {
             _ = try FileHelper.moveAudioFile(voiceURL)
         } catch {
             XLog.error(error, source: "recording")
+        }
+    }
+    
+    func toggleMemoSelection(_ memo: MemoEntity) {
+        if selectedMemos.contains(memo) {
+            selectedMemos.remove(memo)
+        } else {
+            selectedMemos.insert(memo)
+        }
+    }
+    
+    func deleteSelectedMemos(moc: NSManagedObjectContext) {
+        if isMultiSelectMode {
+            MemoEntity.deleteMemos(moc: moc, memos: selectedMemos)
+            selectedMemos.removeAll()
+            isMultiSelectMode = false
+            memoToDelete = nil
+        } else {
+            guard let memo = memoToDelete else { return }
+            MemoEntity.delete(moc: moc, memo: memo)
+            memoToDelete = nil
         }
     }
     

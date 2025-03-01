@@ -90,6 +90,28 @@ extension MemoEntity {
             XLog.error(error, source: "memo")
         }
     }
+    
+    static func deleteMemos(moc: NSManagedObjectContext, memos: Set<MemoEntity>) {
+        var filesToDelete = [URL]()
+        for memo in memos {
+            if let file = memo.file {
+                filesToDelete.append(FileHelper.fullAudioURL(for: file))
+            }
+            moc.delete(memo)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+           do {
+               try moc.save()
+               for url in filesToDelete {
+                   try? FileManager.default.removeItem(at: url)
+               }
+               XLog.debug("Successfully deleted \(memos.count) memos", source: "memo")
+           } catch {
+               XLog.error("Failed to save after deletion: \(error)", source: "memo")
+           }
+       }
+    }
 }
 
 #if DEBUG

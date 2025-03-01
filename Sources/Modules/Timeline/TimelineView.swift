@@ -31,30 +31,14 @@ struct TimelineView: View {
                 if vm.isHoldingToRecord {
                     Color.black.opacity(0.8)
                 }
-                recordButton
+                
+                if !vm.isMultiSelectMode {
+                    recordButton
+                }
             }
             .background(Color.app_bg)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        stopPlayer()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            appState.activeSheet = .settings
-                        }
-                    } label: {
-                        Image("nav_settings")
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            appState.activeSheet = .quickMemo
-                        }
-                    } label: {
-                        Image("nav_quick_memo")
-                    }
-                }
+                toolbarContent
             }
             .navigationBarTitleDisplayMode(.inline)
             .task {
@@ -64,12 +48,12 @@ struct TimelineView: View {
                 stopPlayer()
             }
             .alert(isPresented: $vm.showDeleteAlert) {
-                Alert(title: Text(L(.are_you_sure)), primaryButton: .destructive(Text(L(.delete))) {
-                    guard let item = vm.memoToDelete else { return }
-                    MemoEntity.delete(moc: moc, memo: item)
-                }, secondaryButton: .cancel() {
-                    vm.memoToDelete = nil
-                })
+                Alert(title: Text(L(.are_you_sure)),
+                      message: vm.isMultiSelectMode ? Text(L(.multi_delete_alert, vm.selectedMemos.count)) : nil,
+                      primaryButton: .destructive(Text(L(.delete))) {
+                        vm.deleteSelectedMemos(moc: moc)
+                      }, secondaryButton: .cancel() {
+                      })
             }
             .onChange(of: vm.showReviewDialog) { newValue in
                 guard newValue else { return }
@@ -158,6 +142,62 @@ struct TimelineView: View {
     
     private func cancelHoldToRecord() {
         vm.cancelHoldToRecord()
+    }
+    
+    // MARK: - Toolbar
+    @ToolbarContentBuilder
+    private var toolbarContent: some ToolbarContent {
+        if vm.isMultiSelectMode {
+            multiSelectToolbarItems
+        } else {
+            defaultToolbarItems
+        }
+    }
+
+    @ToolbarContentBuilder
+    private var defaultToolbarItems: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                stopPlayer()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    appState.activeSheet = .settings
+                }
+            } label: {
+                Image("nav_settings")
+            }
+        }
+        
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    appState.activeSheet = .quickMemo
+                }
+            } label: {
+                Image("nav_quick_memo")
+            }
+        }
+    }
+
+    @ToolbarContentBuilder
+    private var multiSelectToolbarItems: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                vm.isMultiSelectMode = false
+                vm.selectedMemos.removeAll()
+            } label: {
+                Text(L(.cancel))
+            }
+        }
+        
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button {
+                vm.showDeleteAlert = true
+            } label: {
+                Image(systemName: "trash")
+            }
+            .foregroundStyle(vm.selectedMemos.isEmpty ? Color.gray : Color.red)
+            .disabled(vm.selectedMemos.isEmpty)
+        }
     }
 }
 
