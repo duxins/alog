@@ -19,7 +19,7 @@ struct Constants {
     }
     
     struct Legal {
-        static let source_url = "https://github.com/duxins/alog"
+        static let repo_url = "https://github.com/duxins/alog"
         static let privacy_policy_url = "https://alog.tarbotech.com/privacy_policy.html"
         static let terms_url = "https://alog.tarbotech.com/terms.html"
     }

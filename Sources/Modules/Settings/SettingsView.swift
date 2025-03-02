@@ -284,7 +284,7 @@ struct SettingsView: View {
             }
         } footer: {
             VStack(spacing: 10) {
-                Link(L(.source_code), destination: URL(string: Constants.Legal.source_url)!)
+                Link(L(.source_code), destination: AppInfo.sourceURL)
                 HStack(spacing: 5) {
                     Link(L(.privacy_policy), destination: URL(string: Constants.Legal.privacy_policy_url)!)
                     Text("・")

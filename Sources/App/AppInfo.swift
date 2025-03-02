@@ -32,4 +32,11 @@ struct AppInfo {
         return hash
     }()
     
+    static let sourceURL: URL = {
+        let baseURL = URL(string: Constants.Legal.repo_url)!
+        guard !gitHash.isEmpty else { return baseURL }
+        
+        return baseURL.appendingPathComponent("tree").appendingPathComponent(gitHash)
+    }()
+    
 }
