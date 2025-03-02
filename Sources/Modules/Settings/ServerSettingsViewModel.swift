@@ -11,14 +11,12 @@ import Combine
 import XLog
 
 enum ServerVerificationItem: CaseIterable {
-    case gpt_3_5
-    case gpt_4
+    case gpt_4o
     case whisper
     
     var displayName: String {
         switch self {
-        case .gpt_3_5: return "GPT-3.5"
-        case .gpt_4: return "GPT-4"
+        case .gpt_4o: return "GPT-4o"
         case .whisper: return "Whisper"
         }
     }
@@ -53,7 +51,7 @@ class ServerSettingsViewModel: ObservableObject {
     @Published var requiresKey = false
     @Published var key = ""
     
-    @Published var verificationItems: [ServerVerificationItem: ServerVerificationStatus] = [ .gpt_3_5: .pending, .gpt_4: .pending, .whisper: .pending ]
+    @Published var verificationItems: [ServerVerificationItem: ServerVerificationStatus] = [ .gpt_4o: .pending, .whisper: .pending ]
     
     @Published var isServerValid = false
     
@@ -96,22 +94,13 @@ class ServerSettingsViewModel: ObservableObject {
         Task { @MainActor in
             let keyToUse = requiresKey ? key : nil
             
-            // 测试 gpt_3_5
-            verificationItems[.gpt_3_5] = .inProgress
-            do {
-                try await OpenAIClient.shared.verify(host, key: keyToUse, model: .gpt_3_5)
-                verificationItems[.gpt_3_5] = .success
-            } catch {
-                verificationItems[.gpt_3_5] = .failure(ErrorHelper.desc(error))
-            }
-            
             // 测试 gpt_4
-            verificationItems[.gpt_4] = .inProgress
+            verificationItems[.gpt_4o] = .inProgress
             do {
-                try await OpenAIClient.shared.verify(host, key: keyToUse, model: .gpt_4)
-                verificationItems[.gpt_4] = .success
+                try await OpenAIClient.shared.verify(host, key: keyToUse, model: .gpt_4o)
+                verificationItems[.gpt_4o] = .success
             } catch {
-                verificationItems[.gpt_4] = .failure(ErrorHelper.desc(error))
+                verificationItems[.gpt_4o] = .failure(ErrorHelper.desc(error))
             }
             
             // 测试 Whisper
@@ -123,7 +112,6 @@ class ServerSettingsViewModel: ObservableObject {
                 verificationItems[.whisper] = .failure(ErrorHelper.desc(error))
             }
             
-            // 只要有一项验证通过即可
             isVerified = verificationItems.filter { $0.value == .success }.count > 0
             isVerifying = false
         }
