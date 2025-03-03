@@ -87,6 +87,9 @@ struct SettingsView: View {
                 Text(L(.settings_auto_save))
             }
             
+            MyToggle(isOn: $config.holdToRecordEnabled) {
+                Text(L(.hold_to_record))
+            }
             
         } header: {
             Text(L(.settings_general))

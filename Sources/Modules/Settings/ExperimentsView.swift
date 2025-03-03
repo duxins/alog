@@ -35,11 +35,6 @@ struct ExperimentsView: View {
                 }
             }
             
-            Section {
-                MyToggle(isOn: $config.holdToRecordEnabled) {
-                    Text(L(.hold_to_record))
-                }
-            }
             
             Section {
                 MyToggle(isOn: Binding(
