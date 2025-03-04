@@ -1,1 +1,1 @@
-- Custom servers now support using GPT-4o-mini.
+- Added support for batch deletion.
