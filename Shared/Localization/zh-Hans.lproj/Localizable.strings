@@ -236,7 +236,7 @@
 "settings_server" = "服务器";
 
 /*设置 - 服务器 - footer*/
-"settings_server_desc" = "默认服务器使用 GPT-4o mini，自定义服务器可指定 AI 模型。";
+"settings_server_desc" = "默认服务器使用 GPT-4o mini 总结笔记，Whisper-1 或者 GPT-4o mini 转写语音。自定义服务器可选择其他模型。";
 
 /*设置 - 自定义服务器设置*/
 "settings_server_settings" = "服务器设置";
@@ -329,13 +329,10 @@
 "trans_provider_apple" = "系统";
 
 /*转写 - OpenAI (Whisper)*/
-"trans_provider_openai" = "Whisper";
+"trans_provider_openai" = "OpenAI";
 
 /*转写 - Apple - 提示*/
 "trans_provider_apple_notice" = "准确度较低且仅限于1分钟的音频时长。";
-
-/*转写 - Whisper - 提示*/
-"trans_provider_openai_notice" = "请确保您的服务器支持 Whisper。";
 
 /*转写 - 正在转写*/
 "transcribing" = "正在转写 ...";
@@ -425,3 +422,9 @@
 
 /*Watch - 没有录音*/
 "watch_recents_empty" = "无录音";
+
+/*设置 - 总结 - 模型*/
+"settings_sum_model" = "总结模型";
+
+/*设置 - 转写 - 模型*/
+"settings_trans_model" = "转录模型";

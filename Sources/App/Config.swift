@@ -18,11 +18,18 @@ struct StartupOption {
 class Config: ObservableObject {
     @AppStorage("day_start_time") var dayStartTime = 2
     @AppStorage("dark_mode") var darkMode = DarkMode.dark
-    @AppStorage("server_type") var serverType = ServerType.app
+    @AppStorage("server_type") var serverType = ServerType.app {
+        didSet {
+            if transProvider == .openai && !TranscriptionModel.isModelAvailable(transModel, for: serverType) {
+                transModel = .whisper_1
+            }
+        }
+    }
     
     @AppStorage("trans_enabled") var transEnabled = false
     @AppStorage("trans_provider") var transProvider = TranscriptionProvider.apple
     @AppStorage("trans_lang") var transLang = TranscriptionLang.auto
+    @AppStorage("trans_model") var transModel = TranscriptionModel.whisper_1
     
     @AppStorage("sum_enabled") var sumEnabled = false
     

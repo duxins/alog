@@ -11,8 +11,8 @@ enum OpenAIChatModel: String, CaseIterable {
     case gpt_3_5
     case gpt_3_5_16k
     case gpt_4
-    case gpt_4o
     case gpt_4o_mini
+    case gpt_4o
     
     var displayName: String {
         switch self {

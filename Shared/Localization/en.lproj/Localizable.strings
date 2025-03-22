@@ -236,7 +236,7 @@
 "settings_server" = "Server";
 
 /*设置 - 服务器 - footer*/
-"settings_server_desc" = "The default server utilizes GPT-4o mini, while custom servers allow for the specification of different AI models.";
+"settings_server_desc" = "The default server uses GPT-4o mini for summarization and Whisper-1 or GPT-4o mini for transcription. Custom servers allow the use of different models.";
 
 /*设置 - 自定义服务器设置*/
 "settings_server_settings" = "Server Settings";
@@ -329,13 +329,10 @@
 "trans_provider_apple" = "System";
 
 /*转写 - OpenAI (Whisper)*/
-"trans_provider_openai" = "Whisper";
+"trans_provider_openai" = "OpenAI";
 
 /*转写 - Apple - 提示*/
 "trans_provider_apple_notice" = "Less accurate and limited to 1 minute audio duration.";
-
-/*转写 - Whisper - 提示*/
-"trans_provider_openai_notice" = "Please ensure your custom server supports Whisper.";
 
 /*转写 - 正在转写*/
 "transcribing" = "Transcribing ...";
@@ -425,3 +422,9 @@ I will ask you to:
 
 /*Watch - 没有录音*/
 "watch_recents_empty" = "No Recordings";
+
+/*设置 - 总结 - 模型*/
+"settings_sum_model" = "Summarization Model";
+
+/*设置 - 转写 - 模型*/
+"settings_trans_model" = "Transcription Model";

@@ -196,7 +196,7 @@ class OpenAIClient {
     
     /// 转写音频文件
     /// - Parameter fileURL: 文件路径
-    func transcribe(_ fileURL: URL, lang: TranscriptionLang = .auto) async throws -> OpenAIResponse.Transcription {
+    func transcribe(_ fileURL: URL, lang: TranscriptionLang = .auto, model: String = "whisper-1") async throws -> OpenAIResponse.Transcription {
         let url = baseURL.appending(path: "v1/audio/transcriptions")
         var request = buildRequest(url: url)
         let boundary = generateBoundary()
@@ -205,7 +205,7 @@ class OpenAIClient {
         
         let body: Data!
         do {
-            var params = ["model": "whisper-1"]
+            var params = ["model": model]
             if lang != .auto {
                 params["language"] = lang.whisperLangCode
             }

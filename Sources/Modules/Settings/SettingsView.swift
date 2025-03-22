@@ -124,16 +124,7 @@ struct SettingsView: View {
                         
                     }
                 }
-                
-                Picker(selection: $config.aiModel) {
-                    ForEach(OpenAIChatModel.allCases, id: \.self) {
-                        Text($0.displayName)
-                    }
-                } label: {
-                    Text(L(.settings_sum_ai_model))
-                }
             }
-            
         } header: {
             Text(L(.settings_server))
         } footer: {
@@ -168,6 +159,24 @@ struct SettingsView: View {
                 } label: {
                     Text(L(.settings_trans_provider))
                 }
+                
+                if config.transProvider == .openai {
+                    Picker(selection: $config.transModel) {
+                        if config.serverType == .app {
+                            ForEach(TranscriptionModel.defaultServerModels, id: \.self) { item in
+                                Text(item.displayName)
+                                    .tag(item)
+                            }
+                        } else if config.serverType == .custom {
+                            ForEach(TranscriptionModel.customServerModels, id: \.self) { item in
+                                Text(item.displayName)
+                                    .tag(item)
+                            }
+                        }
+                    } label: {
+                        Text(L(.settings_trans_model))
+                    }
+                }
             }
         } header: {
             Text(L(.settings_trans))
@@ -191,6 +200,16 @@ struct SettingsView: View {
             }
             
             if config.sumEnabled {
+                if config.serverType == .custom {
+                    Picker(selection: $config.aiModel) {
+                        ForEach(OpenAIChatModel.allCases, id: \.self) {
+                            Text($0.displayName)
+                        }
+                    } label: {
+                        Text(L(.settings_sum_model))
+                    }
+                }
+                
                 NavigationLink {
                     PromptsView()
                 } label: {

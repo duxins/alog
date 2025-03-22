@@ -225,8 +225,6 @@ public enum MyLocalizedKey: String {
   case trans_provider_openai = "trans_provider_openai"
   /**转写 - Apple - 提示*/
   case trans_provider_apple_notice = "trans_provider_apple_notice"
-  /**转写 - Whisper - 提示*/
-  case trans_provider_openai_notice = "trans_provider_openai_notice"
   /**转写 - 正在转写*/
   case transcribing = "transcribing"
   /**转写 - 语言 - 自动检测*/
@@ -283,4 +281,8 @@ public enum MyLocalizedKey: String {
   case watch_recents = "watch_recents"
   /**Watch - 没有录音*/
   case watch_recents_empty = "watch_recents_empty"
+  /**设置 - 总结 - 模型*/
+  case settings_sum_model = "settings_sum_model"
+  /**设置 - 转写 - 模型*/
+  case settings_trans_model = "settings_trans_model"
 }

@@ -87,7 +87,7 @@ multi_delete_alert,批量删除确认,Are you sure you want to delete %d selecte
 "settings_app_appearance","设置 - 外观","Appearance",外观
 "settings_auto_save","设置 - 录音结束自动保存","Auto-Save after Recording",录音后自动保存
 "settings_server","设置 - 服务器","Server",服务器
-"settings_server_desc","设置 - 服务器 - footer","The default server utilizes GPT-4o mini, while custom servers allow for the specification of different AI models.",默认服务器使用 GPT-4o mini，自定义服务器可指定 AI 模型。
+"settings_server_desc","设置 - 服务器 - footer","The default server uses GPT-4o mini for summarization and Whisper-1 or GPT-4o mini for transcription. Custom servers allow the use of different models.","默认服务器使用 GPT-4o mini 总结笔记，Whisper-1 或者 GPT-4o mini 转写语音。自定义服务器可选择其他模型。"
 "settings_server_settings","设置 - 自定义服务器设置","Server Settings",服务器设置
 "settings_server_host","设置 - 自定义服务器 - 主机","Host",主机
 "settings_server_requires_key","设置 - 自定义服务器 - 需要 API KEY","Requires API Key",需要 API Key
@@ -123,9 +123,8 @@ multi_delete_alert,批量删除确认,Are you sure you want to delete %d selecte
 "summary_empty","Summary - ""no summaries""","No Summaries",无记录
 # 转写 #
 "trans_provider_apple","转写 - Apple","System",系统
-"trans_provider_openai","转写 - OpenAI (Whisper) ","Whisper",Whisper
+"trans_provider_openai","转写 - OpenAI (Whisper) ","OpenAI",OpenAI
 "trans_provider_apple_notice","转写 - Apple - 提示","Less accurate and limited to 1 minute audio duration.",准确度较低且仅限于1分钟的音频时长。
-"trans_provider_openai_notice","转写 - Whisper - 提示","Please ensure your custom server supports Whisper.",请确保您的服务器支持 Whisper。
 "transcribing","转写 - 正在转写 ","Transcribing ...",正在转写 ...
 # 转写语言 #
 "trans_lang_auto","转写 - 语言 - 自动检测","Auto-Detect",自动检测
@@ -169,3 +168,5 @@ I will ask you to:
 "watch_permission_msg","Watch - 没有权限 - 内容","ALog will not work without access to the microphone. You can enable access in Settings.",没有麦克风访问权限，ALog 将无法正常工作。您可以在系统设置种启用访问权限。
 "watch_recents","Watch - 最近录音","Recents",最近录音
 "watch_recents_empty","Watch - 没有录音","No Recordings",无录音
+"settings_sum_model","设置 - 总结 - 模型","Summarization Model","总结模型"
+"settings_trans_model","设置 - 转写 - 模型","Transcription Model","转录模型"

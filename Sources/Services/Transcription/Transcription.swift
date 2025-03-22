@@ -63,7 +63,8 @@ class Transcription {
                 throw TranscriptionError.invalidCustomServer
             }
             
-            let text = try await OpenAIClient.shared.transcribe(voiceURL, lang: lang).text
+            let model = Config.shared.transModel
+            let text = try await OpenAIClient.shared.transcribe(voiceURL, lang: lang, model: model.name).text
             if hallucinationList.contains(text) {
                 XLog.info("😵‍💫 skip '\(text)'", source: TAG)
                 return ""
