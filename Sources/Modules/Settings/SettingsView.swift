@@ -208,6 +208,13 @@ struct SettingsView: View {
                     } label: {
                         Text(L(.settings_sum_model))
                     }
+                } else {
+                    HStack {
+                        Text(L(.settings_sum_model))
+                        Spacer()
+                        Text(OpenAIChatModel.gpt_4o_mini.displayName)
+                            .foregroundColor(.secondary)
+                    }
                 }
                 
                 NavigationLink {
