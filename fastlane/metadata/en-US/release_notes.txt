@@ -1,1 +1,1 @@
-- Added support for batch deletion.
+- Added support for GPT-4o transcription models.
