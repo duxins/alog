@@ -84,6 +84,8 @@ class AppState: ObservableObject {
         switch host {
         case "record":
             startRecording()
+        case "note":
+            startCreatingNote()
         default: return
         }
     }
