@@ -78,6 +78,16 @@ class AppState: ObservableObject {
         AudioPlayer.shared.stop()
         self.activeSheet = .quickMemo
     }
+
+    func startSummarizing() {
+        guard Config.shared.sumEnabled else { return }
+        guard showRecording == false else { return }
+        if case .summarize = activeSheet { return }
+        let today = DateHelper.identifier(from: Date().realDate)
+        activeSheet = nil
+        activeTab = 0
+        activeSheet = .summarize(SummaryItem.day(today))
+    }
     
     func openURL(_ url: URL) {
         guard let host = url.host() else { return }
@@ -86,6 +96,8 @@ class AppState: ObservableObject {
             startRecording()
         case "note":
             startCreatingNote()
+        case "summarize":
+            startSummarizing()
         default: return
         }
     }
