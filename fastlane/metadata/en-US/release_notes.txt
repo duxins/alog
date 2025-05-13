@@ -1,1 +1,1 @@
-- Added support for GPT-4o transcription models.
+- Added support for creating notes and initiating summaries via URL schemes.
