@@ -95,10 +95,25 @@ class AppState: ObservableObject {
         case "record":
             startRecording()
         case "note":
-            startCreatingNote()
+            if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+               let textItem = components.queryItems?.first(where: { $0.name == "text" }),
+               let text = textItem.value, !text.isEmpty {
+                saveQuickNote(text: text)
+            } else {
+                startCreatingNote()
+            }
         case "summarize":
             startSummarizing()
         default: return
+        }
+    }
+    
+    private func saveQuickNote(text: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            let viewModel = QuickMemoViewModel()
+            viewModel.content = text
+            viewModel.save()
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         }
     }
     
