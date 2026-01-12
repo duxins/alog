@@ -22,6 +22,14 @@ struct SummaryView: View {
                                 NavigationLink(destination: SummaryDetailView(summary: item)) {
                                     SummaryEntryView(summary: item)
                                 }
+                                .contextMenu {
+                                    Button {
+                                        UIPasteboard.general.string = item.shareContent
+                                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                    } label: {
+                                        Label(L(.copy), systemImage: "doc.on.doc")
+                                    }
+                                }
                             }
                         }
                     }
