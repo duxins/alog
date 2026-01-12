@@ -127,6 +127,7 @@ targets:
   ALogTests:
     type: bundle.unit-test
     platform: iOS
+    deploymentTarget: "16.0"
     path: Tests/Info.plist
     sources:
       - Tests
