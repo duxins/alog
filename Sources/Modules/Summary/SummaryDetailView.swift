@@ -32,7 +32,15 @@ struct SummaryDetailView: View {
                             Image(systemName: "square.and.arrow.up")
                             Text(L(.share))
                         }
-                        
+
+                        Button {
+                            UIPasteboard.general.string = summary.shareContent
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        } label: {
+                            Image(systemName: "doc.on.doc")
+                            Text(L(.copy))
+                        }
+
                         Button {
                             appState.activeSheet = .editSummary(summary)
                         } label: {
