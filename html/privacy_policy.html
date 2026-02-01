@@ -1,65 +1,115 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>ALog Privacy Policy</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        .container {
-            width: 80%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        p {
-            color: #666;
             line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+        p, li {
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .updated {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .highlight {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
         }
     </style>
 </head>
 <body>
-<h1>Privacy Policy</h1>
-<p>Last Updated: July 30, 2023</p>
+    <h1>ALog Privacy Policy</h1>
+    <p class="updated">Last Updated: February 1, 2026</p>
 
-<p>This privacy policy applies to the ALog application (hereafter referred to as "ALog", "we", "our", or "us"). ALog is committed to transparency, respecting, and protecting the privacy of our users. Please read the following privacy policy to understand how we handle your personal information.</p>
+    <h2>Overview</h2>
+    <p>ALog is a voice diary application that helps you record, transcribe, and summarize your daily thoughts. We are committed to protecting your privacy and being transparent about our data practices.</p>
 
-<h2>1. Open Source Code</h2>
+    <div class="highlight">
+        <strong>In short:</strong> We do not collect any personal information. All your voice recordings and diaries are stored locally on your device. The iOS version is fully open source, allowing you to verify our privacy practices.
+    </div>
 
-<p>We take pride in being an open-source application. This means anyone can verify the inner workings of our app, reinforcing our commitment to not collect, use, or share your information.</p>
+    <h2>Open Source (iOS)</h2>
+    <p>The iOS version of ALog, including both the client app and server components, is open source. You can inspect the code on <a href="https://github.com/duxins/alog">GitHub</a> to verify exactly how your data is handled.</p>
 
-<h2>2. Information Collection</h2>
+    <h2>Data Collection</h2>
+    <p><strong>We do not collect any personal information.</strong> ALog does not collect, store, or transmit any user data to our servers. We do not collect:</p>
+    <ul>
+        <li>Names or email addresses</li>
+        <li>Voice recordings or transcriptions</li>
+        <li>Usage analytics or tracking data</li>
+        <li>Device identifiers</li>
+    </ul>
 
-<p>Our server-side code is fully open-source. We pledge that ALog do not collect any form of personally identifiable information, such as names, addresses, phone numbers, or email addresses, etc.</p>
+    <h2>Local Data Storage</h2>
+    <p>All your voice recordings, transcriptions, and summaries are stored locally on your device. This data remains under your full control and can be deleted at any time.</p>
 
-<h2>3. Information Use</h2>
+    <h2>Third-Party Services (OpenAI)</h2>
+    <p>ALog uses OpenAI's API for voice transcription and AI-powered summary generation:</p>
+    <ul>
+        <li><strong>iOS:</strong> You can choose to use our open-source server or configure your own OpenAI API key</li>
+        <li><strong>Android:</strong> Requires your own OpenAI API key for direct connection to OpenAI</li>
+    </ul>
+    <p>When using OpenAI services:</p>
+    <ul>
+        <li>Audio files and text are sent to OpenAI for processing</li>
+        <li>We do not store or have access to this data</li>
+        <li>Please refer to <a href="https://openai.com/privacy/">OpenAI's Privacy Policy</a> for their data handling practices</li>
+    </ul>
 
-<p>As ALog does not collect any user information, there are no scenarios where this information would be used.</p>
+    <h2>Data Security</h2>
+    <p>Your API key (if configured) is stored securely using encrypted storage on your device (Keychain on iOS, EncryptedSharedPreferences on Android).</p>
 
-<h2>4. Information Sharing</h2>
+    <h2>Permissions</h2>
+    <p>ALog requires the following permissions:</p>
+    <ul>
+        <li><strong>Microphone:</strong> To record voice memos</li>
+        <li><strong>Internet:</strong> To communicate with OpenAI's API for transcription and summaries</li>
+    </ul>
 
-<p>We promise not to share any user information with third parties because ALog simply does not collect any user information.</p>
+    <h2>Children's Privacy</h2>
+    <p>ALog is not intended for children under 13 years of age.</p>
 
-<h2>5. Information Security</h2>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. We encourage you to review this policy periodically.</p>
 
-<p>At ALog, we value your information security. However, since our application does not collect or store any user information, you do not need to worry about any issues related to information security.</p>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:support@tarbotech.com">support@tarbotech.com</a></p>
 
-<h2>6. Policy Updates</h2>
-
-<p>We may periodically update this privacy policy to reflect changes in our practices and services. Any changes become effective immediately after being posted on this page. We recommend that you regularly check this privacy policy to understand how we protect your information.</p>
-
-<h2>7. Contact Us</h2>
-
-<p>If you have any questions or suggestions about this privacy policy, please contact us through our provided contact methods.</p>
-
-<p>We reserve the right to interpret this privacy policy, and retain the right to change it within the extent permitted by law at any time.</p>
-
-<p>We thank you again for your trust in ALog and hope that our application will bring you a pleasant experience!</p>
+    <p style="margin-top: 50px; color: #888; font-size: 14px;">Thank you for using ALog!</p>
 </body>
 </html>
